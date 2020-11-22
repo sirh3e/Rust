@@ -18,4 +18,4 @@ jobs:
       run: dotnet tool restore
     
     - name: dotnet format
-      run: dotnet format -w Rust.sln --check --dry-run -v diag
+      run: dotnet format Rust.sln --check -v diag
