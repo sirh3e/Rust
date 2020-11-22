@@ -63,12 +63,12 @@ namespace Sirh3e.Rust.Option
         public U MapOr<U, F>(U @default, Func<T, F> mapper)
             where F : Option<U>
         {
-            if (IsNone)
-                throw new NotImplementedException(); //ToDo create own exception
-
-            var option = mapper(_some);
-            if (option.IsSome)
-                return option.Unwrap();
+            if (IsSome)
+            {
+                var option = mapper(_some);
+                if (option.IsSome)
+                    return option.Unwrap();
+            }
 
             if (@default is null)
                 throw new ArgumentNullException(nameof(@default));
