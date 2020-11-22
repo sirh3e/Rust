@@ -1,0 +1,21 @@
+name: .NET Format
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+      
+    - name: Setup .NET Core SDK
+      uses: actions/setup-dotnet@v1.7.2
+      with:
+        dotnet-version: 5.0.100
+     
+    - name: dotnet tool restore
+      run: dotnet tool restore
+    
+    - name: dotnet format
+      run: dotnet format -w Rust.sln --check --dry-run -v diag
