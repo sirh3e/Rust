@@ -13,7 +13,9 @@ namespace Sirh3e.Rust.Option
             _some = some;
             IsSome = typeof(T).IsValueType || some != null;
         }
-
+        
+        public static Option<T> Some(T some) => new(some);
+        
         public T Unwrap() => Unwrap(() => $"Cannot unwrap \"None\" of type {typeof(T)}.");
 
         public T Unwrap(Func<string> error)
