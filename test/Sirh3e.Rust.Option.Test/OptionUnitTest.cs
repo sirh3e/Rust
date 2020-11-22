@@ -74,5 +74,27 @@ namespace Sirh3e.Rust.Option.Test
                 action.Should().ThrowExactly<NotImplementedException>();
             }
         }
+
+        [Fact]
+        public void Option_UnwrapOr()
+        {
+            {
+                var option = Option<string>.Some("car");
+
+                option.IsSome.Should().BeTrue();
+                option.IsNone.Should().BeFalse();
+
+                option.UnwrapOr("bike").Should().Be("car");
+            }
+            
+            {
+                var option = Option<string>.Some(null);
+
+                option.IsSome.Should().BeFalse();
+                option.IsNone.Should().BeTrue();
+
+                option.UnwrapOr("bike").Should().Be("bike");
+            }
+        }
     }
 }
