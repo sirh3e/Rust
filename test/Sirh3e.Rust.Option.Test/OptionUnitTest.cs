@@ -17,7 +17,7 @@ namespace Sirh3e.Rust.Option.Test
 
                 option.Unwrap().Should().Be("liegens");
             }
-            
+
             {
                 var option = Option<int>.Some(42);
 
@@ -40,7 +40,7 @@ namespace Sirh3e.Rust.Option.Test
                 Action action = () => option.Unwrap();
                 action.Should().ThrowExactly<NotImplementedException>();
             }
-            
+
             {
                 var option = Option<object>.Some(null);
 
@@ -63,7 +63,7 @@ namespace Sirh3e.Rust.Option.Test
 
                 option.Unwrap().Should().Be("air");
             }
-            
+
             {
                 var option = Option<string>.Some(null);
 
@@ -86,7 +86,7 @@ namespace Sirh3e.Rust.Option.Test
 
                 option.UnwrapOr("bike").Should().Be("car");
             }
-            
+
             {
                 var option = Option<string>.Some(null);
 
