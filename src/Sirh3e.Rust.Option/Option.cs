@@ -13,22 +13,22 @@ namespace Sirh3e.Rust.Option
             _some = some;
             IsSome = typeof(T).IsValueType || some != null;
         }
-        
+
         public static Option<T> Some(T some) => new(some);
-        
+
         public T Unwrap() => Unwrap(() => $"Cannot unwrap \"None\" of type {typeof(T)}.");
 
         public T Unwrap(Func<string> error)
         {
             if (IsSome)
                 return Unwrap(error.Invoke());
-            
+
             if (error is null)
                 throw new ArgumentNullException(nameof(error));
 
             throw new NotImplementedException(); //ToDo create own exception
         }
-        
+
         public T Unwrap(string error)
         {
             if (string.IsNullOrEmpty(error))
@@ -46,7 +46,7 @@ namespace Sirh3e.Rust.Option
         {
             if (IsSome)
                 return _some;
-            
+
             if (alternative is null)
                 throw new ArgumentNullException(nameof(alternative));
 
@@ -74,7 +74,7 @@ namespace Sirh3e.Rust.Option
 
             if (@default is null)
                 throw new ArgumentNullException(nameof(@default));
-            
+
             return @default;
         }
 
