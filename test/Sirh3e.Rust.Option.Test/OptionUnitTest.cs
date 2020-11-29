@@ -32,7 +32,7 @@ namespace Sirh3e.Rust.Option.Test
         public void Option_Construct_None_FromNull()
         {
             {
-                var option = Option<string>.Some(null);
+                var option = Option<string>.None;
 
                 option.IsSome.Should().BeFalse();
                 option.IsNone.Should().BeTrue();
@@ -42,7 +42,7 @@ namespace Sirh3e.Rust.Option.Test
             }
             
             {
-                var option = Option<object>.Some(null);
+                var option = Option<object>.None;
 
                 option.IsSome.Should().BeFalse();
                 option.IsNone.Should().BeTrue();
@@ -65,7 +65,7 @@ namespace Sirh3e.Rust.Option.Test
             }
             
             {
-                var option = Option<string>.Some(null);
+                var option = Option<string>.None;
 
                 option.IsSome.Should().BeFalse();
                 option.IsNone.Should().BeTrue();
@@ -94,6 +94,56 @@ namespace Sirh3e.Rust.Option.Test
                 option.IsNone.Should().BeTrue();
 
                 option.UnwrapOr("bike").Should().Be("bike");
+            }
+        }
+
+        [Fact]
+        public void Option_UnwrapOrElse()
+        {
+            {
+                var k = 10;
+
+                var option = Option<int>.Some(4);
+
+                option.IsSome.Should().BeTrue();
+                option.IsNone.Should().BeFalse();
+                
+                option.UnwrapOrElse(() => k * 2).Should().Be(4);
+            }
+            
+            {
+                var k = 10;
+
+                var option = Option<int>.None; //ToDo
+
+                option.IsSome.Should().BeFalse();
+                option.IsNone.Should().BeTrue();
+                
+                option.UnwrapOrElse(() => k * 2).Should().Be(20);
+            }
+        }
+
+        [Fact]
+        public void Option_Map()
+        {
+            {
+                var option = Option<string>.Some("Hello, World!");
+
+                option.IsSome.Should().BeTrue();
+                option.IsNone.Should().BeFalse();
+
+                var lenght = option.Map(s => s.Length).Unwrap();
+                lenght.Should().Be(13);
+            }
+            
+            {
+                var option = Option<string>.Some("Hello, World!");
+
+                option.IsSome.Should().BeTrue();
+                option.IsNone.Should().BeFalse();
+
+                var someLenght = option.Map(s => s.Length);
+                someLenght.Should().Be(Option<int>.Some(13));
             }
         }
     }
