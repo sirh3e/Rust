@@ -69,23 +69,23 @@ namespace Sirh3e.Rust.Option
             return Option<F>.Some(mapper(_some));
         }
 
-        public Option<F> MapOr<F>(F @default, Func<T, F> mapper)
+        public F MapOr<F>(F @default, Func<T, F> mapper)
         {
             if (IsSome)
-            {
-                return Option<F>.Some(mapper(_some));
-            }
+                return mapper(_some);
 
             if (@default is null)
                 throw new ArgumentNullException(nameof(@default));
             
-            return Option<F>.Some(@default);
+            return @default;
         }
 
-        public Option<U> MapOrElse<U, F>(Func<U> @default, Func<T, F> mapper)
-            where F : Option<U>
+        public U MapOrElse<U, F>(Func<U> @default, Func<T, F> mapper)
+            where F: U
         {
-            throw new NotImplementedException();
+            if (IsSome)
+                return mapper is null ? @default() : mapper(_some);
+            return @default();
         }
     }
 }

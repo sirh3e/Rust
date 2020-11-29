@@ -1,6 +1,4 @@
-﻿using System.Linq.Expressions;
-
-namespace Sirh3e.Rust.Option
+﻿namespace Sirh3e.Rust.Option
 {
     public struct None
     {
