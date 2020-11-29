@@ -8,6 +8,11 @@ namespace Sirh3e.Rust.Option
         public readonly bool IsSome;
         public bool IsNone => !IsSome;
 
+        private Option()
+        {
+            IsSome = false;
+        }
+        
         private Option(T some)
         {
             _some = some;
@@ -18,6 +23,9 @@ namespace Sirh3e.Rust.Option
         
         public T Unwrap() => Unwrap(() => $"Cannot unwrap \"None\" of type {typeof(T)}.");
 
+        public static Option<T> None => new();
+        public static implicit operator Option<T>(None none) => None;
+        
         public T Unwrap(Func<string> error)
         {
             if (IsSome)
@@ -53,38 +61,31 @@ namespace Sirh3e.Rust.Option
             return alternative();
         }
 
-        public F Map<U, F>(Func<T, F> mapper)
-            where F : Option<U>
+        public Option<F> Map<F>(Func<T, F> mapper)
         {
             if (IsNone)
                 throw new NotImplementedException(); //ToDo create own exception
 
-            return mapper(_some);
+            return Option<F>.Some(mapper(_some));
         }
 
-        public U MapOr<U, F>(U @default, Func<T, F> mapper)
-            where F : Option<U>
+        public Option<F> MapOr<F>(F @default, Func<T, F> mapper)
         {
             if (IsSome)
             {
-                var option = mapper(_some);
-                if (option.IsSome)
-                    return option.Unwrap();
+                return Option<F>.Some(mapper(_some));
             }
 
             if (@default is null)
                 throw new ArgumentNullException(nameof(@default));
             
-            return @default;
+            return Option<F>.Some(@default);
         }
 
-        /*
-        public U MapOrElse<U, D, F>(Func<D> @default, Func<T, F> mapper)
-            where D : U
+        public Option<U> MapOrElse<U, F>(Func<U> @default, Func<T, F> mapper)
             where F : Option<U>
         {
-            if(IsNone)
+            throw new NotImplementedException();
         }
-        */
     }
 }
