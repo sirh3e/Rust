@@ -55,10 +55,7 @@ namespace Sirh3e.Rust.Option
             if (IsSome)
                 return _some;
 
-            if (alternative is null)
-                throw new ArgumentNullException(nameof(alternative));
-
-            return alternative();
+            return alternative() ?? throw new ArgumentNullException(nameof(alternative));
         }
 
         public Option<F> Map<F>(Func<T, F> mapper)
@@ -66,26 +63,23 @@ namespace Sirh3e.Rust.Option
             if (IsNone)
                 throw new NotImplementedException(); //ToDo create own exception
 
-            return Option<F>.Some(mapper(_some));
+            return Option<F>.Some(mapper(_some) ?? throw new ArgumentNullException(nameof(mapper)));
         }
 
         public F MapOr<F>(F @default, Func<T, F> mapper)
         {
             if (IsSome)
-                return mapper(_some);
+                return mapper(_some) ?? throw new ArgumentNullException(nameof(mapper));
 
-            if (@default is null)
-                throw new ArgumentNullException(nameof(@default));
-
-            return @default;
+            return @default ?? throw new ArgumentNullException(nameof(@default));
         }
 
         public U MapOrElse<U, F>(Func<U> @default, Func<T, F> mapper)
             where F : U
         {
             if (IsSome)
-                return mapper is null ? @default() : mapper(_some);
-            return @default();
+                return mapper is null ? @default() ?? throw new ArgumentNullException(nameof(@default)) : mapper(_some);
+            return @default() ?? throw new ArgumentNullException(nameof(@default));
         }
     }
 }
