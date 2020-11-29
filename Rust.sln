@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sirh3e.Rust.Option", "src\S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sirh3e.Rust.Option.Test", "test\Sirh3e.Rust.Option.Test\Sirh3e.Rust.Option.Test.csproj", "{86E86635-7E7F-46A9-92D1-CF759345D97B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sirh3e.Rust.Result", "src\Sirh3e.Rust.Result\Sirh3e.Rust.Result.csproj", "{79FB7A17-C2CA-4862-B175-792FCB68A94D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{86E86635-7E7F-46A9-92D1-CF759345D97B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{86E86635-7E7F-46A9-92D1-CF759345D97B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{86E86635-7E7F-46A9-92D1-CF759345D97B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79FB7A17-C2CA-4862-B175-792FCB68A94D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79FB7A17-C2CA-4862-B175-792FCB68A94D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79FB7A17-C2CA-4862-B175-792FCB68A94D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79FB7A17-C2CA-4862-B175-792FCB68A94D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
