@@ -32,11 +32,11 @@ namespace Sirh3e.Rust.Result
         public static Result<TOk, TErr> Err(TErr err) => new(err);
 
         public Option<TOk> Ok()
-             => IsOk switch
-             {
-                 true => Option<TOk>.Some(_ok),
-                 false => Option<TOk>.None,
-             };
+            => IsOk switch
+            {
+                true => Option<TOk>.Some(_ok),
+                false => Option<TOk>.None,
+            };
 
         public Option<TErr> Err()
             => IsErr switch
@@ -72,6 +72,35 @@ namespace Sirh3e.Rust.Result
             if (error is null)
                 throw new ArgumentNullException(nameof(error));
             throw new ArgumentException(error(_err));
+        }
+
+        public void Match(Action<TOk> onOk, Action<TErr> onErr)
+        {
+            if (IsOk)
+            {
+                if (onOk is null)
+                    throw new ArgumentNullException(nameof(onOk));
+
+                onOk(_ok);
+            }
+
+            if (onErr is null)
+                throw new ArgumentNullException(nameof(onErr));
+            onErr(_err);
+        }
+
+        public T Match<T>(Func<TOk, T> onOk, Func<TErr, string> onErr)
+        {
+            if (IsOk)
+            {
+                if (onOk is null)
+                    throw new ArgumentNullException(nameof(onOk));
+                return onOk(_ok);
+            }
+
+            if (onErr is null)
+                throw new ArgumentNullException(nameof(onErr));
+            throw new ArgumentException(onErr(_err));
         }
     }
 }
