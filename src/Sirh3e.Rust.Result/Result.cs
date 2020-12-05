@@ -9,15 +9,14 @@ namespace Sirh3e.Rust.Result
         private readonly T _ok;
         private readonly E _err;
 
-        private readonly bool _isOk;
+        public readonly bool IsOk;
 
-        public bool IsOk => _isOk;
         public bool IsErr => !IsOk;
 
         private Result(T ok)
         {
             _ok = ok ?? throw new ArgumentNullException(nameof(ok));
-            _isOk = true;
+            IsOk = true;
 
             _err = default;
         }
@@ -25,7 +24,7 @@ namespace Sirh3e.Rust.Result
         private Result(E err)
         {
             _err = err ?? throw new ArgumentNullException(nameof(err));
-            _isOk = false;
+            IsOk = false;
 
             _ok = default;
         }
@@ -39,9 +38,9 @@ namespace Sirh3e.Rust.Result
                  true => Option<T>.Some(_ok),
                  false => Option<T>.None,
              };
-        
+
         public Option<E> Err()
-            => IsOk switch
+            => IsErr switch
             {
                 true => Option<E>.Some(_err),
                 false => Option<E>.None,
