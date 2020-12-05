@@ -55,6 +55,7 @@ namespace Sirh3e.Rust.Result
                 };
             });
         }
+
         public T Unwrap(string error)
         {
             if (IsOk)
