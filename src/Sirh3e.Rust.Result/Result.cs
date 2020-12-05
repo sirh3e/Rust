@@ -59,7 +59,7 @@ namespace Sirh3e.Rust.Result
         {
             if (IsOk)
                 return _ok;
-            
+
             throw new ArgumentNullException(error);
         }
 
