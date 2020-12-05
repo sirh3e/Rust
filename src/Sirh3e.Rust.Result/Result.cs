@@ -3,16 +3,16 @@ using Sirh3e.Rust.Option;
 
 namespace Sirh3e.Rust.Result
 {
-    public readonly struct Result<T, E>
+    public readonly struct Result<TOk, E>
     {
-        private readonly T _ok;
+        private readonly TOk _ok;
         private readonly E _err;
 
         public readonly bool IsOk;
 
         public bool IsErr => !IsOk;
 
-        private Result(T ok)
+        private Result(TOk ok)
         {
             _ok = ok ?? throw new ArgumentNullException(nameof(ok));
             IsOk = true;
@@ -28,14 +28,14 @@ namespace Sirh3e.Rust.Result
             _ok = default;
         }
 
-        public static Result<T, E> Ok(T ok) => new(ok);
-        public static Result<T, E> Err(E err) => new(err);
+        public static Result<TOk, E> Ok(TOk ok) => new(ok);
+        public static Result<TOk, E> Err(E err) => new(err);
 
-        public Option<T> Ok()
+        public Option<TOk> Ok()
              => IsOk switch
              {
-                 true => Option<T>.Some(_ok),
-                 false => Option<T>.None,
+                 true => Option<TOk>.Some(_ok),
+                 false => Option<TOk>.None,
              };
 
         public Option<E> Err()
@@ -45,7 +45,7 @@ namespace Sirh3e.Rust.Result
                 false => Option<E>.None,
             };
 
-        public T Unwrap()
+        public TOk Unwrap()
         {
             return Unwrap(error =>
             {
@@ -56,7 +56,7 @@ namespace Sirh3e.Rust.Result
             });
         }
 
-        public T Unwrap(string error)
+        public TOk Unwrap(string error)
         {
             if (IsOk)
                 return _ok;
@@ -64,7 +64,7 @@ namespace Sirh3e.Rust.Result
             throw new ArgumentNullException(error);
         }
 
-        public T Unwrap(Func<E, string> error)
+        public TOk Unwrap(Func<E, string> error)
         {
             if (IsOk)
                 return _ok;
