@@ -3,10 +3,10 @@ using Sirh3e.Rust.Option;
 
 namespace Sirh3e.Rust.Result
 {
-    public readonly struct Result<TOk, E>
+    public readonly struct Result<TOk, TErr>
     {
         private readonly TOk _ok;
-        private readonly E _err;
+        private readonly TErr _err;
 
         public readonly bool IsOk;
 
@@ -20,7 +20,7 @@ namespace Sirh3e.Rust.Result
             _err = default;
         }
 
-        private Result(E err)
+        private Result(TErr err)
         {
             _err = err ?? throw new ArgumentNullException(nameof(err));
             IsOk = false;
@@ -28,8 +28,8 @@ namespace Sirh3e.Rust.Result
             _ok = default;
         }
 
-        public static Result<TOk, E> Ok(TOk ok) => new(ok);
-        public static Result<TOk, E> Err(E err) => new(err);
+        public static Result<TOk, TErr> Ok(TOk ok) => new(ok);
+        public static Result<TOk, TErr> Err(TErr err) => new(err);
 
         public Option<TOk> Ok()
              => IsOk switch
@@ -38,11 +38,11 @@ namespace Sirh3e.Rust.Result
                  false => Option<TOk>.None,
              };
 
-        public Option<E> Err()
+        public Option<TErr> Err()
             => IsErr switch
             {
-                true => Option<E>.Some(_err),
-                false => Option<E>.None,
+                true => Option<TErr>.Some(_err),
+                false => Option<TErr>.None,
             };
 
         public TOk Unwrap()
@@ -64,7 +64,7 @@ namespace Sirh3e.Rust.Result
             throw new ArgumentNullException(error);
         }
 
-        public TOk Unwrap(Func<E, string> error)
+        public TOk Unwrap(Func<TErr, string> error)
         {
             if (IsOk)
                 return _ok;
