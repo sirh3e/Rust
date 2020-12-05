@@ -8,4 +8,8 @@
       <ProjectReference Include="..\Sirh3e.Rust.Option\Sirh3e.Rust.Option.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Exceptions" />
+    </ItemGroup>
+
 </Project>

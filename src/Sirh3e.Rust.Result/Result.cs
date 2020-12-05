@@ -4,7 +4,6 @@ using Sirh3e.Rust.Option;
 namespace Sirh3e.Rust.Result
 {
     public readonly struct Result<T, E>
-        where E : Exception
     {
         private readonly T _ok;
         private readonly E _err;
@@ -45,5 +44,33 @@ namespace Sirh3e.Rust.Result
                 true => Option<E>.Some(_err),
                 false => Option<E>.None,
             };
+
+        public T Unwrap()
+        {
+            return Unwrap(error =>
+            {
+                return error switch
+                {
+                    _ => $"Cannot unwrap \"Ok\" when the result is \"Err\": {error}."
+                };
+            });
+        }
+        public T Unwrap(string error)
+        {
+            if (IsOk)
+                return _ok;
+            
+            throw new ArgumentNullException(error);
+        }
+
+        public T Unwrap(Func<E, string> error)
+        {
+            if (IsOk)
+                return _ok;
+
+            if (error is null)
+                throw new ArgumentNullException(nameof(error));
+            throw new ArgumentException(error(_err));
+        }
     }
 }
