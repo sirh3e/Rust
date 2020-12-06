@@ -124,6 +124,21 @@ namespace Sirh3e.Rust.Result
             return Result<TOk, F>.Err(op(_err));
         }
 
+        public Result<U, TErr> And<U>(Result<U, TErr> res)
+        {
+            if (IsOk && res.IsErr)
+            {
+                return Result<U, TErr>.Err(res._err);
+            }
+
+            return IsErr switch
+            {
+                true when res.IsOk => Result<U, TErr>.Err(_err),
+                true when res.IsErr => Result<U, TErr>.Err(_err),
+                _ => res
+            };
+        }
+
         public void Match(Action<TOk> onOk, Action<TErr> onErr)
         {
             if (IsOk)
