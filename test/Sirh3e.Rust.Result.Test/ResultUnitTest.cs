@@ -110,7 +110,7 @@ namespace Sirh3e.Rust.Result.Test
         [Fact]
         public void Result_MapErr()
         {
-            Func<uint, string> stringify = (s) => $"error code {s}";
+            Func<uint, string> stringify = s => $"error code {s}";
 
             {
                 var result = Result<uint, uint>.Ok(2);
