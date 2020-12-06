@@ -33,6 +33,6 @@ namespace Sirh3e.Rust.Result
             if (onErr is null)
                 throw new ArgumentNullException(nameof(onErr));
             throw new ArgumentException(onErr(_err));
-        } 
+        }
     }
 }
