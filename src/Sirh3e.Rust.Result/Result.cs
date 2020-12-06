@@ -111,6 +111,19 @@ namespace Sirh3e.Rust.Result
             return @default(_err);
         }
 
+        public Result<TOk, F> MapErr<F>(Func<TErr, F> op)
+        {
+            if (IsOk)
+            {
+                return Result<TOk, F>.Ok(_ok);
+            }
+
+            if (op is null)
+                throw new ArgumentNullException(nameof(op));
+
+            return Result<TOk, F>.Err(op(_err));
+        }
+
         public void Match(Action<TOk> onOk, Action<TErr> onErr)
         {
             if (IsOk)
