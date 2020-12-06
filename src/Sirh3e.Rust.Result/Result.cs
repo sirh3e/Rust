@@ -74,6 +74,28 @@ namespace Sirh3e.Rust.Result
             throw new ArgumentException(error(_err));
         }
 
+        public Result<U, TErr> Map<U>(Func<TOk, U> mapper)
+        {
+            if (!IsOk)
+                return Result<U, TErr>.Err(_err);
+
+            if (mapper is null)
+                throw new ArgumentNullException(nameof(mapper));
+
+            return new Result<U, TErr>(mapper(_ok));
+
+        }
+
+        public U MapOr<U>(U @default, Func<TOk, U> mapper)
+        {
+            if (!IsErr)
+                return mapper(_ok);
+
+            if (@default is null)
+                throw new ArgumentNullException(nameof(@default));
+            return @default;
+        }
+
         public void Match(Action<TOk> onOk, Action<TErr> onErr)
         {
             if (IsOk)
@@ -83,10 +105,12 @@ namespace Sirh3e.Rust.Result
 
                 onOk(_ok);
             }
-
-            if (onErr is null)
-                throw new ArgumentNullException(nameof(onErr));
-            onErr(_err);
+            else
+            {
+                if (onErr is null)
+                    throw new ArgumentNullException(nameof(onErr));
+                onErr(_err);
+            }
         }
 
         public T Match<T>(Func<TOk, T> onOk, Func<TErr, string> onErr)
