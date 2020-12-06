@@ -45,27 +45,7 @@ namespace Sirh3e.Rust.Result.Test
 
 
 
-        [Fact]
-        public void Result_MapOr_Ok()
-        {
-            var result = Result<string, string>.Ok("foo");
 
-            result.IsOk.Should().BeTrue();
-            result.IsErr.Should().BeFalse();
-
-            result.MapOr(42, s => s.Length).Should().Be(3);
-        }
-
-        [Fact]
-        public void Result_MapOr_Err()
-        {
-            var result = Result<string, string>.Err("foo");
-
-            result.IsOk.Should().BeFalse();
-            result.IsErr.Should().BeTrue();
-
-            result.MapOr(42, s => s.Length).Should().Be(42);
-        }
 
         [Fact]
         public void Result_MapOrElse()
