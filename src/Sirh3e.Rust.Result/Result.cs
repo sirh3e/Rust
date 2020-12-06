@@ -139,6 +139,16 @@ namespace Sirh3e.Rust.Result
             };
         }
 
+        public Result<U, TErr> AndThen<U>(Func<TOk, Result<U, TErr>> op)
+        {
+            if (!IsOk)
+                return Result<U, TErr>.Err(_err);
+
+            if (op is null)
+                throw new ArgumentNullException(nameof(op));
+            return op(_ok);
+        }
+
         public void Match(Action<TOk> onOk, Action<TErr> onErr)
         {
             if (IsOk)
