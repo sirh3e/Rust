@@ -14,8 +14,8 @@ namespace Sirh3e.Rust.Result.Test
 
                 var option = x.Err();
 
-                option.IsSome.Should().BeTrue();
-                option.IsNone.Should().BeFalse();
+                option.IsSome.Should().BeFalse();
+                option.IsNone.Should().BeTrue();
             }
 
             {
