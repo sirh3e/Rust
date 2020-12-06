@@ -43,24 +43,7 @@ namespace Sirh3e.Rust.Result.Test
             x.Err().Unwrap().Should().Be("Some error message");
         }
 
-        [Fact]
-        public void Result_Map()
-        {
-            var counter = 0;
-            var results = new[] { 1, 2, 3, 4 };
-            var lines = "1\n2\n3\n4\n".Split("\n");
 
-            foreach (var line in lines)
-            {
-                Parse(line).Map(Convert.ToInt32).Match(i =>
-                {
-                    i.Should().Be(results[counter++]);
-                }, s =>
-                {
-                    counter++;
-                });
-            }
-        }
 
         [Fact]
         public void Result_MapOr_Ok()
@@ -175,18 +158,6 @@ namespace Sirh3e.Rust.Result.Test
             });
         }
 
-        private static Result<int, string> Parse(string text)
-        {
-            int number;
-            try
-            {
-                number = Convert.ToInt32(text);
-            }
-            catch (Exception e)
-            {
-                return Result<int, string>.Err(e.Message);
-            }
-            return Result<int, string>.Ok(number);
-        }
+
     }
 }
