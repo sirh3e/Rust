@@ -42,17 +42,5 @@ namespace Sirh3e.Rust.Result.Test
 
             x.Err().Unwrap().Should().Be("Some error message");
         }
-
-
-
-
-
-
-
-
-
-
-
-
     }
 }
