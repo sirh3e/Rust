@@ -2,6 +2,6 @@
 {
     public readonly partial struct Result<TOk, TErr>
     {
-
+        public TOk Expect(string message) => Unwrap(message);
     }
 }

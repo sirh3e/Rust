@@ -20,7 +20,9 @@ namespace Sirh3e.Rust.Result
             if (IsOk)
                 return _ok;
 
-            throw new ArgumentNullException(error);
+            if(string.IsNullOrEmpty(error))
+                throw new ArgumentNullException(error);
+            throw new NotImplementedException(); //ToDo create a panic like exception
         }
 
         public TOk Unwrap(Func<TErr, string> error)
