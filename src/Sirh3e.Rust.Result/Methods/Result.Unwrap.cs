@@ -20,7 +20,7 @@ namespace Sirh3e.Rust.Result
             if (IsOk)
                 return _ok;
 
-            if(string.IsNullOrEmpty(error))
+            if (string.IsNullOrEmpty(error))
                 throw new ArgumentNullException(error);
             throw new NotImplementedException(); //ToDo create a panic like exception
         }
