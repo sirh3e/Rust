@@ -2,6 +2,6 @@
 {
     public readonly partial struct Result<TOk, TErr>
     {
-
+        public bool ContainsErr(TErr err) => IsErr && err.Equals(_ok);
     }
 }
