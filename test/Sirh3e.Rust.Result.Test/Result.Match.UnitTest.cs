@@ -7,7 +7,7 @@ namespace Sirh3e.Rust.Result.Test
     public partial class ResultUnitTest
     {
         [Fact]
-        public void Result_Match()
+        public void Result_Match_Action()
         {
             {
                 var result = Result<string, string>.Ok("foo");
