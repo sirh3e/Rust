@@ -23,7 +23,7 @@ namespace Sirh3e.Rust.Result
 
             if (string.IsNullOrEmpty(error))
                 throw new ArgumentNullException(nameof(error));
-            throw new PanicException(error); //ToDo create a panic like exception
+            throw new PanicException(error);
         }
 
         public TOk Unwrap(Func<TErr, string> error)
