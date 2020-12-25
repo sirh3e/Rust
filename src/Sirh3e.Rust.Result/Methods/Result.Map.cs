@@ -13,7 +13,6 @@ namespace Sirh3e.Rust.Result
                 throw new ArgumentNullException(nameof(mapper));
 
             return new Result<U, TErr>(mapper(_ok));
-
         }
     }
 }
