@@ -2,6 +2,6 @@
 {
     public static partial class ResultExtension
     {
-        
+
     }
 }
