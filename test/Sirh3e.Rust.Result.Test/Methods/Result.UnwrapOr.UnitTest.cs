@@ -21,8 +21,8 @@ namespace Sirh3e.Rust.Result.Test
             {
                 var x = Result<uint, string>.Err("error");
 
-                x.IsOk.Should().BeTrue();
-                x.IsErr.Should().BeFalse();
+                x.IsOk.Should().BeFalse();
+                x.IsErr.Should().BeTrue();
 
                 x.UnwrapOr(@default).Should().Be(2);
             }
