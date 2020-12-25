@@ -9,8 +9,6 @@ namespace Sirh3e.Rust.Result
 
         public readonly bool IsOk;
 
-        public bool IsErr => !IsOk;
-
         private Result(TOk ok)
         {
             _ok = ok ?? throw new ArgumentNullException(nameof(ok));
