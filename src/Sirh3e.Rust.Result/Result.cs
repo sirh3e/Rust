@@ -7,7 +7,6 @@ namespace Sirh3e.Rust.Result
         private readonly TOk _ok;
         private readonly TErr _err;
 
-        public readonly bool IsOk;
 
         private Result(TOk ok)
         {
