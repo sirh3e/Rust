@@ -2,7 +2,7 @@
 
 namespace Sirh3e.Rust.Result
 {
-    public readonly partial struct Result<TOk, TErr>
+    public readonly partial struct Result<TOk, TErr> //ToDo add idisposable, equal
     {
         private readonly TOk _ok;
         private readonly TErr _err;
