@@ -9,8 +9,4 @@
       <ProjectReference Include="..\Sirh3e.Rust.Panic\Sirh3e.Rust.Panic.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Exceptions" />
-    </ItemGroup>
-
 </Project>
