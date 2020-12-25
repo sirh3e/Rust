@@ -1,4 +1,6 @@
-﻿using Xunit;
+﻿using FluentAssertions;
+using Sirh3e.Rust.Result.Extensions;
+using Xunit;
 
 namespace Sirh3e.Rust.Result.Test
 {
@@ -7,24 +9,47 @@ namespace Sirh3e.Rust.Result.Test
         [Fact]
         public void Result_Flatten()
         {
-            /*
-            var x = Result<Result<string, uint>, uint>.Ok(Result<string, uint>.Ok("marvin"));
+            {
+                var x = Result<Result<string, uint>, uint>.Ok(Result<string, uint>.Ok("hello"));
 
-            x.IsOk.Should().BeTrue();
-            x.IsErr.Should().BeFalse();
+                x.IsOk.Should().BeTrue();
+                x.IsErr.Should().BeFalse();
 
-            var flattenResult = x.Flatten();
-            
-            flattenResult.IsOk.Should().BeTrue();
-            flattenResult.IsOk.Should().BeFalse();
+                var flattenResult = x.Flatten();
 
-            var flatten = flattenResult.Ok().Unwrap(); //ToDo check for panic
-            
-            flatten.IsOk.Should().BeTrue();
-            flatten.IsErr.Should().BeFalse();
+                flattenResult.IsOk.Should().BeTrue();
+                flattenResult.IsErr.Should().BeFalse();
 
-            flatten.Unwrap().Should().Be("hello"); //ToDo check for panic
-            */
+                flattenResult.Equals(Result<string, uint>.Ok("hello"));
+            }
+
+            {
+                var x = Result<Result<string, uint>, uint>.Ok(Result<string, uint>.Err(6));
+
+                x.IsOk.Should().BeTrue();
+                x.IsErr.Should().BeFalse();
+
+                var flattenResult = x.Flatten();
+
+                flattenResult.IsOk.Should().BeFalse();
+                flattenResult.IsErr.Should().BeTrue();
+
+                flattenResult.Equals(Result<string, uint>.Err(6));
+            }
+
+            {
+                var x = Result<string, uint>.Err(6);
+
+                x.IsOk.Should().BeFalse();
+                x.IsErr.Should().BeTrue();
+
+                var flattenResult = x.Flatten();
+
+                flattenResult.IsOk.Should().BeFalse();
+                flattenResult.IsErr.Should().BeTrue();
+
+                flattenResult.Equals(Result<string, uint>.Err(6));
+            }
         }
     }
 }
