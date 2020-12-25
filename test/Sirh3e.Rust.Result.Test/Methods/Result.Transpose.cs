@@ -13,7 +13,7 @@ namespace Sirh3e.Rust.Result.Test
             var x = Result<Option<int>, string>.Ok(Option<int>.Some(5));
             var y = Option<Result<int, string>>.Some(Result<int, string>.Ok(5));
 
-            x.Transpose().Should().Equals(y);
+            x.Transpose().Equals(y).Should().BeTrue();
         }
     }
 }

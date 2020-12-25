@@ -1,8 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Sirh3e.Rust.Result
 {
-    public readonly partial struct Result<TOk, TErr> //ToDo add idisposable, equal
+    public readonly partial struct Result<TOk, TErr> : IEquatable<Result<TOk, TErr>>
     {
         private readonly TOk _ok;
         private readonly TErr _err;
@@ -26,5 +27,20 @@ namespace Sirh3e.Rust.Result
 
         public static Result<TOk, TErr> Ok(TOk ok) => new(ok);
         public static Result<TOk, TErr> Err(TErr err) => new(err);
+
+        public bool Equals(Result<TOk, TErr> other)
+        {
+            return EqualityComparer<TOk>.Default.Equals(_ok, other._ok) && EqualityComparer<TErr>.Default.Equals(_err, other._err) && IsOk == other.IsOk;
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Result<TOk, TErr> other && Equals(other);
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(_ok, _err, IsOk);
+        }
     }
 }
