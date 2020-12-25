@@ -1,4 +1,5 @@
 ﻿using System;
+using Sirh3e.Rust.Panic;
 
 namespace Sirh3e.Rust.Result
 {
@@ -6,14 +7,11 @@ namespace Sirh3e.Rust.Result
     {
         public TErr UnwrapErr()
         {
-            if (IsErr)
-                return _err;
-
             return UnwrapErr(ok =>
             {
                 return ok switch
                 {
-                    _ => $""
+                    _ => $"Cannot unwrap \"Err\" when the result is \"Ok\": {ok}."
                 };
             });
         }
@@ -25,7 +23,7 @@ namespace Sirh3e.Rust.Result
 
             if (string.IsNullOrEmpty(message))
                 throw new ArgumentNullException(nameof(message));
-            throw new NotImplementedException(message); //ToDo create panic
+            throw new PanicException(message);
         }
 
         public TErr UnwrapErr(Func<TOk, string> ok)
