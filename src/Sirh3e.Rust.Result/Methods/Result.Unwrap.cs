@@ -21,18 +21,15 @@ namespace Sirh3e.Rust.Result
                 return _ok;
 
             if (string.IsNullOrEmpty(error))
-                throw new ArgumentNullException(error);
+                throw new ArgumentNullException(nameof(error));
             throw new NotImplementedException(); //ToDo create a panic like exception
         }
 
         public TOk Unwrap(Func<TErr, string> error)
         {
-            if (IsOk)
-                return _ok;
-
             if (error is null)
                 throw new ArgumentNullException(nameof(error));
-            throw new ArgumentException(error(_err));
+            return Unwrap(error(_err));
         }
     }
 }
