@@ -21,7 +21,7 @@ namespace Sirh3e.Rust.Result
             }
         }
 
-        public T Match<T>(Func<TOk, T> onOk, Func<TErr, string> onErr)
+        public T Match<T>(Func<TOk, T> onOk, Func<TErr, T> onErr)
         {
             if (IsOk)
             {
@@ -32,7 +32,7 @@ namespace Sirh3e.Rust.Result
 
             if (onErr is null)
                 throw new ArgumentNullException(nameof(onErr));
-            throw new ArgumentException(onErr(_err));
+            return onErr(_err);
         }
     }
 }
