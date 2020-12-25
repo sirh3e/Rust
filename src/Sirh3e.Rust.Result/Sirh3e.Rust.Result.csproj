@@ -6,6 +6,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Sirh3e.Rust.Option\Sirh3e.Rust.Option.csproj" />
+      <ProjectReference Include="..\Sirh3e.Rust.Panic\Sirh3e.Rust.Panic.csproj" />
     </ItemGroup>
 
     <ItemGroup>
