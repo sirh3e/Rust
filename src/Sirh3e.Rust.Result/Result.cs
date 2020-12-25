@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Sirh3e.Rust.Result
 {
-    public readonly partial struct Result<TOk, TErr> : IEquatable<Result<TOk, TErr>>
+    public readonly partial struct Result<TOk, TErr> : ICloneable, IEquatable<Result<TOk, TErr>>
     {
         private readonly TOk _ok;
         private readonly TErr _err;
@@ -41,6 +41,16 @@ namespace Sirh3e.Rust.Result
         public override int GetHashCode()
         {
             return HashCode.Combine(_ok, _err, IsOk);
+        }
+
+        public Result<TOk, TErr> Clone()
+        {
+            return Cloned();
+        }
+
+        object ICloneable.Clone()
+        {
+            return Clone();
         }
 
         public static bool operator ==(Result<TOk, TErr> left, Result<TOk, TErr> right)
