@@ -46,8 +46,8 @@ namespace Sirh3e.Rust.Result.Test
                 x.IsErr.Should().BeFalse();
 
                 var year = x.Match(
-                    s => s,
-                    s => s.Length
+                    o => o,
+                    e => e.Length
                     );
 
                 year.Should().Be(1909);
@@ -60,8 +60,8 @@ namespace Sirh3e.Rust.Result.Test
                 x.IsErr.Should().BeTrue();
 
                 var year = x.Match(
-                    s => s,
-                    s => s.Length
+                    o => o,
+                    e => e.Length
                 );
 
                 year.Should().Be(8);
