@@ -42,5 +42,15 @@ namespace Sirh3e.Rust.Result
         {
             return HashCode.Combine(_ok, _err, IsOk);
         }
+
+        public static bool operator ==(Result<TOk, TErr> left, Result<TOk, TErr> right)
+        {
+            return left.Equals(right);
+        }
+
+        public static bool operator !=(Result<TOk, TErr> left, Result<TOk, TErr> right)
+        {
+            return !left.Equals(right);
+        }
     }
 }
