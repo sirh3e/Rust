@@ -35,5 +35,37 @@ namespace Sirh3e.Rust.Result.Test
                 });
             }
         }
+
+        [Fact]
+        public void Result_Match_Func()
+        {
+            {
+                var x = Parse("1909");
+
+                x.IsOk.Should().BeTrue();
+                x.IsErr.Should().BeFalse();
+
+                var year = x.Match(
+                    s => s,
+                    s => s.Length
+                    );
+
+                year.Should().Be(1909);
+            }
+
+            {
+                var x = Parse("190blarg");
+
+                x.IsOk.Should().BeFalse();
+                x.IsErr.Should().BeTrue();
+
+                var year = x.Match(
+                    s => s,
+                    s => s.Length
+                );
+
+                year.Should().Be(8);
+            }
+        }
     }
 }

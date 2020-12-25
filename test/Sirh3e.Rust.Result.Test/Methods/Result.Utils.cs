@@ -11,9 +11,9 @@ namespace Sirh3e.Rust.Result.Test
             {
                 number = Convert.ToInt32(text);
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                return Result<int, string>.Err(e.Message);
+                return Result<int, string>.Err(text);
             }
             return Result<int, string>.Ok(number);
         }
