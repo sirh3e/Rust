@@ -1,32 +1,51 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Sirh3e.Rust.Option
 {
-    public class Option<T>
+    public class Option<TSome> : IEquatable<Option<TSome>>
     {
-        private readonly T _some;
+        private readonly TSome _some;
         public readonly bool IsSome;
-        public bool IsNone => !IsSome;
 
         private Option()
         {
             IsSome = false;
         }
 
-        private Option(T some)
+        private Option(TSome some)
         {
             _some = some;
-            IsSome = typeof(T).IsValueType || some != null;
+            IsSome = typeof(TSome).IsValueType || some != null;
         }
 
-        public static Option<T> Some(T some) => new(some);
+        public bool IsNone => !IsSome;
 
-        public T Unwrap() => Unwrap(() => $"Cannot unwrap \"None\" of type {typeof(T)}.");
+        public static Option<TSome> None => new();
 
-        public static Option<T> None => new();
-        public static implicit operator Option<T>(None none) => None;
+        public bool Equals(Option<TSome> other)
+        {
+            if (ReferenceEquals(null, other)) return false;
+            if (ReferenceEquals(this, other)) return true;
+            return EqualityComparer<TSome>.Default.Equals(_some, other._some) && IsSome == other.IsSome;
+        }
 
-        public T Unwrap(Func<string> error)
+        public static Option<TSome> Some(TSome some)
+        {
+            return new(some);
+        }
+
+        public TSome Unwrap()
+        {
+            return Unwrap(() => $"Cannot unwrap \"None\" of type {typeof(TSome)}.");
+        }
+
+        public static implicit operator Option<TSome>(None none)
+        {
+            return None;
+        }
+
+        public TSome Unwrap(Func<string> error)
         {
             if (IsSome)
                 return Unwrap(error.Invoke());
@@ -37,7 +56,7 @@ namespace Sirh3e.Rust.Option
             throw new NotImplementedException(); //ToDo create own exception
         }
 
-        public T Unwrap(string error)
+        public TSome Unwrap(string error)
         {
             if (string.IsNullOrEmpty(error))
                 throw new ArgumentNullException(nameof(error));
@@ -48,9 +67,12 @@ namespace Sirh3e.Rust.Option
             return _some;
         }
 
-        public T UnwrapOr(T other) => IsSome ? _some : other;
+        public TSome UnwrapOr(TSome other)
+        {
+            return IsSome ? _some : other;
+        }
 
-        public T UnwrapOrElse(Func<T> alternative)
+        public TSome UnwrapOrElse(Func<TSome> alternative)
         {
             if (IsSome)
                 return _some;
@@ -58,7 +80,7 @@ namespace Sirh3e.Rust.Option
             return alternative() ?? throw new ArgumentNullException(nameof(alternative));
         }
 
-        public Option<F> Map<F>(Func<T, F> mapper)
+        public Option<F> Map<F>(Func<TSome, F> mapper)
         {
             if (IsNone)
                 throw new NotImplementedException(); //ToDo create own exception
@@ -66,7 +88,7 @@ namespace Sirh3e.Rust.Option
             return Option<F>.Some(mapper(_some) ?? throw new ArgumentNullException(nameof(mapper)));
         }
 
-        public F MapOr<F>(F @default, Func<T, F> mapper)
+        public F MapOr<F>(F @default, Func<TSome, F> mapper)
         {
             if (IsSome)
                 return mapper(_some) ?? throw new ArgumentNullException(nameof(mapper));
@@ -74,12 +96,34 @@ namespace Sirh3e.Rust.Option
             return @default ?? throw new ArgumentNullException(nameof(@default));
         }
 
-        public U MapOrElse<U, F>(Func<U> @default, Func<T, F> mapper)
+        public U MapOrElse<U, F>(Func<U> @default, Func<TSome, F> mapper)
             where F : U
         {
             if (IsSome)
                 return mapper is null ? @default() ?? throw new ArgumentNullException(nameof(@default)) : mapper(_some);
             return @default() ?? throw new ArgumentNullException(nameof(@default));
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            return obj.GetType() == GetType() && Equals((Option<TSome>)obj);
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(_some, IsSome);
+        }
+
+        public static bool operator ==(Option<TSome> left, Option<TSome> right)
+        {
+            return Equals(left, right);
+        }
+
+        public static bool operator !=(Option<TSome> left, Option<TSome> right)
+        {
+            return !Equals(left, right);
         }
     }
 }
