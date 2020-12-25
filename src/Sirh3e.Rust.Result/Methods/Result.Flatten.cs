@@ -6,10 +6,7 @@ namespace Sirh3e.Rust.Result
     {
         public Result<TOk, TErr> Flatten()
         {
-            if (this is not Result<Result<TOk, TErr>, TErr> result)
-                throw new NotImplementedException();
-
-            return result.IsOk ? result._ok : Err(result._err);
+            throw new NotImplementedException(); //ToDo find away
         }
     }
 }
