@@ -1,4 +1,5 @@
 ﻿using System;
+using Sirh3e.Rust.Panic;
 
 namespace Sirh3e.Rust.Result
 {
@@ -22,7 +23,7 @@ namespace Sirh3e.Rust.Result
 
             if (string.IsNullOrEmpty(error))
                 throw new ArgumentNullException(nameof(error));
-            throw new NotImplementedException(); //ToDo create a panic like exception
+            throw new PanicException(error); //ToDo create a panic like exception
         }
 
         public TOk Unwrap(Func<TErr, string> error)
