@@ -4,15 +4,27 @@ namespace Sirh3e.Rust.Result
 {
     public readonly partial struct Result<TOk, TErr>
     {
-        public Result<U, TErr> Map<U>(Func<TOk, U> mapper)
+        /// <summary>
+        /// Maps a Result&lt;TOk, TErr&gt; to Result&lt;T, TErr&gt; by applying a function to a contained Ok value, leaving an Err value untouched.
+        /// This function can be used to compose the results of two functions.
+        /// </summary>
+        /// <param name="map"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException">Throws only if map is null</exception>
+        public Result<T, TErr> Map<T>(Func<TOk, T> map)
         {
-            if (!IsOk)
-                return Result<U, TErr>.Err(_err);
+            if (IsErr)
+            {
+                return Result<T, TErr>.Err(_err);
+            }
 
-            if (mapper is null)
-                throw new ArgumentNullException(nameof(mapper));
+            if (map is null)
+            {
+                throw new ArgumentNullException(nameof(map));
+            }
 
-            return new Result<U, TErr>(mapper(_ok));
+            return new Result<T, TErr>(map(_ok));
         }
     }
 }
