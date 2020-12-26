@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Sirh3e.Rust.Option
 {
-    public class Option<TSome> : IEquatable<Option<TSome>>
+    public partial class Option<TSome> : IEquatable<Option<TSome>>
     {
         private readonly TSome _some;
         public readonly bool IsSome;
