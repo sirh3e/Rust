@@ -3,15 +3,10 @@ using System.Collections.Generic;
 
 namespace Sirh3e.Rust.Option
 {
-    public partial class Option<TSome> : IEquatable<Option<TSome>>
+    public readonly partial struct Option<TSome> : IEquatable<Option<TSome>>
     {
         private readonly TSome _some;
         public readonly bool IsSome;
-
-        private Option()
-        {
-            IsSome = false;
-        }
 
         private Option(TSome some)
         {
@@ -25,8 +20,6 @@ namespace Sirh3e.Rust.Option
 
         public bool Equals(Option<TSome> other)
         {
-            if (ReferenceEquals(null, other)) return false;
-            if (ReferenceEquals(this, other)) return true;
             return EqualityComparer<TSome>.Default.Equals(_some, other._some) && IsSome == other.IsSome;
         }
 
