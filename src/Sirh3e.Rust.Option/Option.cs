@@ -14,8 +14,6 @@ namespace Sirh3e.Rust.Option
             IsSome = typeof(TSome).IsValueType || some != null;
         }
 
-        public bool IsNone => !IsSome;
-
         public static Option<TSome> None => new();
 
         public bool Equals(Option<TSome> other)
