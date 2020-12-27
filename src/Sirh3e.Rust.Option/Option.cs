@@ -69,14 +69,6 @@ namespace Sirh3e.Rust.Option
             return alternative() ?? throw new ArgumentNullException(nameof(alternative));
         }
 
-        public U MapOrElse<U, F>(Func<U> @default, Func<TSome, F> mapper)
-            where F : U
-        {
-            if (IsSome)
-                return mapper is null ? @default() ?? throw new ArgumentNullException(nameof(@default)) : mapper(_some);
-            return @default() ?? throw new ArgumentNullException(nameof(@default));
-        }
-
         public override bool Equals(object obj)
         {
             if (ReferenceEquals(null, obj)) return false;
