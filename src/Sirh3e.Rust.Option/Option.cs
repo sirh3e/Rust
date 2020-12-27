@@ -30,12 +30,6 @@ namespace Sirh3e.Rust.Option
             return None;
         }
 
-
-        public TSome UnwrapOr(TSome other)
-        {
-            return IsSome ? _some : other;
-        }
-
         public TSome UnwrapOrElse(Func<TSome> alternative)
         {
             if (IsSome)
