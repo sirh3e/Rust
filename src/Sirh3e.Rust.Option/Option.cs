@@ -30,14 +30,6 @@ namespace Sirh3e.Rust.Option
             return None;
         }
 
-        public TSome UnwrapOrElse(Func<TSome> alternative)
-        {
-            if (IsSome)
-                return _some;
-
-            return alternative() ?? throw new ArgumentNullException(nameof(alternative));
-        }
-
         public override bool Equals(object obj)
         {
             if (ReferenceEquals(null, obj)) return false;
