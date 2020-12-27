@@ -6,15 +6,13 @@ namespace Sirh3e.Rust.Option
     public readonly partial struct Option<TSome> : IEquatable<Option<TSome>>
     {
         private readonly TSome _some;
-        public readonly bool IsSome;
+        public static Option<TSome> None => new();
 
         private Option(TSome some)
         {
             _some = some;
             IsSome = typeof(TSome).IsValueType || some != null;
         }
-
-        public static Option<TSome> None => new();
 
         public bool Equals(Option<TSome> other)
         {
