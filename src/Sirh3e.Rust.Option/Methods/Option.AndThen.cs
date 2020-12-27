@@ -2,5 +2,6 @@
 {
     public readonly partial struct Option<TSome>
     {
+
     }
 }
