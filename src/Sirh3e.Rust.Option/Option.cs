@@ -69,14 +69,6 @@ namespace Sirh3e.Rust.Option
             return alternative() ?? throw new ArgumentNullException(nameof(alternative));
         }
 
-        public Option<F> Map<F>(Func<TSome, F> mapper)
-        {
-            if (IsNone)
-                throw new NotImplementedException(); //ToDo create own exception
-
-            return Option<F>.Some(mapper(_some) ?? throw new ArgumentNullException(nameof(mapper)));
-        }
-
         public F MapOr<F>(F @default, Func<TSome, F> mapper)
         {
             if (IsSome)
