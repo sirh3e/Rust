@@ -64,6 +64,25 @@ namespace Sirh3e.Rust.Option.Test
 
                 option.Unwrap().Should().Be("foo");
             }
+            
+            {
+                var x = Option<uint>.None;
+
+                x.IsSome.Should().BeFalse();
+                x.IsNone.Should().BeTrue();
+
+                var y = Option<string>.None;
+
+                y.IsSome.Should().BeFalse();
+                y.IsNone.Should().BeTrue();
+
+                var option = x.And(y);
+                
+                option.IsSome.Should().BeFalse();
+                option.IsNone.Should().BeTrue();
+
+                option.UnwrapNone();
+            }
         }
     }
 }
