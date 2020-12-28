@@ -124,28 +124,6 @@ namespace Sirh3e.Rust.Option.Test
         
 
         [Fact]
-        public void Option_MapOr()
-        {
-            {
-                var x = Option<string>.Some("foo");
-
-                x.IsSome.Should().BeTrue();
-                x.IsNone.Should().BeFalse();
-
-                x.MapOr(42, s => s.Length).Should().Be(3);
-            }
-
-            {
-                var x = Option<string>.None;
-
-                x.IsSome.Should().BeFalse();
-                x.IsNone.Should().BeTrue();
-
-                x.MapOr(42, s => s.Length).Should().Be(42);
-            }
-        }
-
-        [Fact]
         public void Option_MapOrElse()
         {
             var k = 21;
