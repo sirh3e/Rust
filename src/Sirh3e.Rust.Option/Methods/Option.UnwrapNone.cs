@@ -2,6 +2,9 @@
 {
     public readonly partial struct Option<TSome>
     {
+        /// <summary>
+        /// Consumes self while expecting None and returning nothing.
+        /// </summary>
         public void UnwrapNone()
         {
             Match(
