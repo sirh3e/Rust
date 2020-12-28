@@ -5,7 +5,7 @@ using Xunit;
 
 namespace Sirh3e.Rust.Option.Test
 {
-    public class OptionUnitTest
+    public partial class OptionUnitTest
     {
         [Fact]
         public void Option_Construct_Some_FromValue()
