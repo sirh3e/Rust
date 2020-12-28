@@ -7,5 +7,8 @@
   &lt;/Or&gt;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=06e07a63_002D9513_002D43d8_002D820e_002D403ffe435a7e/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="OptionUnitTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
-  &lt;ProjectFile&gt;86E86635-7E7F-46A9-92D1-CF759345D97B/f:OptionUnitTest.cs&lt;/ProjectFile&gt;
+  &lt;Or&gt;
+    &lt;ProjectFile&gt;86E86635-7E7F-46A9-92D1-CF759345D97B/f:OptionUnitTest.cs&lt;/ProjectFile&gt;
+    &lt;ProjectFile&gt;86E86635-7E7F-46A9-92D1-CF759345D97B/d:Methods/f:Option.Expect.UnitTest.cs&lt;/ProjectFile&gt;
+  &lt;/Or&gt;
 &lt;/SessionState&gt;</s:String></s:String></wpf:ResourceDictionary>
