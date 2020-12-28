@@ -10,5 +10,6 @@
   &lt;Or&gt;
     &lt;ProjectFile&gt;86E86635-7E7F-46A9-92D1-CF759345D97B/f:OptionUnitTest.cs&lt;/ProjectFile&gt;
     &lt;ProjectFile&gt;86E86635-7E7F-46A9-92D1-CF759345D97B/d:Methods/f:Option.Expect.UnitTest.cs&lt;/ProjectFile&gt;
+    &lt;ProjectFile&gt;86E86635-7E7F-46A9-92D1-CF759345D97B/d:Methods/f:Option.Flatten.UnitTest.cs&lt;/ProjectFile&gt;
   &lt;/Or&gt;
 &lt;/SessionState&gt;</s:String></s:String></wpf:ResourceDictionary>
