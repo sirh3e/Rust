@@ -2,9 +2,10 @@
 {
     public readonly partial struct Result<TOk, TErr>
     {
-        public TOk IntoOk()
-        {
-            return _ok;
-        }
+        /// <summary>
+        /// Returns the contained Ok value, but never panics.
+        /// </summary>
+        /// <returns></returns>
+        public TOk IntoOk() => _ok;
     }
 }

@@ -2,6 +2,9 @@
 {
     public readonly partial struct Result<TOk, TErr>
     {
-        public bool IsErr => !IsOk;
+        /// <summary>
+        /// Returns true if the result is Err.
+        /// </summary>
+        public bool IsErr => IsOk == false;
     }
 }
