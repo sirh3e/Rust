@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Sirh3e.Rust.Option
+﻿namespace Sirh3e.Rust.Option
 {
     public readonly partial struct Option<TSome>
     {
