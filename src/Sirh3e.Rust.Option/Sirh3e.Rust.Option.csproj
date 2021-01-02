@@ -4,4 +4,8 @@
         <TargetFramework>net5.0</TargetFramework>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Sirh3e.Rust.Panic\Sirh3e.Rust.Panic.csproj" />
+    </ItemGroup>
+
 </Project>

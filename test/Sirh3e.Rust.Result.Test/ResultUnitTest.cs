@@ -1,5 +1,6 @@
 using System;
 using FluentAssertions;
+using Sirh3e.Rust.Panic;
 using Xunit;
 
 namespace Sirh3e.Rust.Result.Test
@@ -23,7 +24,7 @@ namespace Sirh3e.Rust.Result.Test
             x.Err().IsNone.Should().BeTrue();
 
             Action action = () => x.Err().Unwrap();
-            action.Should().ThrowExactly<NotImplementedException>();
+            action.Should().ThrowExactly<PanicException>();
         }
 
         [Fact]
@@ -35,7 +36,7 @@ namespace Sirh3e.Rust.Result.Test
             x.IsErr.Should().BeTrue();
 
             Action action = () => x.Ok().Unwrap();
-            action.Should().ThrowExactly<NotImplementedException>();
+            action.Should().ThrowExactly<PanicException>();
 
             x.Err().IsSome.Should().BeTrue();
             x.Err().IsNone.Should().BeFalse();

@@ -20,7 +20,7 @@ namespace Sirh3e.Rust.Result.Test
                 flattenResult.IsOk.Should().BeTrue();
                 flattenResult.IsErr.Should().BeFalse();
 
-                flattenResult.Equals(Result<string, uint>.Ok("hello"));
+                flattenResult.Should().BeEquivalentTo(Result<string, uint>.Ok("hello"));
             }
 
             {
@@ -34,7 +34,7 @@ namespace Sirh3e.Rust.Result.Test
                 flattenResult.IsOk.Should().BeFalse();
                 flattenResult.IsErr.Should().BeTrue();
 
-                flattenResult.Equals(Result<string, uint>.Err(6));
+                flattenResult.Should().BeEquivalentTo(Result<string, uint>.Err(6));
             }
 
             {
@@ -48,7 +48,7 @@ namespace Sirh3e.Rust.Result.Test
                 flattenResult.IsOk.Should().BeFalse();
                 flattenResult.IsErr.Should().BeTrue();
 
-                flattenResult.Equals(Result<string, uint>.Err(6));
+                flattenResult.Should().BeEquivalentTo(Result<string, uint>.Err(6));
             }
         }
     }

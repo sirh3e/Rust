@@ -13,17 +13,12 @@ namespace Sirh3e.Rust.Result
         /// <exception cref="ArgumentNullException">Throws only if other is null</exception>
         public Result<TOk, TErr> OrElse(Func<TErr, Result<TOk, TErr>> other)
         {
-            if (IsOk)
+            return Match(Ok, err =>
             {
-                return this;
-            }
-
-            if (other is null)
-            {
-                throw new ArgumentNullException(nameof(other));
-            }
-
-            return other(_err);
+                if (other is null)
+                    throw new ArgumentNullException(nameof(other));
+                return other(err);
+            });
         }
     }
 }

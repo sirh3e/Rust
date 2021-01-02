@@ -2,7 +2,7 @@
 
 namespace Sirh3e.Rust.Option
 {
-    public struct None : IEquatable<None>
+    public readonly struct None : IEquatable<None>
     {
         public static readonly None Value = default;
 

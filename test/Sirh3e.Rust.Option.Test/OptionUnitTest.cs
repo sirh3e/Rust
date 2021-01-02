@@ -1,5 +1,6 @@
 using System;
 using FluentAssertions;
+using Sirh3e.Rust.Panic;
 using Xunit;
 
 namespace Sirh3e.Rust.Option.Test
@@ -71,7 +72,7 @@ namespace Sirh3e.Rust.Option.Test
                 option.IsNone.Should().BeTrue();
 
                 Action action = () => option.Unwrap();
-                action.Should().ThrowExactly<NotImplementedException>();
+                action.Should().ThrowExactly<PanicException>();
             }
         }
 
