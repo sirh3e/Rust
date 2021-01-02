@@ -1,4 +1,4 @@
-﻿namespace Sirh3e.Rust.Result.Extensions
+﻿namespace Sirh3e.Rust.Result
 {
     public static partial class ResultExtension
     {
@@ -10,9 +10,11 @@
         /// <typeparam name="TErr"></typeparam>
         /// <returns></returns>
         public static Result<TOk, TErr> Flatten<TOk, TErr>(this Result<Result<TOk, TErr>, TErr> result)
-            => result.IsOk ?
-                result.Unwrap() :
-                Result<TOk, TErr>.Err(result.UnwrapErr());
+        {
+            return result.Match(
+                ok => Result<TOk, TErr>.Ok(ok.Unwrap()),
+                Result<TOk, TErr>.Err);
+        }
 
         /// <summary>
         /// Converts from Result&lt;Result&lt;TOk, TErr&gt;, TErr&gt; to Result&lt;TOk, TErr&gt;
@@ -21,6 +23,9 @@
         /// <typeparam name="TOk"></typeparam>
         /// <typeparam name="TErr"></typeparam>
         /// <returns></returns>
-        public static Result<TOk, TErr> Flatten<TOk, TErr>(this Result<TOk, TErr> result) => result;
+        public static Result<TOk, TErr> Flatten<TOk, TErr>(this Result<TOk, TErr> result)
+        {
+            return result;
+        }
     }
 }
