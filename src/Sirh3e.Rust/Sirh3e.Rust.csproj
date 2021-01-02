@@ -6,7 +6,6 @@
 
     <ItemGroup>
       <Folder Include="Option" />
-      <Folder Include="Result" />
     </ItemGroup>
 
 </Project>

@@ -8,7 +8,7 @@
         public void UnwrapNone()
         {
             Match(
-                some => ExpectNoneFailed("called `Option.UnwrapNone()` on a `Some` value", some),
+                some => ExpectNoneFailed<TSome>("called `Option.UnwrapNone()` on a `Some` value", some),
                 _ => { }
             );
         }
