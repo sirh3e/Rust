@@ -2,10 +2,8 @@
 
     <PropertyGroup>
         <TargetFramework>net5.0</TargetFramework>
+        <AssemblyName>Sirh3e.Rust.Attributes</AssemblyName>
+        <RootNamespace>Sirh3e.Rust.Attributes</RootNamespace>
     </PropertyGroup>
-
-    <ItemGroup>
-      <ProjectReference Include="..\Sirh3e.Rust.Panic\Sirh3e.Rust.Panic.csproj" />
-    </ItemGroup>
 
 </Project>

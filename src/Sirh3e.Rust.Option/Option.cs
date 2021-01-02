@@ -3,15 +3,10 @@ using System.Collections.Generic;
 
 namespace Sirh3e.Rust.Option
 {
-    public class Option<TSome> : IEquatable<Option<TSome>>
+    public readonly partial struct Option<TSome> : IEquatable<Option<TSome>>
     {
         private readonly TSome _some;
-        public readonly bool IsSome;
-
-        private Option()
-        {
-            IsSome = false;
-        }
+        public static Option<TSome> None => new();
 
         private Option(TSome some)
         {
@@ -19,14 +14,8 @@ namespace Sirh3e.Rust.Option
             IsSome = typeof(TSome).IsValueType || some != null;
         }
 
-        public bool IsNone => !IsSome;
-
-        public static Option<TSome> None => new();
-
         public bool Equals(Option<TSome> other)
         {
-            if (ReferenceEquals(null, other)) return false;
-            if (ReferenceEquals(this, other)) return true;
             return EqualityComparer<TSome>.Default.Equals(_some, other._some) && IsSome == other.IsSome;
         }
 
@@ -35,79 +24,15 @@ namespace Sirh3e.Rust.Option
             return new(some);
         }
 
-        public TSome Unwrap()
-        {
-            return Unwrap(() => $"Cannot unwrap \"None\" of type {typeof(TSome)}.");
-        }
 
         public static implicit operator Option<TSome>(None none)
         {
             return None;
         }
 
-        public TSome Unwrap(Func<string> error)
-        {
-            if (IsSome)
-                return Unwrap(error.Invoke());
-
-            if (error is null)
-                throw new ArgumentNullException(nameof(error));
-
-            throw new NotImplementedException(); //ToDo create own exception
-        }
-
-        public TSome Unwrap(string error)
-        {
-            if (string.IsNullOrEmpty(error))
-                throw new ArgumentNullException(nameof(error));
-
-            if (IsNone)
-                throw new NotImplementedException(error); //ToDo create own exception
-
-            return _some;
-        }
-
-        public TSome UnwrapOr(TSome other)
-        {
-            return IsSome ? _some : other;
-        }
-
-        public TSome UnwrapOrElse(Func<TSome> alternative)
-        {
-            if (IsSome)
-                return _some;
-
-            return alternative() ?? throw new ArgumentNullException(nameof(alternative));
-        }
-
-        public Option<F> Map<F>(Func<TSome, F> mapper)
-        {
-            if (IsNone)
-                throw new NotImplementedException(); //ToDo create own exception
-
-            return Option<F>.Some(mapper(_some) ?? throw new ArgumentNullException(nameof(mapper)));
-        }
-
-        public F MapOr<F>(F @default, Func<TSome, F> mapper)
-        {
-            if (IsSome)
-                return mapper(_some) ?? throw new ArgumentNullException(nameof(mapper));
-
-            return @default ?? throw new ArgumentNullException(nameof(@default));
-        }
-
-        public U MapOrElse<U, F>(Func<U> @default, Func<TSome, F> mapper)
-            where F : U
-        {
-            if (IsSome)
-                return mapper is null ? @default() ?? throw new ArgumentNullException(nameof(@default)) : mapper(_some);
-            return @default() ?? throw new ArgumentNullException(nameof(@default));
-        }
-
         public override bool Equals(object obj)
         {
             if (ReferenceEquals(null, obj)) return false;
-            if (ReferenceEquals(this, obj)) return true;
             return obj.GetType() == GetType() && Equals((Option<TSome>)obj);
         }
 
