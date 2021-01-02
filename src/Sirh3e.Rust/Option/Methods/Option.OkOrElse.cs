@@ -5,9 +5,16 @@ namespace Sirh3e.Rust.Option
 {
     public readonly partial struct Option<TSome>
     {
-        public Result<TSome, TErr> OkOrElse<TErr>(TErr err)
+        public Result<TSome, TErr> OkOrElse<TErr>(Func<TErr> err)
         {
-            throw new NotImplementedException(nameof(err));
+            return Match(
+                Result<TSome, TErr>.Ok,
+                () =>
+                {
+                    if (err is null)
+                        throw new ArgumentNullException(nameof(err));
+                    return Result<TSome, TErr>.Err(err());
+                });
         }
     }
 }
