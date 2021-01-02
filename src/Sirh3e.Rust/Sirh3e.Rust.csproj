@@ -4,4 +4,9 @@
         <TargetFramework>net5.0</TargetFramework>
     </PropertyGroup>
 
+    <ItemGroup>
+      <Folder Include="Option" />
+      <Folder Include="Result" />
+    </ItemGroup>
+
 </Project>
