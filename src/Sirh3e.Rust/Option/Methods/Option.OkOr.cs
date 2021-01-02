@@ -7,7 +7,14 @@ namespace Sirh3e.Rust.Option
     {
         public Result<TSome, TErr> OkOr<TErr>(TErr err)
         {
-            throw new NotImplementedException(nameof(err));
+            return Match(
+                Result<TSome, TErr>.Ok,
+                () =>
+                {
+                    if (err is null)
+                        throw new ArgumentNullException(nameof(err));
+                    return Result<TSome, TErr>.Err(err);
+                });
         }
     }
 }
