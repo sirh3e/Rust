@@ -39,7 +39,7 @@ namespace Sirh3e.Rust.Option.Test
                 option.IsNone.Should().BeTrue();
 
                 Action action = () => option.Unwrap();
-                action.Should().ThrowExactly<NotImplementedException>();
+                action.Should().ThrowExactly<PanicException>();
             }
 
             {
@@ -49,7 +49,7 @@ namespace Sirh3e.Rust.Option.Test
                 option.IsNone.Should().BeTrue();
 
                 Action action = () => option.Unwrap();
-                action.Should().ThrowExactly<NotImplementedException>();
+                action.Should().ThrowExactly<PanicException>();
             }
         }
 

@@ -26,6 +26,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\src\Sirh3e.Rust.Option\Sirh3e.Rust.Option.csproj" />
+      <ProjectReference Include="..\..\src\Sirh3e.Rust\Sirh3e.Rust.csproj" />
     </ItemGroup>
 
 </Project>
