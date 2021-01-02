@@ -1,11 +1,13 @@
-﻿namespace Sirh3e.Rust.Option
+﻿using System;
+using Sirh3e.Rust.Result;
+
+namespace Sirh3e.Rust.Option
 {
     public readonly partial struct Option<TSome>
     {
-        /* ToDo resolve circular dependency
         public Result<TSome, TErr> OkOrElse<TErr>(TErr err)
         {
+            throw new NotImplementedException(nameof(err));
         }
-        */
     }
 }
