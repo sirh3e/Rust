@@ -14,16 +14,14 @@ namespace Sirh3e.Rust.Result.Extensions
         /// <returns></returns>
         public static Option<Result<TOk, TErr>> Transpose<TOk, TErr>(this Result<Option<TOk>, TErr> result)
         {
-            if (result.IsErr)
-            {
-                return Option<Result<TOk, TErr>>.Some(Result<TOk, TErr>.Err(result.Err().Unwrap()));
-            }
-
-            var option = result.Ok().Unwrap();
-
-            return option.IsNone ?
-                Option<Result<TOk, TErr>>.None :
-                Option<Result<TOk, TErr>>.Some(Result<TOk, TErr>.Ok(option.Unwrap()));
+            return result.Match(ok =>
+                {
+                    return ok.Match(
+                        some => Option<Result<TOk, TErr>>.Some(Result<TOk, TErr>.Ok(some)),
+                        () => Option<Result<TOk, TErr>>.None
+                    );
+                },
+                err => Option<Result<TOk, TErr>>.Some(Result<TOk, TErr>.Err(err)));
         }
     }
 }
