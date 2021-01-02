@@ -15,22 +15,17 @@ namespace Sirh3e.Rust.Result
         /// <exception cref="ArgumentNullException"></exception>
         public T MapOrElse<T>(Func<TErr, T> @default, Func<TOk, T> map)
         {
-            if (IsOk)
+            return Match(ok =>
             {
                 if (map is null)
-                {
                     throw new ArgumentNullException(nameof(map));
-                }
-
-                return map(_ok);
-            }
-
-            if (@default is null)
+                return map(ok);
+            }, err =>
             {
-                throw new ArgumentNullException(nameof(@default));
-            }
-
-            return @default(_err);
+                if (@default is null)
+                    throw new ArgumentNullException(nameof(@default));
+                return @default(err);
+            });
         }
     }
 }
