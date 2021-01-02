@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sirh3e.Rust.Panic", "src\Si
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sirh3e.Rust.Attributes", "src\Sirh3e.Rust.Attributes\Sirh3e.Rust.Attributes.csproj", "{DCF69A2E-3FCB-4B33-8A3B-EB239E923E67}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sirh3e.Rust", "src\Sirh3e.Rust\Sirh3e.Rust.csproj", "{08F03F89-6A10-4F79-A21C-B1E306191531}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{DCF69A2E-3FCB-4B33-8A3B-EB239E923E67}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DCF69A2E-3FCB-4B33-8A3B-EB239E923E67}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DCF69A2E-3FCB-4B33-8A3B-EB239E923E67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08F03F89-6A10-4F79-A21C-B1E306191531}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08F03F89-6A10-4F79-A21C-B1E306191531}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08F03F89-6A10-4F79-A21C-B1E306191531}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08F03F89-6A10-4F79-A21C-B1E306191531}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
