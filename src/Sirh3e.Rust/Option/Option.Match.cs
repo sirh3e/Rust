@@ -26,7 +26,7 @@ namespace Sirh3e.Rust.Option
             }
         }
 
-        private void Match(Action<TSome> onSome, Action<TSome> onNone) 
+        private void Match(Action<TSome> onSome, Action<TSome> onNone)
         {
             if (IsSome)
             {
