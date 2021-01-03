@@ -37,6 +37,19 @@ namespace Sirh3e.Rust.Result.Test
 
                 action.Should().ThrowExactly<ArgumentNullException>();
             }
+
+            {
+                var result = Result<string, string>.Ok("foo");
+
+                result.IsOk.Should().BeTrue();
+                result.IsErr.Should().BeFalse();
+
+                Func<string, string> func = null;
+
+                Action action = () => result.MapOr("liegens", func);
+
+                action.Should().ThrowExactly<ArgumentNullException>();
+            }
         }
     }
 }
