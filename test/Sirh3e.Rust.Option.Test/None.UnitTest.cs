@@ -1,10 +1,9 @@
 ﻿using FluentAssertions;
 using Xunit;
-using Sirh3e.Rust.Option;
 
 namespace Sirh3e.Rust.Option.Test
 {
-    public class NoneUnitTest 
+    public class NoneUnitTest
     {
         [Fact]
         public void None_Equals()
@@ -14,7 +13,7 @@ namespace Sirh3e.Rust.Option.Test
 
             x.Equals(y).Should().BeTrue();
         }
-        
+
         [Fact]
         public void None_Equals_Object()
         {
@@ -23,7 +22,7 @@ namespace Sirh3e.Rust.Option.Test
 
             x.Equals(y as object).Should().BeTrue();
         }
-        
+
         [Fact]
         public void None_GetHashCode()
         {
@@ -32,7 +31,7 @@ namespace Sirh3e.Rust.Option.Test
 
             x.GetHashCode().Should().Be(y.GetHashCode());
         }
-        
+
         [Fact]
         public void None_Operator_Equals()
         {
@@ -41,7 +40,7 @@ namespace Sirh3e.Rust.Option.Test
 
             (x == y).Should().BeTrue();
         }
-        
+
         [Fact]
         public void None_Operator_Not_Equals()
         {
