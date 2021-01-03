@@ -22,7 +22,7 @@ namespace Sirh3e.Rust.Result.Test
             {
 
                 Func<uint, Result<uint, uint>> func = null;
-                Action action = () => Result<uint, uint>.Ok(2).OrElse(func);
+                Action action = () => Result<uint, uint>.Err(2).OrElse(func);
 
                 action.Should().ThrowExactly<ArgumentNullException>();
             }
