@@ -51,6 +51,14 @@ namespace Sirh3e.Rust.Result.Test
 
                 result.Err().Unwrap().Should().Be(3);
             }
+
+            {
+                var value = Result<uint, uint>.Err(3);
+
+                Action action = () => value.AndThen(null as Func<uint, Result<uint, uint>>);
+
+                action.Should().ThrowExactly<ArgumentNullException>();
+            }
         }
     }
 }
