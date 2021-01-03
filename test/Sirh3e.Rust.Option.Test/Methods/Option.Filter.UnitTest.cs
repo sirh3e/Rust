@@ -18,9 +18,7 @@ namespace Sirh3e.Rust.Option.Test
 
                 Action action = () => x.Expect("fruits are healthy");
 
-                action.Should()
-                    .ThrowExactly<PanicException>()
-                    .WithMessage("fruits are healthy");
+                action.Should().NotThrow();
             }
 
             {
@@ -31,7 +29,9 @@ namespace Sirh3e.Rust.Option.Test
 
                 Action action = () => x.Expect("fruits are healthy");
 
-                action.Should().NotThrow();
+                action.Should()
+                    .ThrowExactly<PanicException>()
+                    .WithMessage("fruits are healthy");
             }
         }
     }
