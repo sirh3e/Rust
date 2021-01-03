@@ -67,8 +67,8 @@ namespace Sirh3e.Rust.Result.Test
             {
                 var result = Result<string, string>.Err("foo");
 
-                result.IsOk.Should().BeTrue();
-                result.IsErr.Should().BeFalse();
+                result.IsOk.Should().BeFalse();
+                result.IsErr.Should().BeTrue();
 
                 Func<string, int> @default = null;
 
