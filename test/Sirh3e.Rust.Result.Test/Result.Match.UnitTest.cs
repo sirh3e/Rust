@@ -66,6 +66,34 @@ namespace Sirh3e.Rust.Result.Test
 
                 year.Should().Be(8);
             }
+
+            {
+                var x = Parse("1909");
+
+                x.IsOk.Should().BeTrue();
+                x.IsErr.Should().BeFalse();
+
+                Action action = () => x.Match(
+                    null,
+                    e => e.Length
+                );
+
+                action.Should().ThrowExactly<ArgumentNullException>();
+            }
+
+            {
+                var x = Parse("190blarg");
+
+                x.IsOk.Should().BeFalse();
+                x.IsErr.Should().BeTrue();
+
+                Action action = () => x.Match(
+                    o => o,
+                    null
+                );
+
+                action.Should().ThrowExactly<ArgumentNullException>();
+            }
         }
     }
 }
