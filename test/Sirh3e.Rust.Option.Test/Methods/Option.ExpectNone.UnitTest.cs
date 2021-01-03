@@ -16,9 +16,11 @@ namespace Sirh3e.Rust.Option.Test
                 x.IsSome.Should().BeTrue();
                 x.IsNone.Should().BeFalse();
 
-                Action action = () => x.Unwrap();
+                Action action = () => x.ExpectNone("fruits are healthy");
 
-                action.Should().NotThrow();
+                action.Should()
+                    .ThrowExactly<PanicException>()
+                    .WithMessage("fruits are healthy: air");
             }
 
             {
@@ -27,11 +29,9 @@ namespace Sirh3e.Rust.Option.Test
                 x.IsSome.Should().BeFalse();
                 x.IsNone.Should().BeTrue();
 
-                Action action = () => x.Expect("fruits are healthy");
+                Action action = () => x.ExpectNone("");
 
-                action.Should()
-                    .ThrowExactly<PanicException>()
-                    .WithMessage("fruits are healthy");
+                action.Should().NotThrow();
             }
         }
     }

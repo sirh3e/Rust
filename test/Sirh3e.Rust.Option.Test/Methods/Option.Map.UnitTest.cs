@@ -38,8 +38,6 @@ namespace Sirh3e.Rust.Option.Test
 
                 none.IsSome.Should().BeFalse();
                 none.IsNone.Should().BeTrue();
-
-                none.Should().BeEquivalentTo(Option<string>.None);
             }
         }
     }
