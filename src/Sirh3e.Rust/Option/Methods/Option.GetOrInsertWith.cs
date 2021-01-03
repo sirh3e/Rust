@@ -10,7 +10,7 @@ namespace Sirh3e.Rust.Option
         /// <param name="func"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        public Option<TSome> GetOrInsertWith(Func<TSome> func)
+        public TSome GetOrInsertWith(Func<TSome> func)
         {
             throw new NotImplementedException();
         }
