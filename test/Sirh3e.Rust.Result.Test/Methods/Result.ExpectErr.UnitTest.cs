@@ -11,7 +11,7 @@ namespace Sirh3e.Rust.Result.Test
         public void Result_ExpectErr()
         {
             {
-                var x = Result<uint, string>.Err("emergency failure");
+                var x = Result<uint, string>.Ok(10);
 
                 Action action = () => x.ExpectErr("Testing expect");
 

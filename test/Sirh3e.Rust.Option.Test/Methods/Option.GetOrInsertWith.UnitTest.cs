@@ -13,7 +13,7 @@ namespace Sirh3e.Rust.Option.Test
 
             Action action = () => option.GetOrInsertWith(() => 5);
 
-            action.Should().ThrowExactly<ArgumentNullException>();
+            action.Should().ThrowExactly<NotImplementedException>();
         }
     }
 }
