@@ -22,7 +22,7 @@ namespace Sirh3e.Rust.Option.Test
 
                 flatten.Should().Be(Option<uint>.Some(6));
             }
-            
+
             {
                 var x = Option<Option<uint>>.Some(Option<uint>.None);
 

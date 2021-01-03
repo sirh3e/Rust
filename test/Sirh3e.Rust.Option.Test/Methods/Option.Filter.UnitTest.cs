@@ -15,20 +15,20 @@ namespace Sirh3e.Rust.Option.Test
 
                 x.IsSome.Should().BeTrue();
                 x.IsNone.Should().BeFalse();
-                
+
                 Action action = () => x.Expect("fruits are healthy");
 
                 action.Should()
                     .ThrowExactly<PanicException>()
                     .WithMessage("fruits are healthy");
             }
-            
+
             {
                 var x = Option<uint>.None;
 
                 x.IsSome.Should().BeFalse();
                 x.IsNone.Should().BeTrue();
-                
+
                 Action action = () => x.Expect("fruits are healthy");
 
                 action.Should().NotThrow();

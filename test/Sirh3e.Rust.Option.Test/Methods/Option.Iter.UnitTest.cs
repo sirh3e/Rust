@@ -14,7 +14,7 @@ namespace Sirh3e.Rust.Option.Test
 
                 x.IsSome.Should().BeTrue();
                 x.IsNone.Should().BeFalse();
-                
+
                 Action action = () => x.Iter();
 
                 action.Should().ThrowExactly<NotImplementedException>(); //ToDo

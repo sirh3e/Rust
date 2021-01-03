@@ -121,7 +121,7 @@ namespace Sirh3e.Rust.Option.Test
             }
         }
 
-        
+
 
         [Fact]
         public void Option_MapOrElse()
