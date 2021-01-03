@@ -40,9 +40,12 @@ namespace Sirh3e.Rust.Option
         {
             return Match(
                 some => some,
-                () => throw new PanicException(error() ??
-                                               throw new ArgumentNullException(nameof(error)))
-            );
+                () =>
+                {
+                    if (error is null)
+                        throw new ArgumentNullException(nameof(error));
+                    throw new PanicException(error() ?? throw new ArgumentNullException(nameof(error)));
+                });
         }
     }
 }
