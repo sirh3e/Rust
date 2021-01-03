@@ -52,5 +52,59 @@ namespace Sirh3e.Rust.Option.Test
                 action.Should().ThrowExactly<PanicException>();
             }
         }
+
+        [Fact]
+        public void Option_Equals()
+        {
+            var x = Option<object>.None;
+            var y = Option<object>.None;
+
+            x.Equals(y).Should().BeTrue();
+        }
+
+        [Fact]
+        public void Option_Equals_Object()
+        {
+            var x = Option<object>.None;
+            var y = Option<object>.None;
+
+            x.Equals(y as object).Should().BeTrue();
+        }
+
+        [Fact]
+        public void Option_Equals_Object_Null()
+        {
+            var x = Option<object>.None;
+            var y = Option<object>.None;
+
+            x.Equals(null).Should().BeFalse();
+        }
+
+        [Fact]
+        public void Option_GetHashCode()
+        {
+            var x = Option<object>.None;
+            var y = Option<object>.None;
+
+            x.GetHashCode().Should().Be(y.GetHashCode());
+        }
+
+        [Fact]
+        public void Option_Operator_Equals()
+        {
+            var x = Option<object>.None;
+            var y = Option<object>.None;
+
+            (x == y).Should().BeTrue();
+        }
+
+        [Fact]
+        public void Option_Operator_Not_Equals()
+        {
+            var x = Option<object>.None;
+            var y = Option<object>.None;
+
+            (x != y).Should().BeFalse();
+        }
     }
 }
