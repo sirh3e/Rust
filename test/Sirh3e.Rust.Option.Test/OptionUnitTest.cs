@@ -121,51 +121,7 @@ namespace Sirh3e.Rust.Option.Test
             }
         }
 
-        [Fact]
-        public void Option_Map()
-        {
-            {
-                var option = Option<string>.Some("Hello, World!");
-
-                option.IsSome.Should().BeTrue();
-                option.IsNone.Should().BeFalse();
-
-                var lenght = option.Map(s => s.Length).Unwrap();
-                lenght.Should().Be(13);
-            }
-
-            {
-                var option = Option<string>.Some("Hello, World!");
-
-                option.IsSome.Should().BeTrue();
-                option.IsNone.Should().BeFalse();
-
-                var length = option.Map(s => s.Length).Unwrap(); //ToDo must be equal to rust doc
-                length.Should().Be(13);
-            }
-        }
-
-        [Fact]
-        public void Option_MapOr()
-        {
-            {
-                var x = Option<string>.Some("foo");
-
-                x.IsSome.Should().BeTrue();
-                x.IsNone.Should().BeFalse();
-
-                x.MapOr(42, s => s.Length).Should().Be(3);
-            }
-
-            {
-                var x = Option<string>.None;
-
-                x.IsSome.Should().BeFalse();
-                x.IsNone.Should().BeTrue();
-
-                x.MapOr(42, s => s.Length).Should().Be(42);
-            }
-        }
+        
 
         [Fact]
         public void Option_MapOrElse()
