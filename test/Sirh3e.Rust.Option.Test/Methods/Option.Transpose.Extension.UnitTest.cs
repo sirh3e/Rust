@@ -25,6 +25,13 @@ namespace Sirh3e.Rust.Option.Test
 
                 x.Should().BeEquivalentTo(y.Transpose());
             }
+
+            {
+                var x = Result<Option<int>, SomeErr>.Ok(Option<int>.None);
+                var y = Option<Result<int, SomeErr>>.None; 
+                
+                x.Should().BeEquivalentTo(y.Transpose()); 
+            }
         }
     }
 }
