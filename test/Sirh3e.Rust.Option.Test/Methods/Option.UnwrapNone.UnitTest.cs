@@ -29,7 +29,7 @@ namespace Sirh3e.Rust.Option.Test
 
                 Action action = () => option.UnwrapNone();
 
-                action.Should().ThrowExactly<PanicException>().WithMessage("liegens");
+                action.Should().ThrowExactly<PanicException>();
             }
         }
     }
