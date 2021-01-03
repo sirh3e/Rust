@@ -1,4 +1,5 @@
-﻿using FluentAssertions;
+﻿using System;
+using FluentAssertions;
 using Xunit;
 
 namespace Sirh3e.Rust.Option.Test
@@ -36,6 +37,17 @@ namespace Sirh3e.Rust.Option.Test
                 result.IsErr.Should().BeTrue();
 
                 result.UnwrapErr().Should().Be(0);
+            }
+
+            {
+                var x = Option<string>.None;
+
+                x.IsSome.Should().BeFalse();
+                x.IsNone.Should().BeTrue();
+
+                Action action = () => x.OkOrElse<string>(null);
+
+                action.Should().ThrowExactly<ArgumentNullException>();
             }
         }
     }
