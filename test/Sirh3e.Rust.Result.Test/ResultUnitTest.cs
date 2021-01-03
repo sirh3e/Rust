@@ -61,5 +61,14 @@ namespace Sirh3e.Rust.Result.Test
 
             (x != y).Should().BeFalse();
         }
+
+        [Fact]
+        public void Result_GetHashCode()
+        {
+            var x = Result<string, int>.Ok("liegens");
+            var y = Result<string, int>.Ok("liegens");
+
+            x.GetHashCode().Should().Be(y.GetHashCode());
+        }
     }
 }
