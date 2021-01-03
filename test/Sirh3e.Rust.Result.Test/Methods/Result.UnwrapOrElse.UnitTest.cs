@@ -9,15 +9,26 @@ namespace Sirh3e.Rust.Result.Test
         [Fact]
         public void Result_UnwrapOrElse()
         {
-            Func<string, int> count = s => s.Length;
+            {
+                Func<string, int> count = s => s.Length;
 
-            Result<int, string>.Ok(2)
-                .UnwrapOrElse(count)
-                .Should().Be(2);
+                Result<int, string>.Ok(2)
+                    .UnwrapOrElse(count)
+                    .Should().Be(2);
 
-            Result<int, string>.Err("foo")
-                .UnwrapOrElse(count)
-                .Should().Be(3);
+                Result<int, string>.Err("foo")
+                    .UnwrapOrElse(count)
+                    .Should().Be(3);
+            }
+
+            {
+                Func<string, int> count = null;
+
+                Action action = () => Result<int, string>.Err("foo")
+                    .UnwrapOrElse(count);
+
+                action.Should().ThrowExactly<ArgumentNullException>();
+            }
         }
     }
 }
