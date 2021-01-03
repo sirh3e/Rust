@@ -13,15 +13,26 @@ namespace Sirh3e.Rust.Result.Test
             var results = new[] { 1, 2, 3, 4 };
             var lines = "1\n2\n3\n4\n".Split("\n");
 
-            foreach (var line in lines)
             {
-                Parse(line).Map(Convert.ToInt32).Match(i =>
+                foreach (var line in lines)
                 {
-                    i.Should().Be(results[counter++]);
-                }, s =>
+                    Parse(line).Map(Convert.ToInt32).Match(i =>
+                    {
+                        i.Should().Be(results[counter++]);
+                    }, s =>
+                    {
+                        counter++;
+                    });
+                }
+            }
+
+            {
+                foreach (var line in lines)
                 {
-                    counter++;
-                });
+                    Action action = () => Parse(line).Map(Convert.ToInt32).Match(null, null);
+
+                    action.Should().ThrowExactly<ArgumentNullException>();
+                }
             }
         }
     }
