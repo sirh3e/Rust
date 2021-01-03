@@ -43,5 +43,23 @@ namespace Sirh3e.Rust.Result.Test
 
             x.Err().Unwrap().Should().Be("Some error message");
         }
+
+        [Fact]
+        public void Result_Operator_Equals()
+        {
+            var x = Result<string, int>.Ok("liegens");
+            var y = Result<string, int>.Ok("liegens");
+
+            (x == y).Should().BeTrue();
+        }
+
+        [Fact]
+        public void Result_Operator_Not_Equals()
+        {
+            var x = Result<string, int>.Ok("liegens");
+            var y = Result<string, int>.Ok("liegens");
+
+            (x != y).Should().BeFalse();
+        }
     }
 }
