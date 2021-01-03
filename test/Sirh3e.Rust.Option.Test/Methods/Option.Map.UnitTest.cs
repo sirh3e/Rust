@@ -27,6 +27,20 @@ namespace Sirh3e.Rust.Option.Test
                 var length = option.Map(s => s.Length).Unwrap(); //ToDo must be equal to rust doc
                 length.Should().Be(13);
             }
+
+            {
+                var option = Option<string>.None;
+
+                option.IsSome.Should().BeFalse();
+                option.IsNone.Should().BeTrue();
+
+                var none = option.Map(s => s.Length); //ToDo must be equal to rust doc
+
+                none.IsSome.Should().BeFalse();
+                none.IsNone.Should().BeTrue();
+
+                none.Should().BeEquivalentTo(Option<string>.None);
+            }
         }
     }
 }
