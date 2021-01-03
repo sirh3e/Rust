@@ -35,6 +35,17 @@ namespace Sirh3e.Rust.Option.Test
                 option.IsSome.Should().BeFalse();
                 option.IsNone.Should().BeTrue();
 
+                Action action = () => option.Unwrap(null as string);
+
+                action.Should().ThrowExactly<ArgumentNullException>();
+            }
+
+            {
+                var option = Option<string>.None;
+
+                option.IsSome.Should().BeFalse();
+                option.IsNone.Should().BeTrue();
+
                 Func<string> func = null;
                 Action action = () => option.Unwrap(func);
 
