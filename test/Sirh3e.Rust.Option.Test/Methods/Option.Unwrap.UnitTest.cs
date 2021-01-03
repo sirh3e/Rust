@@ -28,6 +28,18 @@ namespace Sirh3e.Rust.Option.Test
                 Action action = () => option.Unwrap();
                 action.Should().ThrowExactly<PanicException>();
             }
+
+            {
+                var option = Option<string>.None;
+
+                option.IsSome.Should().BeFalse();
+                option.IsNone.Should().BeTrue();
+
+                Func<string> func = null;
+                Action action = () => option.Unwrap(func);
+
+                action.Should().ThrowExactly<ArgumentNullException>();
+            }
         }
     }
 }
