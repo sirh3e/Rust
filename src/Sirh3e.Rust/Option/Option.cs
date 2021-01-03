@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Sirh3e.Rust.Option
 {
-    public readonly partial struct Option<TSome> : IEnumerable<TSome>, IEquatable<Option<TSome>>
+    public readonly partial struct Option<TSome> : ICloneable, IEnumerable<TSome>, IEquatable<Option<TSome>>
     {
         private readonly TSome _some;
         public static Option<TSome> None => new();
@@ -45,6 +45,16 @@ namespace Sirh3e.Rust.Option
         public override int GetHashCode()
         {
             return HashCode.Combine(_some, IsSome);
+        }
+
+        public Option<TSome> Clone()
+        {
+            return IsSome ? Some(_some) : None;
+        }
+
+        object ICloneable.Clone()
+        {
+            return Clone();
         }
 
         IEnumerator IEnumerable.GetEnumerator()

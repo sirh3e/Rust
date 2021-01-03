@@ -60,7 +60,7 @@ namespace Sirh3e.Rust.Result
 
         public Result<TOk, TErr> Clone()
         {
-            return Cloned();
+            return IsOk ? Ok(_ok) : Err(_err);
         }
 
         object ICloneable.Clone()
