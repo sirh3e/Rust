@@ -6,7 +6,18 @@
     &lt;ProjectFolder&gt;1236DC13-315C-4E4A-A464-A6BD7A0F856B/d:Methods&lt;/ProjectFolder&gt;&#xD;
     &lt;Project Location="D:\Programming\git\github\users\sirh3e\repositories\csharp\Rust\test\Sirh3e.Rust.Result.Test" Presentation="&amp;lt;Sirh3e.Rust.Result.Test&amp;gt;" /&gt;&#xD;
   &lt;/Or&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=061e123f_002D0160_002D4321_002D889f_002Da99956044d7e/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from &amp;lt;Sirh3e.Rust.Result.Test&amp;gt;" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;Or&gt;
+    &lt;ProjectFile&gt;86E86635-7E7F-46A9-92D1-CF759345D97B/f:OptionUnitTest.cs&lt;/ProjectFile&gt;
+    &lt;ProjectFolder&gt;1236DC13-315C-4E4A-A464-A6BD7A0F856B/d:Methods&lt;/ProjectFolder&gt;
+  &lt;/Or&gt;
 &lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=06e07a63_002D9513_002D43d8_002D820e_002D403ffe435a7e/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="OptionUnitTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;Or&gt;
+    &lt;ProjectFile&gt;86E86635-7E7F-46A9-92D1-CF759345D97B/f:OptionUnitTest.cs&lt;/ProjectFile&gt;
+    &lt;ProjectFile&gt;86E86635-7E7F-46A9-92D1-CF759345D97B/d:Methods/f:Option.Expect.UnitTest.cs&lt;/ProjectFile&gt;
+    &lt;ProjectFile&gt;86E86635-7E7F-46A9-92D1-CF759345D97B/d:Methods/f:Option.Flatten.UnitTest.cs&lt;/ProjectFile&gt;
+  &lt;/Or&gt;
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=06e07a63_002D9513_002D43d8_002D820e_002D403ffe435a7e/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="OptionUnitTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;Or&gt;&#xD;
     &lt;ProjectFile&gt;86E86635-7E7F-46A9-92D1-CF759345D97B/f:OptionUnitTest.cs&lt;/ProjectFile&gt;&#xD;
