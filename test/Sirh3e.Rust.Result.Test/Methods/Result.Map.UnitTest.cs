@@ -36,14 +36,11 @@ namespace Sirh3e.Rust.Result.Test
             }
 
             {
-                foreach (var line in lines)
-                {
-                    Func<int, int> map = null;
+                Func<int, int> map = null;
 
-                    Action action = () => Parse(line).Map(map);
+                Action action = () => Parse("1909").Map(map);
 
-                    action.Should().ThrowExactly<ArgumentNullException>();
-                }
+                action.Should().ThrowExactly<ArgumentNullException>();
             }
         }
     }

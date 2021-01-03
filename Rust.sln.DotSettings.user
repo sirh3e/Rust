@@ -48,6 +48,7 @@
     &lt;/TestAncestor&gt;&#xD;
     &lt;ProjectFile&gt;1236DC13-315C-4E4A-A464-A6BD7A0F856B/f:ResultUnitTest.cs&lt;/ProjectFile&gt;&#xD;
     &lt;ProjectFile&gt;1236DC13-315C-4E4A-A464-A6BD7A0F856B/d:Methods/f:Result.Transpose.cs&lt;/ProjectFile&gt;&#xD;
+    &lt;ProjectFile&gt;1236DC13-315C-4E4A-A464-A6BD7A0F856B/d:Methods/f:Result.Map.UnitTest.cs&lt;/ProjectFile&gt;&#xD;
   &lt;/Or&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	</s:String></s:String></wpf:ResourceDictionary>
