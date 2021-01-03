@@ -43,6 +43,7 @@
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=1e2797f3_002D754d_002D4478_002D94a1_002D242e7b7cebc0/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="NoneUnitTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
     &lt;TestId&gt;xUnit::86E86635-7E7F-46A9-92D1-CF759345D97B::net5.0::Sirh3e.Rust.Option.Test.NoneUnitTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::86E86635-7E7F-46A9-92D1-CF759345D97B::net5.0::Sirh3e.Rust.Option.Test.OptionUnitTest&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	</s:String></s:String></wpf:ResourceDictionary>

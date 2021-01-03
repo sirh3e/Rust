@@ -106,5 +106,13 @@ namespace Sirh3e.Rust.Option.Test
 
             (x != y).Should().BeFalse();
         }
+
+        [Fact]
+        public void Option_Implicit_Operator_None()
+        {
+            var none = None.Value;
+
+            none.Should().As<Option<string>>().Should().Be(Option<string>.None);
+        }
     }
 }
