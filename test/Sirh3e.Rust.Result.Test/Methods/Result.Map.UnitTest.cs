@@ -34,6 +34,17 @@ namespace Sirh3e.Rust.Result.Test
                     action.Should().ThrowExactly<ArgumentNullException>();
                 }
             }
+
+            {
+                foreach (var line in lines)
+                {
+                    Func<int, int> map = null;
+
+                    Action action = () => Parse(line).Map(map);
+
+                    action.Should().ThrowExactly<ArgumentNullException>();
+                }
+            }
         }
     }
 }
