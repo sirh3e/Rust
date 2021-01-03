@@ -50,6 +50,32 @@ namespace Sirh3e.Rust.Result.Test
 
                 action.Should().ThrowExactly<ArgumentNullException>();
             }
+
+            {
+                var result = Result<string, string>.Ok("foo");
+
+                result.IsOk.Should().BeTrue();
+                result.IsErr.Should().BeFalse();
+
+                Func<string, int> map = null;
+
+                Action action = () => result.MapOr(42, map);
+
+                action.Should().ThrowExactly<ArgumentNullException>();
+            }
+
+            {
+                var result = Result<string, string>.Err("foo");
+
+                result.IsOk.Should().BeTrue();
+                result.IsErr.Should().BeFalse();
+
+                Func<string, int> @default = null;
+
+                Action action = () => result.MapOr(@default, _ => throw new NotImplementedException());
+
+                action.Should().ThrowExactly<ArgumentNullException>();
+            }
         }
     }
 }
