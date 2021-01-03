@@ -7,6 +7,6 @@
         /// </summary>
         /// <param name="message"></param>
         public void ExpectNone(string message)
-            => Match(some => ExpectNoneFailed(message, some), _ => {});
+            => Match(some => ExpectNoneFailed(message, some), _ => { });
     }
 }

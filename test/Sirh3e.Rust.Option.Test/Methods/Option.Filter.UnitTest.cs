@@ -11,27 +11,19 @@ namespace Sirh3e.Rust.Option.Test
         public void Option_Filter()
         {
             {
-                var x = Option<uint>.Some(42);
+                Func<int, bool> isEven = number => number % 2 == 0;
 
-                x.IsSome.Should().BeTrue();
-                x.IsNone.Should().BeFalse();
-
-                Action action = () => x.Expect("fruits are healthy");
-
-                action.Should().NotThrow();
+                Option<int>.None.Filter(isEven).Should().BeEquivalentTo(Option<int>.None);
+                Option<int>.Some(3).Filter(isEven).Should().BeEquivalentTo(Option<int>.None);
+                Option<int>.Some(4).Filter(isEven).Should().BeEquivalentTo(Option<int>.Some(4));
             }
 
             {
-                var x = Option<uint>.None;
+                Func<int, bool> isEven = null;
 
-                x.IsSome.Should().BeFalse();
-                x.IsNone.Should().BeTrue();
+                Action action = () => Option<int>.Some(1).Filter(isEven);
 
-                Action action = () => x.Expect("fruits are healthy");
-
-                action.Should()
-                    .ThrowExactly<PanicException>()
-                    .WithMessage("fruits are healthy");
+                action.Should().ThrowExactly<ArgumentNullException>();
             }
         }
     }
