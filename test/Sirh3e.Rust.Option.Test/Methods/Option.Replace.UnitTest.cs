@@ -9,6 +9,8 @@ namespace Sirh3e.Rust.Option.Test
         [Fact]
         public void Option_Replace()
         {
+            Action action = () => Option<int>.Some(69).Replace(42);
+            action.Should().ThrowExactly<NotImplementedException>(); //ToDo Implement
             /*
             {
                 var x = Option<int>.Some(2);
