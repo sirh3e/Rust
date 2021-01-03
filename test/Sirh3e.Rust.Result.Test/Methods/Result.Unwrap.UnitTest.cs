@@ -32,6 +32,20 @@ namespace Sirh3e.Rust.Result.Test
                     .ThrowExactly<PanicException>()
                     .WithMessage($"Cannot unwrap \"Ok\" when the result is \"Err\": {errorMessage}.");
             }
+
+            {
+                var errorMessage = "emergency failure";
+                var x = Result<uint, string>.Err(errorMessage);
+
+                x.IsErr.Should().BeTrue();
+                x.IsOk.Should().BeFalse();
+
+                Func<string, string> func = null;
+                Action action = () => x.Unwrap(func);
+
+                action.Should()
+                    .ThrowExactly<ArgumentNullException>();
+            }
         }
     }
 }
