@@ -21,7 +21,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\src\Sirh3e.Rust.Result\Sirh3e.Rust.Result.csproj" />
       <ProjectReference Include="..\..\src\Sirh3e.Rust\Sirh3e.Rust.csproj" />
     </ItemGroup>
 
