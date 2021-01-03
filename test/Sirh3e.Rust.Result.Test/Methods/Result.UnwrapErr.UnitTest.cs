@@ -31,6 +31,19 @@ namespace Sirh3e.Rust.Result.Test
 
                 x.UnwrapErr().Should().Be("emergency failure");
             }
+
+            {
+                var x = Result<uint, string>.Err("emergency failure");
+
+                x.IsOk.Should().BeFalse();
+                x.IsErr.Should().BeTrue();
+
+                Func<uint, string> func = null;
+
+                Action action = () => x.UnwrapErr(func);
+
+                action.Should().ThrowExactly<ArgumentNullException>();
+            }
         }
     }
 }
