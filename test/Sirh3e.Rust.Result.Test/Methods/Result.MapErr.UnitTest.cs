@@ -42,6 +42,17 @@ namespace Sirh3e.Rust.Result.Test
 
                 t.Err().Unwrap().Should().Be("error code 13");
             }
+
+            {
+                var result = Result<uint, uint>.Err(13);
+
+                result.IsOk.Should().BeFalse();
+                result.IsErr.Should().BeTrue();
+
+                Action action = () => result.MapErr(null as Func<uint, uint>);
+
+                action.Should().ThrowExactly<ArgumentNullException>();
+            }
         }
     }
 }
