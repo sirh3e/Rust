@@ -67,5 +67,50 @@ namespace Sirh3e.Rust.Option.Test
             x.ZipWith(y, Point.Factory.New).Should().BeEquivalentTo(Option<Point>.Some(new Point(17.5, 42.7)));
             x.ZipWith(Option<double>.None, Point.Factory.New).Should().BeEquivalentTo(Option<Point>.None);
         }
+
+        [Fact]
+        public void Option_ZipWith_Helper_Point_Equals()
+        {
+            var x = new Point(412263.269, 399111.36);
+            var y = new Point(412263.269, 399111.36);
+
+            x.Equals(y).Should().BeTrue();
+        }
+
+        [Fact]
+        public void Option_ZipWith_Helper_Point_Equals_Object()
+        {
+            var x = new Point(412263.269, 399111.36);
+            var y = new Point(412263.269, 399111.36);
+
+            x.Equals(y as object).Should().BeTrue();
+        }
+
+        [Fact]
+        public void Option_ZipWith_Helper_Point_HashCode()
+        {
+            var x = new Point(412263.269, 399111.36);
+            var y = new Point(412263.269, 399111.36);
+
+            x.GetHashCode().Should().Be(y.GetHashCode());
+        }
+
+        [Fact]
+        public void Option_ZipWith_Helper_Point_Operator_Equals()
+        {
+            var x = new Point(412263.269, 399111.36);
+            var y = new Point(412263.269, 399111.36);
+
+            (x == y).Should().BeTrue();
+        }
+
+        [Fact]
+        public void Option_ZipWith_Helper_Point_Operator_Not_Equals()
+        {
+            var x = new Point(412263.269, 399111.36);
+            var y = new Point(412263.269, 399111.36);
+
+            (x != y).Should().BeFalse();
+        }
     }
 }
