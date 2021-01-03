@@ -1,5 +1,4 @@
 ﻿using FluentAssertions;
-using Sirh3e.Rust.Result;
 using Xunit;
 
 namespace Sirh3e.Rust.Option.Test
