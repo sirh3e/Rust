@@ -12,10 +12,10 @@ namespace Sirh3e.Rust.Option.Test
             Func<uint, Option<uint>> sq = x => Option<uint>.Some(x * x);
             Func<uint, Option<uint>> nope = _ => Option<uint>.None;
 
-            Option<uint>.Some(2).AndThen(sq).AndThen(sq).Should().Be(Option<uint>.Some(16));
-            Option<uint>.Some(2).AndThen(sq).AndThen(nope).Should().Be(Option<uint>.None);
-            Option<uint>.Some(2).AndThen(nope).AndThen(sq).Should().Be(Option<uint>.None);
-            Option<uint>.None.AndThen(sq).AndThen(sq).Should().Be(Option<uint>.None);
+            Option<uint>.Some(2).AndThen(sq).AndThen(sq).Should().BeEquivalentTo(Option<uint>.Some(16));
+            Option<uint>.Some(2).AndThen(sq).AndThen(nope).Should().BeEquivalentTo(Option<uint>.None);
+            Option<uint>.Some(2).AndThen(nope).AndThen(sq).Should().BeEquivalentTo(Option<uint>.None);
+            Option<uint>.None.AndThen(sq).AndThen(sq).Should().BeEquivalentTo(Option<uint>.None);
         }
     }
 }

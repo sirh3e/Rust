@@ -8,7 +8,7 @@ namespace Sirh3e.Rust.Option
         //ToDo
         public IEnumerator<TSome> Iter()
         {
-            throw new NotImplementedException();
+            return GetEnumerator();
         }
     }
 }

@@ -19,7 +19,7 @@ namespace Sirh3e.Rust.Option.Test
                 flatten.IsSome.Should().BeTrue();
                 flatten.IsNone.Should().BeFalse();
 
-                flatten.Should().Be(Option<uint>.Some(6));
+                flatten.Should().BeEquivalentTo(Option<uint>.Some(6));
             }
 
             {
@@ -33,7 +33,7 @@ namespace Sirh3e.Rust.Option.Test
                 flatten.IsSome.Should().BeFalse();
                 flatten.IsNone.Should().BeTrue();
 
-                flatten.Should().Be(Option<uint>.None);
+                flatten.Should().BeEquivalentTo(Option<uint>.None);
             }
 
             {
@@ -47,7 +47,7 @@ namespace Sirh3e.Rust.Option.Test
                 flatten.IsSome.Should().BeFalse();
                 flatten.IsNone.Should().BeTrue();
 
-                flatten.Should().Be(Option<uint>.None);
+                flatten.Should().BeEquivalentTo(Option<uint>.None);
             }
         }
     }

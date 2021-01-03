@@ -15,9 +15,18 @@ namespace Sirh3e.Rust.Option.Test
                 x.IsSome.Should().BeTrue();
                 x.IsNone.Should().BeFalse();
 
-                Action action = () => x.Iter();
+                x.Iter().Current.Should().Be(4);
+            }
 
-                action.Should().ThrowExactly<NotImplementedException>(); //ToDo
+            {
+                var x = Option<uint>.None;
+
+                x.IsSome.Should().BeFalse();
+                x.IsNone.Should().BeTrue();
+
+                Func<uint> func = () => x.Iter().Current;
+
+                func.Should().ThrowExactly<IndexOutOfRangeException>();
             }
         }
     }

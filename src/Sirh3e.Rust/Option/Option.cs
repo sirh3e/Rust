@@ -1,9 +1,10 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace Sirh3e.Rust.Option
 {
-    public readonly partial struct Option<TSome> : IEquatable<Option<TSome>>
+    public readonly partial struct Option<TSome> : IEnumerable<TSome>, IEquatable<Option<TSome>>
     {
         private readonly TSome _some;
         public static Option<TSome> None => new();
@@ -30,6 +31,11 @@ namespace Sirh3e.Rust.Option
             return None;
         }
 
+        public IEnumerator<TSome> GetEnumerator()
+        {
+            return new OptionEnumerator<TSome>(IsSome ? new[] { _some } : new TSome[0]);
+        }
+
         public override bool Equals(object obj)
         {
             if (ReferenceEquals(null, obj)) return false;
@@ -39,6 +45,11 @@ namespace Sirh3e.Rust.Option
         public override int GetHashCode()
         {
             return HashCode.Combine(_some, IsSome);
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
         }
 
         public static bool operator ==(Option<TSome> left, Option<TSome> right)

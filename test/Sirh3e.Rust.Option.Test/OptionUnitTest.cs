@@ -112,7 +112,7 @@ namespace Sirh3e.Rust.Option.Test
         {
             var none = None.Value;
 
-            none.Should().As<Option<string>>().Should().Be(Option<string>.None);
+            none.Should().As<Option<string>>().Should().BeEquivalentTo(Option<string>.None);
         }
     }
 }
