@@ -12,7 +12,7 @@
         public static Result<TOk, TErr> Flatten<TOk, TErr>(this Result<Result<TOk, TErr>, TErr> result)
         {
             return result.Match(
-                ok => Result<TOk, TErr>.Ok(ok.Unwrap()),
+                ok => ok,
                 Result<TOk, TErr>.Err);
         }
 
