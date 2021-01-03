@@ -59,10 +59,10 @@ namespace Sirh3e.Rust.Option.Test
 
                 var option = x.Xor(y);
 
-                option.IsSome.Should().BeTrue();
-                option.IsNone.Should().BeFalse();
+                option.IsSome.Should().BeFalse();
+                option.IsNone.Should().BeTrue();
 
-                option.Should().BeEquivalentTo(Option<uint>.Some(2));
+                option.Should().BeEquivalentTo(Option<uint>.None);
             }
 
             {
