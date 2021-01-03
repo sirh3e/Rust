@@ -13,7 +13,7 @@ namespace Sirh3e.Rust.Result
         /// <exception cref="NotImplementedException"></exception>
         public IEnumerator<TOk> Iter()
         {
-            throw new NotImplementedException(); //ToDo
+            return GetEnumerator();
         }
     }
 }

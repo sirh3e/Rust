@@ -1,9 +1,10 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace Sirh3e.Rust.Result
 {
-    public readonly partial struct Result<TOk, TErr> : ICloneable, IEquatable<Result<TOk, TErr>>
+    public readonly partial struct Result<TOk, TErr> : ICloneable, IEnumerable<TOk>, IEquatable<Result<TOk, TErr>>
     {
         private readonly TOk _ok;
         private readonly TErr _err;
@@ -36,6 +37,11 @@ namespace Sirh3e.Rust.Result
                    IsOk == other.IsOk;
         }
 
+        public IEnumerator<TOk> GetEnumerator()
+        {
+            return new ResultEnumerator<TOk>(IsOk ? new[] { _ok } : new TOk[0]);
+        }
+
         public override bool Equals(object obj)
         {
             return obj is Result<TOk, TErr> other &&
@@ -45,6 +51,11 @@ namespace Sirh3e.Rust.Result
         public override int GetHashCode()
         {
             return HashCode.Combine(_ok, _err, IsOk);
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
         }
 
         public Result<TOk, TErr> Clone()
