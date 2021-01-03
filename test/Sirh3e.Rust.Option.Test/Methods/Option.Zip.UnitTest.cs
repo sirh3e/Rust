@@ -26,7 +26,7 @@ namespace Sirh3e.Rust.Option.Test
             var option = x.Zip(y);
 
             option.Should().BeEquivalentTo(Option<(uint, string)>.Some((1, "hi")));
-            x.Zip(y).Should().BeEquivalentTo(Option<(uint, string)>.None);
+            x.Zip(z).Should().BeEquivalentTo(Option<(uint, byte)>.None);
         }
     }
 }

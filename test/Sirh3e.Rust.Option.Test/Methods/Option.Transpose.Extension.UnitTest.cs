@@ -6,7 +6,7 @@ namespace Sirh3e.Rust.Option.Test
 {
     public partial class OptionUnitTest
     {
-        struct SomeErr { }
+        private struct SomeErr { }
 
         [Fact]
         public void Option_Transpose()
