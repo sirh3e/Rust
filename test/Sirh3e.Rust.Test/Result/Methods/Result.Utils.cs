@@ -1,6 +1,7 @@
 ﻿using System;
+using Sirh3e.Rust.Result;
 
-namespace Sirh3e.Rust.Result.Test
+namespace Sirh3e.Rust.Test.Result
 {
     public partial class ResultUnitTest
     {
