@@ -2,7 +2,7 @@
 
 ![GitHub](https://img.shields.io/github/license/sirh3e/Rust)![Nuget](https://img.shields.io/nuget/v/Sirh3e.Rust)![Nuget](https://img.shields.io/nuget/dt/Sirh3e.Rust)
 
-Sirh3e.Rust is a library that provide missing features in C# where are fundamental in the [Rust Programming Language](https://github.com/rust-lang/rust).
+Sirh3e.Rust is a library that provide missing features in C# where are fundamental in the [Rust Programming Language](https://github.com/rust-lang/rust) like Option and Result.
 
 See [features](#features) for all available methods.
 
@@ -28,10 +28,22 @@ dotnet add package Sirh3e.Rust --version 1.0.0-preview-0002
 
 ## Features
 
+Legend:
+
+- ✅ Implemented no bugs/🐛 known.
+- ❌ Not implemented and will not be to implement do to language bounderies.
+- 😐 Rust concept that is not requiered in C#.
+- 🚧 Currently under construction will raise NotImplementedException.
+
 1. Option
     - Methods:
     - ✅ And
     - ✅ AndThen
+    - 😐 AsDeref
+    - 😐 AsDerefMut
+    - 😐 AsPinMut
+    - 😐 AsPinRef
+    - 😐 AsRef
     - ✅ Cloned
     - ✅ Contains
     - ✅ Expect
@@ -40,8 +52,9 @@ dotnet add package Sirh3e.Rust --version 1.0.0-preview-0002
     - ✅ ExpectNoneFailed
     - ✅ Filter
     - ✅ Flatten
-    - ❌ GetOrInsert
-    - ❌ GetOrInsertWith
+    - 🚧 GetOrInsert
+    - 🚧 GetOrInsertWith
+    - 🚧 Insert
     - ✅ IsNone
     - ✅ IsSome
     - ✅ Iter
@@ -54,7 +67,7 @@ dotnet add package Sirh3e.Rust --version 1.0.0-preview-0002
     - ✅ Or
     - ✅ OrElse
     - ✅ Replace
-    - ✅ Take
+    - 🚧 Take
     - ✅ Transpose
     - ✅ Unwrap
     - ✅ UnwrapNone
