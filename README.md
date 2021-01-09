@@ -4,7 +4,7 @@
 
 Sirh3e.Rust is a library that provide missing features in C# where are fundamental in the [Rust Programming Language](https://github.com/rust-lang/rust).
 
-See [features](#-Features) for all available methods.
+See [features](#features) for all available methods.
 
 ## Status
 
