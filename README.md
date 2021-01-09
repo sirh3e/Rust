@@ -18,7 +18,7 @@ See [features](#features) for all available methods.
 
 ## License
 
-[BSD-3-Clause](https://github.com/sirh3e/Rust/LICENSE.txt)
+[BSD-3-Clause](https://github.com/sirh3e/Rust/blob/features/LICENSE.txt)
 
 ## Nuget
 
