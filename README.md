@@ -31,7 +31,7 @@ dotnet add package Sirh3e.Rust --version 1.0.0-preview-0002
 Legend:
 
 - ✅ Implemented no bugs/🐛 known.
-- ❌ Not implemented and will not be to implement do to language bounderies.
+- ❌ Not implemented and will not be to implement do to C# language bounderies.
 - 😐 Rust concept that is not requiered in C#.
 - 🚧 Currently under construction will raise NotImplementedException.
 
