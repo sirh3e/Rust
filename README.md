@@ -16,6 +16,16 @@ See [features](#-Features) for all available methods.
 | Test Coverage   | CODE CLIMATE  | [![Test Coverage](https://api.codeclimate.com/v1/badges/7eb0b456887eeedaad92/test_coverage)](https://codeclimate.com/github/sirh3e/Rust/test_coverage)       |
 | Code Quality    | CodeFactor    | [![CodeFactor](https://www.codefactor.io/repository/github/sirh3e/rust/badge)](https://www.codefactor.io/repository/github/sirh3e/rust)                      |
 
+## License
+
+[BSD-3-Clause](https://github.com/sirh3e/Rust/LICENSE.txt)
+
+## Nuget
+
+```cmd
+dotnet add package Sirh3e.Rust --version 1.0.0-preview-0002
+```
+
 ## Features
 
 1. Option
@@ -83,16 +93,6 @@ See [features](#-Features) for all available methods.
     - ✅ UnwrapOr
     - ✅ UnwrapOrDefault
     - ✅ UnwrapOrElse
-
-## License
-
-[BSD-3-Clause](https://github.com/sirh3e/Rust/LICENSE.txt)
-
-## Nuget
-
-```cmd
-dotnet add package Sirh3e.Rust --version 1.0.0-preview-0002
-```
 
 ## Becoming Active in Sirh3e.Rust development
 
