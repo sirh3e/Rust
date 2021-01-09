@@ -96,7 +96,7 @@ dotnet add package Sirh3e.Rust --version 1.0.0-preview-0002
 
 ## Becoming Active in Sirh3e.Rust development
 
-New contributors are always welcome and I am happy to provide guidance when necessary.
+New contributors are always welcome and I am happy to provide guidance if necessary.
 
 ## Semantic Versioning
 
