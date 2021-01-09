@@ -17,6 +17,6 @@ namespace Sirh3e.Rust.Option
 
             if (value is null)
                 throw new ArgumentNullException(nameof(value));
-        } 
+        }
     }
 }
