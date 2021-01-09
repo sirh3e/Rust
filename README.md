@@ -46,6 +46,7 @@ Legend:
     - 😐 AsRef
     - ✅ Cloned
     - ✅ Contains
+    - 😐 Copied
     - ✅ Expect
     - ✅ ExpectFailed
     - ✅ ExpectNone
@@ -81,9 +82,14 @@ Legend:
     - Methods:
     - ✅ And
     - ✅ AndThen
+    - 😐 AsDeref
+    - 😐 AsDerefMut
+    - 😐 AsMut
+    - 😐 AsRef
     - ✅ Cloned
     - ✅ Contains
     - ✅ ContainsErr
+    - 😐 Copied
     - ✅ Err
     - ✅ Expect
     - ✅ ExpectErr
