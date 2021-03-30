@@ -7,7 +7,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-16.04, ubuntu-18.04, ubuntu-20.04]
-        dotnet-version: [2.1.x, 3.1.x, 5.0.x]
+        dotnet-version: [5.0.100]
     steps:
     - uses: actions/checkout@v2
     - name: Setup .NET Core
