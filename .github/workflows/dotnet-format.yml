@@ -1,6 +1,14 @@
 name: .NET Format
+on:
+  push:
+    paths:
+    - 'src/**'
+    - 'test/**'
+  pull_request:
+    paths:
+      - 'src/**'
+      - 'test/**'
 
-on: [push, pull_request]
 
 jobs:
   build:
