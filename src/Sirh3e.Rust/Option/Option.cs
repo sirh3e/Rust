@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+#if !NET2_0_OR_GREATER
+using System.Reflection;
+#endif
 
 namespace Sirh3e.Rust.Option
 {
@@ -12,7 +15,15 @@ namespace Sirh3e.Rust.Option
         private Option(TSome some)
         {
             _some = some;
-            IsSome = typeof(TSome).IsValueType || some != null;
+
+            var isValueType = false;
+            
+#if NET2_0_OR_GREATER
+            isValueType = typeof(TSome).IsValueType;
+#else
+            isValueType = typeof(TSome).GetTypeInfo().IsValueType;
+#endif
+            IsSome = isValueType || some != null;
         }
 
         public bool Equals(Option<TSome> other)
@@ -44,7 +55,17 @@ namespace Sirh3e.Rust.Option
 
         public override int GetHashCode()
         {
+#if NET2_1_OR_GREATER
             return HashCode.Combine(_some, IsSome);
+#else
+            //Thx to https://rehansaeed.com/gethashcode-made-easy/
+            var hashCode = 17;
+
+            hashCode = hashCode * 23 + (_some == null ? 0 : _some.GetHashCode());
+            hashCode = hashCode * 23 + IsSome.GetHashCode();
+            
+            return hashCode;
+#endif
         }
 
         public Option<TSome> Clone()

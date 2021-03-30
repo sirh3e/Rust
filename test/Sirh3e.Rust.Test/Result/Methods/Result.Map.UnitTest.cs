@@ -11,7 +11,7 @@ namespace Sirh3e.Rust.Test.Result
         {
             var counter = 0;
             var results = new[] { 1, 2, 3, 4 };
-            var lines = "1\n2\n3\n4\n".Split("\n");
+            var lines = "1\n2\n3\n4\n".Split("\n".ToCharArray());
 
             {
                 foreach (var line in lines)

@@ -22,7 +22,7 @@ namespace Sirh3e.Rust.Test.Option
             {
                 public static Point New(double x, double y)
                 {
-                    return new(x, y);
+                    return new Point(x, y);
                 }
             }
 

@@ -1,7 +1,27 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net5.0</TargetFramework>
+        <LangVersion>9</LangVersion>
+        <TargetFrameworks>net45;netstandard1.1;netstandard1.3;netstandard1.6;netstandard2.0;netstandard2.1;net5.0</TargetFrameworks>
+        <Nullable>enable</Nullable>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Title>Sirh3e.Rust</Title>
+        <Authors>sirh3e</Authors>
+        <Description>Is a library that provide missing features in C# where are fundamental in the Rust Programming Language</Description>
+        <RepositoryUrl>https://github.com/sirh3e/Rust.git</RepositoryUrl>
+        <RepositoryBranch>features</RepositoryBranch>
+        <PackageProjectUrl>https://github.com/sirh3e/Rust.git</PackageProjectUrl>
+        <PackageLicenseExpression>BSD-3-Clause</PackageLicenseExpression>
+        <PackageTags>sirh3e Sirh3e rust Rust result Result option Option Functional functional</PackageTags>
+        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     </PropertyGroup>
 
+    <ItemGroup Condition="'$(TargetFramework)' == 'net45' Or '$(TargetFramework)' == 'netstandard1.1' Or '$(TargetFramework)' == 'netstandard1.3' Or '$(TargetFramework)' == 'netstandard1.6'">
+        <PackageReference Include="System.ValueTuple" Version="4.5.0" />
+        <PackageReference Include="System.Runtime" Version="4.3.0" />
+    </ItemGroup>
+
+    <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+        <PackageReference Include="Microsoft.Bcl.HashCode" Version="1.1.1" />
+    </ItemGroup>
 </Project>

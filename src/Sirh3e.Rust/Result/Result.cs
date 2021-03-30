@@ -50,7 +50,18 @@ namespace Sirh3e.Rust.Result
 
         public override int GetHashCode()
         {
+#if NET2_1_OR_GREATER
             return HashCode.Combine(_ok, _err, IsOk);
+#else
+            //Thx to https://rehansaeed.com/gethashcode-made-easy/
+            var hashCode = 17;
+
+            hashCode = hashCode * 23 + (_ok == null ? 0 : _ok.GetHashCode());
+            hashCode = hashCode * 23 + (_err == null ? 0 : _err.GetHashCode());
+            hashCode = hashCode * 23 + IsErr.GetHashCode();
+            
+            return hashCode;  
+#endif
         }
 
         IEnumerator IEnumerable.GetEnumerator()
