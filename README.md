@@ -24,7 +24,7 @@ See [features](#features) for all available methods.
 ## Nuget
 
 ```cmd
-dotnet add package Sirh3e.Rust --version 1.0.0-preview-0002
+dotnet add package Sirh3e.Rust --version 1.0.0-preview-0003
 ```
 
 ## Features
