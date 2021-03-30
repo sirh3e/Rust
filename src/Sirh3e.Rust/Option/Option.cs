@@ -17,7 +17,7 @@ namespace Sirh3e.Rust.Option
             _some = some;
 
             var isValueType = false;
-            
+
 #if NET2_0_OR_GREATER
             isValueType = typeof(TSome).IsValueType;
 #else
@@ -63,7 +63,7 @@ namespace Sirh3e.Rust.Option
 
             hashCode = hashCode * 23 + (_some == null ? 0 : _some.GetHashCode());
             hashCode = hashCode * 23 + IsSome.GetHashCode();
-            
+
             return hashCode;
 #endif
         }

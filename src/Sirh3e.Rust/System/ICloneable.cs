@@ -1,5 +1,5 @@
 ﻿#if !NET2_0_OR_GREATER
-namespace System 
+namespace System
 {
     public interface ICloneable
     {

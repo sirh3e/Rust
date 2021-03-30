@@ -59,8 +59,8 @@ namespace Sirh3e.Rust.Result
             hashCode = hashCode * 23 + (_ok == null ? 0 : _ok.GetHashCode());
             hashCode = hashCode * 23 + (_err == null ? 0 : _err.GetHashCode());
             hashCode = hashCode * 23 + IsErr.GetHashCode();
-            
-            return hashCode;  
+
+            return hashCode;
 #endif
         }
 
