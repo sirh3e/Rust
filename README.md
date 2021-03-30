@@ -10,7 +10,8 @@ See [features](#features) for all available methods.
 
 | Type            | Service       | Status                                                                                                                                                       |
 |-----------------|---------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| .NET Core       | Github Action | ![.NET Core](https://github.com/sirh3e/Rust/workflows/.NET%20Core/badge.svg)                                                                                 |
+| .NET Core Build | Github Action | ![.NET Core](https://github.com/sirh3e/Rust/workflows/.NET%20Core%20Build/badge.svg)                                                                         |
+| .NET Core Test  | Github Action | ![.NET Core](https://github.com/sirh3e/Rust/workflows/.NET%20Core%20Test/badge.svg)                                                                          |
 | .NET Format     | Github Action | ![.NET Format](https://github.com/sirh3e/Rust/workflows/.NET%20Format/badge.svg)                                                                             |
 | Maintainability | CODE CLIMATE  | [![Maintainability](https://api.codeclimate.com/v1/badges/7eb0b456887eeedaad92/maintainability)](https://codeclimate.com/github/sirh3e/Rust/maintainability) |
 | Test Coverage   | CODE CLIMATE  | [![Test Coverage](https://api.codeclimate.com/v1/badges/7eb0b456887eeedaad92/test_coverage)](https://codeclimate.com/github/sirh3e/Rust/test_coverage)       |
