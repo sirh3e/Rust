@@ -5,6 +5,6 @@
         /// <summary>
         /// Returns true if the option is a Some value.
         /// </summary>
-        public readonly bool IsSome;
+        public bool IsSome { get; private set; }
     }
 }
