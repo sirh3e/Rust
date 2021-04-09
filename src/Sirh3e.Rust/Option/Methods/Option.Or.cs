@@ -1,6 +1,6 @@
 ﻿namespace Sirh3e.Rust.Option
 {
-    public readonly partial struct Option<TSome>
+    public partial struct Option<TSome>
     {
         /// <summary>
         /// Returns the option if it contains a value, otherwise returns option.

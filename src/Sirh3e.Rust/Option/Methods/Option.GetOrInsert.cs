@@ -2,7 +2,7 @@
 
 namespace Sirh3e.Rust.Option
 {
-    public readonly partial struct Option<TSome>
+    public partial struct Option<TSome>
     {
         /// <summary>
         /// Inserts some into the option if it is None, then returns a mutable reference to the contained value.

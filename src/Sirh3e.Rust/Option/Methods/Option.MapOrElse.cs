@@ -2,7 +2,7 @@
 
 namespace Sirh3e.Rust.Option
 {
-    public readonly partial struct Option<TSome>
+    public partial struct Option<TSome>
     {
         /// <summary>
         /// Applies a function to the contained value (if any), or computes a default (if not).
