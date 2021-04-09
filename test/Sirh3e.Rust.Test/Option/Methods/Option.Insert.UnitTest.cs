@@ -1,4 +1,5 @@
-﻿using FluentAssertions;
+﻿using System;
+using FluentAssertions;
 using Sirh3e.Rust.Option;
 using Xunit;
 
@@ -9,34 +10,47 @@ namespace Sirh3e.Rust.Test.Option
         [Fact]
         public void Option_Insert()
         {
-            var option = Option<int>.None;
+            {
+                var option = Option<int>.None;
 
-            option.IsNone.Should().BeTrue();
-            option.IsSome.Should().BeFalse();
+                option.IsNone.Should().BeTrue();
+                option.IsSome.Should().BeFalse();
 
-            var value = option.Insert(1);
+                var value = option.Insert(1);
 
-            option.IsNone.Should().BeFalse();
-            option.IsSome.Should().BeTrue();
+                option.IsNone.Should().BeFalse();
+                option.IsSome.Should().BeTrue();
 
-            option.Unwrap().Should().Be(1);
-            value.Should().Be(1);
+                option.Unwrap().Should().Be(1);
+                value.Should().Be(1);
 
-            value = option.Insert(2);
+                value = option.Insert(2);
 
-            option.IsNone.Should().BeFalse();
-            option.IsSome.Should().BeTrue();
+                option.IsNone.Should().BeFalse();
+                option.IsSome.Should().BeTrue();
 
-            option.Unwrap().Should().Be(2);
-            value.Should().Be(2);
+                option.Unwrap().Should().Be(2);
+                value.Should().Be(2);
 
-            value = option.Insert(3);
+                value = option.Insert(3);
 
-            option.IsNone.Should().BeFalse();
-            option.IsSome.Should().BeTrue();
+                option.IsNone.Should().BeFalse();
+                option.IsSome.Should().BeTrue();
 
-            option.Unwrap().Should().Be(3);
-            value.Should().Be(3);
+                option.Unwrap().Should().Be(3);
+                value.Should().Be(3);
+            }
+
+            {
+                var option = Option<string>.None;
+
+                option.IsNone.Should().BeTrue();
+                option.IsSome.Should().BeFalse();
+
+                Action action = () => option.Insert(null);
+
+                action.Should().ThrowExactly<ArgumentNullException>();
+            }
         }
     }
 }
