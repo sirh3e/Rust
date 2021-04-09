@@ -15,7 +15,7 @@ namespace Sirh3e.Rust.Test.Option
             option.IsSome.Should().BeFalse();
 
             var value = option.Insert(1);
-            
+
             option.IsNone.Should().BeFalse();
             option.IsSome.Should().BeTrue();
 
@@ -23,15 +23,15 @@ namespace Sirh3e.Rust.Test.Option
             value.Should().Be(1);
 
             value = option.Insert(2);
-            
+
             option.IsNone.Should().BeFalse();
             option.IsSome.Should().BeTrue();
 
             option.Unwrap().Should().Be(2);
             value.Should().Be(2);
-            
+
             value = option.Insert(3);
-            
+
             option.IsNone.Should().BeFalse();
             option.IsSome.Should().BeTrue();
 
