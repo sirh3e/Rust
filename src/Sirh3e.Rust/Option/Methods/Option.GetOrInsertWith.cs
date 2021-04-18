@@ -9,10 +9,8 @@ namespace Sirh3e.Rust.Option
         /// </summary>
         /// <param name="func"></param>
         /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
+        /// <exception cref="ArgumentNullException"></exception>
         public TSome GetOrInsertWith(Func<TSome> func)
-        {
-            throw new NotImplementedException();
-        }
+            => IsSome ? _some : Insert((_ = func ?? throw new ArgumentNullException())());
     }
 }
