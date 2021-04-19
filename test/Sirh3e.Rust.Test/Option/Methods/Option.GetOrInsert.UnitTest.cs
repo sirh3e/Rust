@@ -12,9 +12,10 @@ namespace Sirh3e.Rust.Test.Option
         {
             var option = Option<int>.None;
 
-            Action action = () => option.GetOrInsert(5);
+            option.IsNone.Should().BeTrue();
+            option.IsSome.Should().BeFalse();
 
-            action.Should().ThrowExactly<NotImplementedException>();
+            option.GetOrInsert(5).Should().Be(5); 
         }
     }
 }

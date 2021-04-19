@@ -9,10 +9,8 @@ namespace Sirh3e.Rust.Option
         /// </summary>
         /// <param name="some"></param>
         /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
+        /// <exception cref="ArgumentNullException"></exception>
         public TSome GetOrInsert(TSome some)
-        {
-            throw new NotImplementedException();
-        }
+            => IsSome ? _some : Insert(_ = some ?? throw new ArgumentNullException());
     }
 }
