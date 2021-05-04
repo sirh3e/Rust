@@ -1,12 +1,15 @@
-﻿using System;
-
-namespace Sirh3e.Rust.Option
+﻿namespace Sirh3e.Rust.Option
 {
     public partial struct Option<TSome>
     {
         public Option<TSome> Take()
         {
-            throw new NotImplementedException();
+            var option = this;
+
+            _some = default;
+            IsSome = false;
+
+            return option;
         }
     }
 }
