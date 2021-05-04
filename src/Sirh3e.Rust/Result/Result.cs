@@ -79,6 +79,12 @@ namespace Sirh3e.Rust.Result
             return Clone();
         }
 
+        public static implicit operator Result<TOk, TErr>(Err<TErr> err)
+            => Err(err.Value);
+
+        public static implicit operator Result<TOk, TErr>(Ok<TOk> ok)
+            => Ok(ok.Value);
+
         public static bool operator ==(Result<TOk, TErr> left, Result<TOk, TErr> right)
         {
             return left.Equals(right);
