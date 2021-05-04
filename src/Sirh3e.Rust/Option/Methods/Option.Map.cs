@@ -2,7 +2,7 @@
 
 namespace Sirh3e.Rust.Option
 {
-    public readonly partial struct Option<TSome>
+    public partial struct Option<TSome>
     {
         /// <summary>
         /// Maps an Option&lt;TSome&gt; to Option&lt;T&gt; by applying a function to a contained value.

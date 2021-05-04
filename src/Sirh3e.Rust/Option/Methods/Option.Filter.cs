@@ -2,7 +2,7 @@
 
 namespace Sirh3e.Rust.Option
 {
-    public readonly partial struct Option<TSome>
+    public partial struct Option<TSome>
     {
         /// <summary>
         /// Returns None if the option is None, otherwise calls predicate with the wrapped value and returns:

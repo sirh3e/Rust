@@ -7,9 +7,9 @@ using System.Reflection;
 
 namespace Sirh3e.Rust.Option
 {
-    public readonly partial struct Option<TSome> : ICloneable, IEnumerable<TSome>, IEquatable<Option<TSome>>
+    public partial struct Option<TSome> : ICloneable, IEnumerable<TSome>, IEquatable<Option<TSome>>
     {
-        private readonly TSome _some;
+        private TSome _some;
         public static Option<TSome> None => new();
 
         private Option(TSome some)

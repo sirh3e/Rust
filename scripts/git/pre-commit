@@ -1,0 +1,14 @@
+#!/usr/bin/env sh
+
+DIR_ROOT="$(git rev-parse --show-toplevel)"
+[ -d "${DIR_ROOT}" ] || exit 1
+
+#dotnet format
+dotnet format "${DIR_ROOT}" \
+    --check
+
+#check all scripts
+find "${DIR_ROOT}" \
+    -type f \
+    -name '*.sh' \
+    -exec shellcheck --severity style {} \;
