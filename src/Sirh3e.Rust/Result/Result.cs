@@ -76,6 +76,6 @@ namespace Sirh3e.Rust.Result
             => left.Equals(right);
 
         public static bool operator !=(Result<TOk, TErr> left, Result<TOk, TErr> right)
-            => !left.Equals(right);
+            => !(left == right);
     }
 }
