@@ -18,12 +18,7 @@ namespace Sirh3e.Rust.Result
                 return _ok;
             }
 
-            if (@default is null)
-            {
-                throw new ArgumentNullException(nameof(@default));
-            }
-
-            return @default;
+            return @default ?? throw new ArgumentNullException(nameof(@default));
         }
     }
 }

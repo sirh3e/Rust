@@ -13,15 +13,9 @@ namespace Sirh3e.Rust.Result
         /// <returns></returns>
         /// <exception cref="ArgumentNullException">Throws only if map is null</exception>
         public Result<T, TErr> Map<T>(Func<TOk, T> map)
-        {
-            return Match(ok =>
-                {
-                    if (map is null)
-                        throw new ArgumentNullException(nameof(ok));
-                    return Result<T, TErr>.Ok(map(ok));
-                },
+            => Match(ok =>
+                Result<T, TErr>.Ok((_ = map ?? throw new ArgumentNullException(nameof(map)))(ok)),
                 Result<T, TErr>.Err
-            );
-        }
+                );
     }
 }

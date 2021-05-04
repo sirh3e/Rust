@@ -13,8 +13,7 @@ namespace Sirh3e.Rust.Result
         /// <typeparam name="TErr"></typeparam>
         /// <returns></returns>
         public static Option<Result<TOk, TErr>> Transpose<TOk, TErr>(this Result<Option<TOk>, TErr> result)
-        {
-            return result.Match(ok =>
+            => result.Match(ok =>
                 {
                     return ok.Match(
                         some => Option<Result<TOk, TErr>>.Some(Result<TOk, TErr>.Ok(some)),
@@ -22,6 +21,5 @@ namespace Sirh3e.Rust.Result
                     );
                 },
                 err => Option<Result<TOk, TErr>>.Some(Result<TOk, TErr>.Err(err)));
-        }
     }
 }

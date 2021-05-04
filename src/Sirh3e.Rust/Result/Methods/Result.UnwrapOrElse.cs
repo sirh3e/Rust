@@ -11,18 +11,6 @@ namespace Sirh3e.Rust.Result
         /// <returns></returns>
         /// <exception cref="ArgumentNullException">Throws only if map is null</exception>
         public TOk UnwrapOrElse(Func<TErr, TOk> map)
-        {
-            if (IsOk)
-            {
-                return _ok;
-            }
-
-            if (map is null)
-            {
-                throw new ArgumentNullException(nameof(map));
-            }
-
-            return map(_err);
-        }
+            => IsOk ? _ok : (_ = map ?? throw new ArgumentNullException(nameof(map)))(_err);
     }
 }

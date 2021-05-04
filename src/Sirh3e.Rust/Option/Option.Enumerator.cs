@@ -15,9 +15,7 @@ namespace Sirh3e.Rust.Option
         }
 
         public bool MoveNext()
-        {
-            return ++_position < _somes.Length;
-        }
+            => ++_position < _somes.Length;
 
         public void Reset()
         {

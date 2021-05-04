@@ -11,11 +11,9 @@ namespace Sirh3e.Rust.Option
         /// <param name="default"></param>
         /// <returns></returns>
         public TSome UnwrapOr(TSome @default)
-        {
-            return Match(
+            => Match(
                 some => some,
                 () => @default ?? throw new ArgumentNullException(nameof(@default))
             );
-        }
     }
 }

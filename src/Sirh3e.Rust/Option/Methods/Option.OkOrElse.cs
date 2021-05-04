@@ -6,15 +6,9 @@ namespace Sirh3e.Rust.Option
     public partial struct Option<TSome>
     {
         public Result<TSome, TErr> OkOrElse<TErr>(Func<TErr> err)
-        {
-            return Match(
+            => Match(
                 Result<TSome, TErr>.Ok,
-                () =>
-                {
-                    if (err is null)
-                        throw new ArgumentNullException(nameof(err));
-                    return Result<TSome, TErr>.Err(err());
-                });
-        }
+                () => Result<TSome, TErr>.Err((_ = err ?? throw new ArgumentNullException(nameof(err)))())
+                );
     }
 }

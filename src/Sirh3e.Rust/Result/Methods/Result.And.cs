@@ -9,8 +9,6 @@
         /// <typeparam name="T"></typeparam>
         /// <returns>Returns res if the result is Ok, otherwise returns the Err value of self</returns>
         public Result<T, TErr> And<T>(Result<T, TErr> res)
-        {
-            return Match(_ => res, Result<T, TErr>.Err);
-        }
+            => Match(_ => res, Result<T, TErr>.Err);
     }
 }

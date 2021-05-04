@@ -7,6 +7,7 @@
         /// </summary>
         /// <param name="message"></param>
         /// <returns></returns>
-        public TErr ExpectErr(string message) => UnwrapErr(message);
+        public TErr ExpectErr(string message)
+            => UnwrapErr(message);
     }
 }

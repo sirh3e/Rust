@@ -13,8 +13,7 @@ namespace Sirh3e.Rust.Option
         /// <typeparam name="TErr"></typeparam>
         /// <returns></returns>
         public static Result<Option<TSome>, TErr> Transpose<TSome, TErr>(this Option<Result<TSome, TErr>> option)
-        {
-            return option.Match(
+            => option.Match(
                 some =>
                 {
                     return some.IsOk switch
@@ -23,6 +22,5 @@ namespace Sirh3e.Rust.Option
                         false => Result<Option<TSome>, TErr>.Err(some.UnwrapErr())
                     };
                 }, () => Result<Option<TSome>, TErr>.Ok(Option<TSome>.None));
-        }
     }
 }

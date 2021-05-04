@@ -13,15 +13,6 @@ namespace Sirh3e.Rust.Result
         /// <returns></returns>
         /// <exception cref="ArgumentNullException">Throws only if op is null</exception>
         public Result<T, TErr> AndThen<T>(Func<TOk, Result<T, TErr>> op)
-        {
-            return Match(ok =>
-                {
-                    if (op is null)
-                        throw new ArgumentNullException(nameof(op));
-                    return op(ok);
-                },
-                Result<T, TErr>.Err
-            );
-        }
+            => Match(ok => (_ = op ?? throw new ArgumentNullException(nameof(op)))(ok), Result<T, TErr>.Err);
     }
 }
