@@ -10,8 +10,6 @@ namespace Sirh3e.Rust.Option
         /// <param name="func"></param>
         /// <returns></returns>
         public TSome UnwrapOrElse(Func<TSome> func)
-        {
-            return Match(some => some, func ?? throw new ArgumentNullException(nameof(func)));
-        }
+            => Match(some => some, func ?? throw new ArgumentNullException(nameof(func)));
     }
 }
