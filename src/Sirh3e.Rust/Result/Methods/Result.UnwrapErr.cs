@@ -29,12 +29,12 @@ namespace Sirh3e.Rust.Result
         /// <exception cref="PanicException"></exception>
         public TErr UnwrapErr(string message)
         {
-            if (IsErr)
+            if ( IsErr )
             {
                 return _err;
             }
 
-            if (string.IsNullOrEmpty(message))
+            if ( string.IsNullOrEmpty(message) )
             {
                 throw new ArgumentNullException(nameof(message));
             }

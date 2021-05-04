@@ -14,12 +14,12 @@ namespace Sirh3e.Rust.Option
         /// <exception cref="ArgumentNullException">Throws only if predicate is null</exception>
         public Option<TSome> Filter(Func<TSome, bool> predicate)
         {
-            if (IsNone)
+            if ( IsNone )
             {
                 return None;
             }
 
-            if (predicate is null)
+            if ( predicate is null )
             {
                 throw new ArgumentNullException(nameof(predicate));
             }

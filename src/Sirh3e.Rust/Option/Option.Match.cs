@@ -6,9 +6,9 @@ namespace Sirh3e.Rust.Option
     {
         public void Match(Action<TSome> onSome, Action onNone)
         {
-            if (IsSome)
+            if ( IsSome )
             {
-                if (onSome is null)
+                if ( onSome is null )
                 {
                     throw new ArgumentNullException(nameof(onSome));
                 }
@@ -17,7 +17,7 @@ namespace Sirh3e.Rust.Option
             }
             else
             {
-                if (onNone is null)
+                if ( onNone is null )
                 {
                     throw new ArgumentNullException(nameof(onNone));
                 }
@@ -28,9 +28,9 @@ namespace Sirh3e.Rust.Option
 
         private void Match(Action<TSome> onSome, Action<TSome> onNone)
         {
-            if (IsSome)
+            if ( IsSome )
             {
-                if (onSome is null)
+                if ( onSome is null )
                 {
                     throw new ArgumentNullException(nameof(onSome));
                 }
@@ -39,7 +39,7 @@ namespace Sirh3e.Rust.Option
             }
             else
             {
-                if (onNone is null)
+                if ( onNone is null )
                 {
                     throw new ArgumentNullException(nameof(onNone));
                 }
@@ -50,9 +50,9 @@ namespace Sirh3e.Rust.Option
 
         public T Match<T>(Func<TSome, T> onSome, Func<T> onNone)
         {
-            if (IsSome)
+            if ( IsSome )
             {
-                if (onSome is null)
+                if ( onSome is null )
                 {
                     throw new ArgumentNullException(nameof(onSome));
                 }
@@ -60,7 +60,7 @@ namespace Sirh3e.Rust.Option
                 return onSome(_some);
             }
 
-            if (onNone is null)
+            if ( onNone is null )
             {
                 throw new ArgumentNullException(nameof(onNone));
             }

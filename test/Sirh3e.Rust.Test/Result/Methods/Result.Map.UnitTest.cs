@@ -14,7 +14,7 @@ namespace Sirh3e.Rust.Test.Result
             var lines = "1\n2\n3\n4\n".Split("\n".ToCharArray());
 
             {
-                foreach (var line in lines)
+                foreach ( var line in lines )
                 {
                     Parse(line).Map(Convert.ToInt32).Match(i =>
                     {
@@ -27,7 +27,7 @@ namespace Sirh3e.Rust.Test.Result
             }
 
             {
-                foreach (var line in lines)
+                foreach ( var line in lines )
                 {
                     Action action = () => Parse(line).Map(Convert.ToInt32).Match(null, null);
 

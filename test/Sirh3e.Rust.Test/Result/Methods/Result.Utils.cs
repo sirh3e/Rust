@@ -12,7 +12,7 @@ namespace Sirh3e.Rust.Test.Result
             {
                 number = Convert.ToInt32(text);
             }
-            catch (Exception)
+            catch ( Exception )
             {
                 return Result<int, string>.Err(text);
             }

@@ -2,8 +2,8 @@
 using FluentAssertions;
 using Sirh3e.Rust.Panic;
 using Sirh3e.Rust.Result;
-using static Sirh3e.Rust.Result.Extension;
 using Xunit;
+using static Sirh3e.Rust.Result.Extension;
 
 namespace Sirh3e.Rust.Test.Result
 {

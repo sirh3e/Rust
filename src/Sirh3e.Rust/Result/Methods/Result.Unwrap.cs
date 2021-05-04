@@ -30,12 +30,12 @@ namespace Sirh3e.Rust.Result
         /// <exception cref="PanicException"></exception>
         public TOk Unwrap(string error)
         {
-            if (IsOk)
+            if ( IsOk )
             {
                 return _ok;
             }
 
-            if (string.IsNullOrEmpty(error))
+            if ( string.IsNullOrEmpty(error) )
             {
                 throw new ArgumentNullException(nameof(error));
             }

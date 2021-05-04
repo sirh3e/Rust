@@ -12,9 +12,9 @@ namespace Sirh3e.Rust.Result
         /// <exception cref="ArgumentNullException"></exception>
         public void Match(Action<TOk> onOk, Action<TErr> onErr)
         {
-            if (IsOk)
+            if ( IsOk )
             {
-                if (onOk is null)
+                if ( onOk is null )
                 {
                     throw new ArgumentNullException(nameof(onOk));
                 }
@@ -23,7 +23,7 @@ namespace Sirh3e.Rust.Result
             }
             else
             {
-                if (onErr is null)
+                if ( onErr is null )
                 {
                     throw new ArgumentNullException(nameof(onErr));
                 }
@@ -42,9 +42,9 @@ namespace Sirh3e.Rust.Result
         /// <exception cref="ArgumentNullException"></exception>
         public T Match<T>(Func<TOk, T> onOk, Func<TErr, T> onErr)
         {
-            if (IsOk)
+            if ( IsOk )
             {
-                if (onOk is null)
+                if ( onOk is null )
                 {
                     throw new ArgumentNullException(nameof(onOk));
                 }
@@ -52,7 +52,7 @@ namespace Sirh3e.Rust.Result
                 return onOk(_ok);
             }
 
-            if (onErr is null)
+            if ( onErr is null )
             {
                 throw new ArgumentNullException(nameof(onErr));
             }

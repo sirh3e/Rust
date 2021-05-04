@@ -1,6 +1,6 @@
 ﻿using FluentAssertions;
-using static Sirh3e.Rust.Option.Extension;
 using Xunit;
+using static Sirh3e.Rust.Option.Extension;
 
 namespace Sirh3e.Rust.Test.Option
 {

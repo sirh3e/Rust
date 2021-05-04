@@ -1,0 +1,156 @@
+#.NET style rules
+# .NET STYLE QUALIFICATION
+dotnet_style_qualification_for_field = false
+dotnet_style_qualification_for_property = false
+dotnet_style_qualification_for_method = false
+dotnet_style_qualification_for_event = false
+
+# .NET STYLE PREDEFINED TYPE
+dotnet_style_predefined_type_for_locals_parameters_members = true
+dotnet_style_predefined_type_for_member_access = true
+
+# Add accessibility modifiers (IDE0040)
+dotnet_style_require_accessibility_modifiers = always
+dotnet_style_require_accessibility_modifiers = for_non_interface_members
+
+# .NET modifier preferences
+csharp_preferred_modifier_order = public,private,protected,internal,static,extern,new,virtual,abstract,sealed,override,readonly,unsafe,volatile,async
+
+# Add readonly modifier (IDE0044)
+dotnet_style_readonly_field = true
+
+# Make local function static (IDE0062)
+csharp_prefer_static_local_function = true
+
+# Parentheses preferences (IDE0047 and IDE0048)
+dotnet_style_parentheses_in_arithmetic_binary_operators = always_for_clarity
+dotnet_style_parentheses_in_relational_binary_operators = never_if_unnecessary
+dotnet_style_parentheses_in_other_binary_operators = always_for_clarity
+dotnet_style_parentheses_in_other_operators = never_if_unnecessary
+
+# .NET expression-level preferences
+# Add missing cases to switch statement (IDE0010)
+
+# Use object initializers (IDE0017)
+dotnet_style_object_initializer = true
+# Use collection initializers (IDE0028)
+dotnet_style_collection_initializer = true
+# Use auto property (IDE0032)
+dotnet_style_prefer_auto_properties = true
+# Use explicitly provided tuple name (IDE0033)
+dotnet_style_explicit_tuple_names = true
+# Use inferred member name (IDE0037)
+dotnet_style_prefer_inferred_tuple_names = true
+dotnet_style_prefer_inferred_anonymous_type_member_names = true
+# Use conditional expression for assignment (IDE0045)
+dotnet_style_prefer_conditional_expression_over_assignment = true
+# Use conditional expression for return (IDE0046)
+dotnet_style_prefer_conditional_expression_over_return = true
+
+# Convert anonymous type to tuple (IDE0050)
+dotnet_style_prefer_compound_assignment = true
+
+# Use 'System.HashCode.Combine' (IDE0070)
+
+# Simplify interpolation (IDE0071)
+dotnet_style_prefer_simplified_interpolation = true
+# Simplify 'default' expression (IDE0034)
+csharp_prefer_simple_default_expression = true
+# Use local function instead of lambda (IDE0039)
+csharp_style_pattern_local_over_anonymous_function = false
+
+# Deconstruct variable declaration (IDE0042)
+csharp_style_deconstructed_variable_declaration = true
+
+# Use index operator (IDE0056)
+csharp_style_prefer_index_operator = true
+# Use range operator (IDE0057)
+csharp_style_prefer_range_operator = true
+# Simplify new expression (IDE0090)
+csharp_style_implicit_object_creation_when_type_is_apparent = true
+
+# Convert typeof to nameof (IDE0082)
+
+# Use coalesce expression (IDE0029 and IDE0030)
+dotnet_style_coalesce_expression = true
+# Use null propagation (IDE0031)
+dotnet_style_null_propagation = true
+# Use is null check (IDE0041)
+dotnet_style_prefer_is_null_check_over_reference_equality_method = true
+
+# Simplify conditional expression (IDE0075)
+dotnet_style_prefer_simplified_boolean_expressions = true
+
+# Use throw expression (IDE0016)
+csharp_style_throw_expression = true
+
+# Use conditional delegate call (IDE1005)
+csharp_style_conditional_delegate_call = true
+
+
+# Use compound assignment (IDE0054 and IDE0074)
+
+# Make struct fields writable (IDE0064)
+
+# .NET formatting rules
+[*.{cs,vb}]
+dotnet_sort_system_directives_first = true
+dotnet_separate_import_directive_groups = false
+
+# New-line options https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/formatting-rules#new-line-options
+
+# C#/CSHARP NEW_LINE
+[*.cs]
+csharp_new_line_before_open_brace = all
+csharp_new_line_before_else = true
+csharp_new_line_before_catch = true
+csharp_new_line_before_finally = true
+csharp_new_line_before_members_in_object_initializers = true
+csharp_new_line_before_members_in_anonymous_types = true
+csharp_new_line_between_query_expression_clauses = true
+
+# C#/CSHARP INDENT
+[*.cs]
+csharp_indent_case_contents = true
+csharp_indent_switch_labels = true
+csharp_indent_labels = flush_left
+csharp_indent_block_contents = true
+csharp_indent_braces = false
+csharp_indent_case_contents_when_block = false
+
+# C#/CSHARP SPACE
+[*.cs]
+csharp_space_after_cast = false
+csharp_space_after_keywords_in_control_flow_statements = true
+csharp_space_between_parentheses = control_flow_statements
+csharp_space_before_colon_in_inheritance_clause = true
+csharp_space_after_colon_in_inheritance_clause = true
+csharp_space_around_binary_operators = before_and_after
+csharp_space_between_method_declaration_parameter_list_parentheses = false
+csharp_space_between_method_declaration_empty_parameter_list_parentheses = false
+csharp_space_between_method_declaration_name_and_open_parenthesis = false
+csharp_space_between_method_call_parameter_list_parentheses = false
+csharp_space_between_method_call_empty_parameter_list_parentheses = false
+csharp_space_between_method_call_name_and_opening_parenthesis = false
+csharp_space_after_comma = true
+csharp_space_before_comma = false
+csharp_space_after_dot = false
+csharp_space_before_dot = false
+csharp_space_after_semicolon_in_for_statement = true
+csharp_space_before_semicolon_in_for_statement = false
+csharp_space_around_declaration_statements = false
+csharp_space_before_open_square_brackets = false
+csharp_space_between_empty_square_brackets = false
+csharp_space_between_square_brackets = false
+
+# C#/CSHARP PRESERVE
+[*.cs]
+csharp_preserve_single_line_statements = false
+csharp_preserve_single_line_blocks = true
+
+# C#/CSHARP USING
+[*.cs]
+csharp_using_directive_placement = outside_namespace
+
+# ReSharper properties
+resharper_place_accessorholder_attribute_on_same_line = false

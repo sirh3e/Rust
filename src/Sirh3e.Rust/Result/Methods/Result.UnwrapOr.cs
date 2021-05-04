@@ -13,7 +13,7 @@ namespace Sirh3e.Rust.Result
         /// <exception cref="ArgumentNullException"></exception>
         public TOk UnwrapOr(TOk @default)
         {
-            if (IsOk)
+            if ( IsOk )
             {
                 return _ok;
             }

@@ -15,7 +15,7 @@ namespace Sirh3e.Rust.Option
         {
             _ = value ?? throw new ArgumentNullException(nameof(value));
 
-            if (IsSome && _some is IDisposable some)
+            if ( IsSome && _some is IDisposable some )
             {
                 some.Dispose();
             }

@@ -22,7 +22,7 @@ namespace Sirh3e.Rust.Option
         /// <exception cref="ArgumentNullException">Throws only if error is null or empty</exception>
         public TSome Unwrap(string error)
         {
-            if (string.IsNullOrEmpty(error))
+            if ( string.IsNullOrEmpty(error) )
             {
                 throw new ArgumentNullException(nameof(error));
             }
