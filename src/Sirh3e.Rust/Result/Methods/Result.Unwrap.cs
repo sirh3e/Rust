@@ -50,13 +50,6 @@ namespace Sirh3e.Rust.Result
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public TOk Unwrap(Func<TErr, string> error)
-        {
-            if (error is null)
-            {
-                throw new ArgumentNullException(nameof(error));
-            }
-
-            return Unwrap(error(_err));
-        }
+            => Unwrap((_ = error ?? throw new ArgumentNullException(nameof(error)))(_err));
     }
 }

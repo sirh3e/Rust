@@ -2,6 +2,8 @@
 {
     public readonly partial struct Result<TOk, TErr>
     {
-        public Result<TOk, TErr> Cloned() => Clone();
+        //ToDo missing documentation
+        public Result<TOk, TErr> Cloned()
+            => Clone();
     }
 }

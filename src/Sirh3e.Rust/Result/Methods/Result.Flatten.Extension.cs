@@ -10,11 +10,9 @@
         /// <typeparam name="TErr"></typeparam>
         /// <returns></returns>
         public static Result<TOk, TErr> Flatten<TOk, TErr>(this Result<Result<TOk, TErr>, TErr> result)
-        {
-            return result.Match(
+            => result.Match(
                 ok => ok,
                 Result<TOk, TErr>.Err);
-        }
 
         /// <summary>
         /// Converts from Result&lt;Result&lt;TOk, TErr&gt;, TErr&gt; to Result&lt;TOk, TErr&gt;
@@ -24,8 +22,6 @@
         /// <typeparam name="TErr"></typeparam>
         /// <returns></returns>
         public static Result<TOk, TErr> Flatten<TOk, TErr>(this Result<TOk, TErr> result)
-        {
-            return result;
-        }
+            => result;
     }
 }
