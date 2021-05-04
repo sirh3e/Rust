@@ -27,25 +27,17 @@ namespace Sirh3e.Rust.Option
         }
 
         public bool Equals(Option<TSome> other)
-        {
-            return EqualityComparer<TSome>.Default.Equals(_some, other._some) && IsSome == other.IsSome;
-        }
+            => EqualityComparer<TSome>.Default.Equals(_some, other._some) &&
+               IsSome == other.IsSome;
 
         public static Option<TSome> Some(TSome some)
-        {
-            return new(some);
-        }
-
+            => new(some);
 
         public static implicit operator Option<TSome>(None none)
-        {
-            return None;
-        }
+            => None;
 
         public IEnumerator<TSome> GetEnumerator()
-        {
-            return new OptionEnumerator<TSome>(IsSome ? new[] { _some } : new TSome[0]);
-        }
+            => new OptionEnumerator<TSome>(IsSome ? new[] { _some } : new TSome[0]);
 
         public override bool Equals(object obj)
         {
@@ -69,28 +61,18 @@ namespace Sirh3e.Rust.Option
         }
 
         public Option<TSome> Clone()
-        {
-            return IsSome ? Some(_some) : None;
-        }
+            => IsSome ? Some(_some) : None;
 
         object ICloneable.Clone()
-        {
-            return Clone();
-        }
+            => Clone();
 
         IEnumerator IEnumerable.GetEnumerator()
-        {
-            return GetEnumerator();
-        }
+            => Iter();
 
         public static bool operator ==(Option<TSome> left, Option<TSome> right)
-        {
-            return Equals(left, right);
-        }
+            => Equals(left, right);
 
         public static bool operator !=(Option<TSome> left, Option<TSome> right)
-        {
-            return !Equals(left, right);
-        }
+            => !(left == right);
     }
 }
