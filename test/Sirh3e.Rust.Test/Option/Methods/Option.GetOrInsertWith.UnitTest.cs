@@ -15,7 +15,7 @@ namespace Sirh3e.Rust.Test.Option
             option.IsNone.Should().BeTrue();
             option.IsSome.Should().BeFalse();
 
-            option.GetOrInsertWith(() => 5).Should().Be(5);
+            option.GetOrInsertWith(() => 5).Should().Be(5); 
         }
     }
 }
