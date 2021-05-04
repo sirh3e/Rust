@@ -4,10 +4,8 @@ namespace Sirh3e.Rust.Option
 {
     public partial struct Option<TSome>
     {
-        //ToDo
+        //ToDo add documentation
         public IEnumerator<TSome> Iter()
-        {
-            return GetEnumerator();
-        }
+            => GetEnumerator();
     }
 }
