@@ -31,22 +31,15 @@ namespace Sirh3e.Rust.Result
             => new(err);
 
         public bool Equals(Result<TOk, TErr> other)
-        {
-            return EqualityComparer<TOk>.Default.Equals(_ok, other._ok) &&
-                   EqualityComparer<TErr>.Default.Equals(_err, other._err) &&
-                   IsOk == other.IsOk;
-        }
+            => EqualityComparer<TOk>.Default.Equals(_ok, other._ok) &&
+               EqualityComparer<TErr>.Default.Equals(_err, other._err) &&
+               IsOk == other.IsOk;
 
         public IEnumerator<TOk> GetEnumerator()
-        {
-            return new ResultEnumerator<TOk>(IsOk ? new[] { _ok } : new TOk[0]);
-        }
+            => new ResultEnumerator<TOk>(IsOk ? new[] { _ok } : new TOk[0]);
 
         public override bool Equals(object obj)
-        {
-            return obj is Result<TOk, TErr> other &&
-                   Equals(other);
-        }
+            => obj is Result<TOk, TErr> other && Equals(other);
 
         public override int GetHashCode()
         {
@@ -65,19 +58,13 @@ namespace Sirh3e.Rust.Result
         }
 
         IEnumerator IEnumerable.GetEnumerator()
-        {
-            return GetEnumerator();
-        }
+            => Iter();
 
         public Result<TOk, TErr> Clone()
-        {
-            return IsOk ? Ok(_ok) : Err(_err);
-        }
+            => IsOk ? Ok(_ok) : Err(_err);
 
         object ICloneable.Clone()
-        {
-            return Clone();
-        }
+            => Clone();
 
         public static implicit operator Result<TOk, TErr>(Err<TErr> err)
             => Err(err.Value);
@@ -86,13 +73,9 @@ namespace Sirh3e.Rust.Result
             => Ok(ok.Value);
 
         public static bool operator ==(Result<TOk, TErr> left, Result<TOk, TErr> right)
-        {
-            return left.Equals(right);
-        }
+            => left.Equals(right);
 
         public static bool operator !=(Result<TOk, TErr> left, Result<TOk, TErr> right)
-        {
-            return !left.Equals(right);
-        }
+            => !left.Equals(right);
     }
 }
