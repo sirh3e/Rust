@@ -39,6 +39,7 @@ namespace Sirh3e.Rust.Option
         public TSome Unwrap(Func<string> error)
             => Match(
                 some => some,
-                () => throw new PanicException((_ = error ?? throw new ArgumentNullException(nameof(error)))()));
+                () => throw new PanicException((_ = error ?? throw new ArgumentNullException(nameof(error)))())
+                );
     }
 }
