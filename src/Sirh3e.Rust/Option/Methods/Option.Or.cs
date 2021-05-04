@@ -8,8 +8,6 @@
         /// <param name="option"></param>
         /// <returns></returns>
         public Option<TSome> Or(Option<TSome> option)
-        {
-            return Match(Some, () => option);
-        }
+            => Match(Some, () => option);
     }
 }
