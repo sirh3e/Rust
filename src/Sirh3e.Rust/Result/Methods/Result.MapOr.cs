@@ -14,18 +14,9 @@ namespace Sirh3e.Rust.Result
         /// <returns></returns>
         /// <exception cref="ArgumentNullException">Throws only if map is null or default is null</exception>
         public T MapOr<T>(T @default, Func<TOk, T> map)
-        {
-            return Match(ok =>
-            {
-                if (map is null)
-                    throw new ArgumentNullException(nameof(map));
-                return map(ok);
-            }, _ =>
-            {
-                if (@default is null)
-                    throw new ArgumentNullException(nameof(@default));
-                return @default;
-            });
-        }
+            => Match(ok =>
+                (_ = map ?? throw new ArgumentNullException(nameof(map)))(ok),
+                _ => @default ?? throw new ArgumentNullException(nameof(@default))
+                );
     }
 }
