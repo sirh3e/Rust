@@ -10,11 +10,9 @@ namespace Sirh3e.Rust.Option
         /// </summary>
         /// <returns></returns>
         public TSome UnwrapOrDefault()
-        {
-            return Match(
+            => Match(
                 some => some,
                 Activator.CreateInstance<TSome>
             );
-        }
     }
 }
