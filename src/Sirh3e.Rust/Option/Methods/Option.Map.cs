@@ -11,11 +11,9 @@ namespace Sirh3e.Rust.Option
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         public Option<T> Map<T>(Func<TSome, T> map)
-        {
-            return Match(
+            => Match(
                 some => Option<T>.Some(map(some) ?? throw new ArgumentNullException(nameof(map))),
                 () => Option<T>.None
             );
-        }
     }
 }
