@@ -12,11 +12,9 @@ namespace Sirh3e.Rust.Option
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         public T MapOr<T>(T @default, Func<TSome, T> converter)
-        {
-            return Match(
+            => Match(
                 some => converter(some) ?? throw new ArgumentNullException(nameof(converter)),
                 () => @default ?? throw new ArgumentNullException(nameof(@default))
             );
-        }
     }
 }
