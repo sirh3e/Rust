@@ -10,8 +10,6 @@ namespace Sirh3e.Rust.Option
         /// <param name="func"></param>
         /// <returns></returns>
         public Option<TSome> OrElse(Func<Option<TSome>> func)
-        {
-            return Match(Some, func ?? throw new ArgumentNullException(nameof(func)));
-        }
+            => Match(Some, func ?? throw new ArgumentNullException(nameof(func)));
     }
 }
