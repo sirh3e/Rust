@@ -11,9 +11,7 @@ namespace Sirh3e.Rust.Option
         /// </summary>
         /// <returns></returns>
         public TSome Unwrap()
-        {
-            return Unwrap($"called `Option.Unwrap()` on a `None` value of type `{typeof(TSome)}`");
-        }
+            => Unwrap($"called `Option.Unwrap()` on a `None` value of type `{typeof(TSome)}`");
 
         /// <summary>
         /// Returns the contained Some value, consuming the self value with custom error message.
@@ -25,7 +23,9 @@ namespace Sirh3e.Rust.Option
         public TSome Unwrap(string error)
         {
             if (string.IsNullOrEmpty(error))
+            {
                 throw new ArgumentNullException(nameof(error));
+            }
 
             return Unwrap(() => error);
         }
@@ -37,15 +37,8 @@ namespace Sirh3e.Rust.Option
         /// <param name="error"></param>
         /// <returns></returns>
         public TSome Unwrap(Func<string> error)
-        {
-            return Match(
+            => Match(
                 some => some,
-                () =>
-                {
-                    if (error is null)
-                        throw new ArgumentNullException(nameof(error));
-                    throw new PanicException(error() ?? throw new ArgumentNullException(nameof(error)));
-                });
-        }
+                () => throw new PanicException((_ = error ?? throw new ArgumentNullException(nameof(error)))()));
     }
 }
