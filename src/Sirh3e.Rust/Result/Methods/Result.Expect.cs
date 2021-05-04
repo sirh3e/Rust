@@ -7,6 +7,7 @@
         /// </summary>
         /// <param name="message"></param>
         /// <returns></returns>
-        public TOk Expect(string message) => Unwrap(message);
+        public TOk Expect(string message)
+            => Unwrap(message);
     }
 }
