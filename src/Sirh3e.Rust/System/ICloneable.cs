@@ -5,5 +5,5 @@ namespace System
     {
         object Clone();
     }
-}
+} 
 #endif
