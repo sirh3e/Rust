@@ -7,6 +7,7 @@
         /// </summary>
         /// <param name="err"></param>
         /// <returns>Returns true if the result is an Err value containing the given value.</returns>
-        public bool ContainsErr(TErr err) => IsErr && err.Equals(_err);
+        public bool ContainsErr(TErr err)
+            => err != null && IsErr && err.Equals(_err);
     }
 }
