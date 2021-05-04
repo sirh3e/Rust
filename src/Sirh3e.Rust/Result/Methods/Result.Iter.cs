@@ -12,8 +12,6 @@ namespace Sirh3e.Rust.Result
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
         public IEnumerator<TOk> Iter()
-        {
-            return GetEnumerator();
-        }
+            => GetEnumerator();
     }
 }
