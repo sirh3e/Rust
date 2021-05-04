@@ -2,7 +2,8 @@
 {
     public partial struct Option<TSome>
     {
-        //ToDo
-        public Option<TSome> Cloned() => Clone();
+        //ToDo add documentation
+        public Option<TSome> Cloned()
+            => Clone();
     }
 }
