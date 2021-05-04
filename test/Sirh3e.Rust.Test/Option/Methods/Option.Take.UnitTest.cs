@@ -1,5 +1,4 @@
-﻿using System;
-using FluentAssertions;
+﻿using FluentAssertions;
 using Sirh3e.Rust.Option;
 using Xunit;
 
@@ -10,9 +9,6 @@ namespace Sirh3e.Rust.Test.Option
         [Fact]
         public void Option_Take()
         {
-            Action action = () => Option<int>.Some(1).Take();
-            action.Should().ThrowExactly<NotImplementedException>(); //ToDo Implement
-            /*
             {
                 var x = Option<int>.Some(2);
 
@@ -46,7 +42,6 @@ namespace Sirh3e.Rust.Test.Option
                 y.IsSome.Should().BeFalse();
                 y.IsNone.Should().BeTrue();
             }
-            */
         }
     }
 }

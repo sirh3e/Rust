@@ -1,6 +1,6 @@
 ﻿namespace Sirh3e.Rust.Option
 {
-    public readonly partial struct Option<TSome>
+    public partial struct Option<TSome>
     {
         /// <summary>
         /// Returns Some if exactly one of self, option is Some, otherwise returns None.
