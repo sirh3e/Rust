@@ -6,11 +6,9 @@
         /// Consumes self while expecting None and returning nothing.
         /// </summary>
         public void UnwrapNone()
-        {
-            Match(
+            => Match(
                 some => ExpectNoneFailed("called `Option.UnwrapNone()` on a `Some` value", some),
                 _ => { }
             );
-        }
     }
 }

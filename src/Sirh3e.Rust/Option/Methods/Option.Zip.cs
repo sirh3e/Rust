@@ -10,12 +10,10 @@
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         public Option<(TSome, T)> Zip<T>(Option<T> option)
-        {
-            return (IsSome, option.IsSome) switch
+            => (IsSome, option.IsSome) switch
             {
                 (true, true) => Option<(TSome, T)>.Some((_some, option._some)),
                 _ => Option<(TSome, T)>.None
             };
-        }
     }
 }
