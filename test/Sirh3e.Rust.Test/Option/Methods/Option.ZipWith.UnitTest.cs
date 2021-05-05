@@ -38,7 +38,17 @@ namespace Sirh3e.Rust.Test.Option
 
             public override int GetHashCode()
             {
+#if NET2_1_OR_GREATER
                 return HashCode.Combine(X, Y);
+#else
+                //Thx to https://rehansaeed.com/gethashcode-made-easy/
+                var hashCode = 17;
+
+                hashCode = hashCode * 23 + X.GetHashCode();
+                hashCode = hashCode * 23 + Y.GetHashCode();
+
+                return hashCode;
+#endif
             }
 
             public static bool operator ==(Point left, Point right)
