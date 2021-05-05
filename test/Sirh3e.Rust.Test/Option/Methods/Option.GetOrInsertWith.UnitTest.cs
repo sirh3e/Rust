@@ -1,5 +1,4 @@
-﻿using System;
-using FluentAssertions;
+﻿using FluentAssertions;
 using Sirh3e.Rust.Option;
 using Xunit;
 

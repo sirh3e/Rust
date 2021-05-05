@@ -1,31 +1,24 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-#if !NET2_0_OR_GREATER
-using System.Reflection;
-#endif
 
 namespace Sirh3e.Rust.Option
 {
     public partial struct Option<TSome> : ICloneable, IEnumerable<TSome>, IEquatable<Option<TSome>>
     {
         private TSome _some;
+
         public static Option<TSome> None => new();
 
         private Option(TSome some)
         {
             _some = some;
-
-            var isValueType = false;
-
-#if NET2_0_OR_GREATER
-            isValueType = typeof(TSome).IsValueType;
-#else
-            isValueType = typeof(TSome).GetTypeInfo().IsValueType;
-#endif
-            IsSome = isValueType || some != null;
+            IsSome = Helper.IsSome(_some);
         }
-
+        
+        public override bool Equals(object? @object)
+            => @object is Option<TSome> other && Equals(other);
+        
         public bool Equals(Option<TSome> other)
             => EqualityComparer<TSome>.Default.Equals(_some, other._some) &&
                IsSome == other.IsSome;
@@ -38,13 +31,6 @@ namespace Sirh3e.Rust.Option
 
         public IEnumerator<TSome> GetEnumerator()
             => new OptionEnumerator<TSome>(IsSome ? new[] { _some } : new TSome[0]);
-
-        public override bool Equals(object obj)
-        {
-            if ( ReferenceEquals(null, obj) )
-                return false;
-            return obj.GetType() == GetType() && Equals((Option<TSome>)obj);
-        }
 
         public override int GetHashCode()
         {
