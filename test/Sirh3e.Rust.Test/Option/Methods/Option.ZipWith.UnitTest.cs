@@ -23,7 +23,7 @@ namespace Sirh3e.Rust.Test.Option
                 public static Point New(double x, double y)
                 {
                     return new Point(x, y);
-                } 
+                }
             }
 
             public bool Equals(Point other)
