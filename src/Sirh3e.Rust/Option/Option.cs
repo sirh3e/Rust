@@ -15,10 +15,10 @@ namespace Sirh3e.Rust.Option
             _some = some;
             IsSome = Helper.IsSome(_some);
         }
-        
+
         public override bool Equals(object? @object)
             => @object is Option<TSome> other && Equals(other);
-        
+
         public bool Equals(Option<TSome> other)
             => EqualityComparer<TSome>.Default.Equals(_some, other._some) &&
                IsSome == other.IsSome;
