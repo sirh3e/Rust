@@ -1,5 +1,4 @@
-﻿using System;
-using FluentAssertions;
+﻿using FluentAssertions;
 using Sirh3e.Rust.Option;
 using Xunit;
 
@@ -10,28 +9,30 @@ namespace Sirh3e.Rust.Test.Option
         [Fact]
         public void Option_Replace()
         {
-            Action action = () => Option<int>.Some(69).Replace(42);
-            action.Should().ThrowExactly<NotImplementedException>(); //ToDo Implement
-            /*
             {
                 var x = Option<int>.Some(2);
-                
+
                 x.IsSome.Should().BeTrue();
                 x.IsNone.Should().BeFalse();
 
-                x.Unwrap().Should().Be(5);
+                x.Unwrap().Should().Be(2);
 
                 var old = x.Replace(5);
 
                 old.IsSome.Should().BeTrue();
                 old.IsNone.Should().BeFalse();
 
-                old.Unwrap().Should().Be(5);
+                old.Unwrap().Should().Be(2);
+
+                x.IsSome.Should().BeTrue();
+                x.IsNone.Should().BeFalse();
+
+                x.Unwrap().Should().Be(5);
             }
-            
+
             {
                 var x = Option<int>.None;
-                
+
                 x.IsSome.Should().BeFalse();
                 x.IsNone.Should().BeTrue();
 
@@ -39,13 +40,12 @@ namespace Sirh3e.Rust.Test.Option
 
                 old.IsSome.Should().BeFalse();
                 old.IsNone.Should().BeTrue();
-                
-                x.IsSome.Should().BeFalse();
-                x.IsNone.Should().BeTrue();
+
+                x.IsSome.Should().BeTrue();
+                x.IsNone.Should().BeFalse();
 
                 x.Unwrap().Should().Be(3);
             }
-            */
         }
     }
 }

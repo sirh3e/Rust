@@ -1,12 +1,14 @@
-﻿using System;
-
-namespace Sirh3e.Rust.Option
+﻿namespace Sirh3e.Rust.Option
 {
     public partial struct Option<TSome>
     {
         public Option<TSome> Replace(TSome some)
         {
-            throw new NotImplementedException(); //ToDo remove readonly
+            var option = this;
+
+            SetSome(some);
+
+            return option;
         }
     }
 }
