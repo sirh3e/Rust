@@ -1,6 +1,8 @@
 # Sirh3e.Rust
 
-![GitHub](https://img.shields.io/github/license/sirh3e/Rust)![Nuget](https://img.shields.io/nuget/v/Sirh3e.Rust)![Nuget](https://img.shields.io/nuget/dt/Sirh3e.Rust)
+![GitHub](https://img.shields.io/github/license/sirh3e/Rust)
+![Nuget](https://img.shields.io/nuget/v/Sirh3e.Rust)
+![Nuget](https://img.shields.io/nuget/dt/Sirh3e.Rust)
 
 Sirh3e.Rust is a library that provide missing features in C# where are fundamental in the [Rust Programming Language](https://github.com/rust-lang/rust) like Option and Result.
 
@@ -24,7 +26,7 @@ See [features](#features) for all available methods.
 ## Nuget
 
 ```cmd
-dotnet add package Sirh3e.Rust --version 1.0.0-preview-0003
+dotnet add package Sirh3e.Rust --version 1.0.0-preview-0004
 ```
 
 ## Features
