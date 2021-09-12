@@ -36,7 +36,11 @@ namespace Sirh3e.Rust.Result
                IsOk == other.IsOk;
 
         public IEnumerator<TOk> GetEnumerator()
+#if NET1_1_OR_GREATER
+            => new ResultEnumerator<TOk>(IsOk ? new[] { _ok } : Array.Empty<TOk>());
+#else
             => new ResultEnumerator<TOk>(IsOk ? new[] { _ok } : new TOk[0]);
+#endif
 
         public override bool Equals(object obj)
             => obj is Result<TOk, TErr> other && Equals(other);
