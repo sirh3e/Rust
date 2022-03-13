@@ -26,7 +26,7 @@ internal static partial class Helper
 
         [Docs("https://docs.microsoft.com/en-us/dotnet/api/system.threading.tasks.valuetask?view=net-6.0#remarks")]
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static STT.ValueTask GetCompletedValueTask()
+        internal static STT.ValueTask GetCompletedValueTask()
 #if NET5_0_OR_GREATER 
             => STT.ValueTask.CompletedTask;
 #else

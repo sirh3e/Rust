@@ -22,7 +22,7 @@ internal static partial class Helper
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static STT.Task GetCompletedTask()
+        internal static STT.Task GetCompletedTask()
 #if NETSTANDARD1_3_OR_GREATER || NETCOREAPP1_0_OR_GREATER
             => STT.Task.CompletedTask;
 #else
