@@ -19,9 +19,11 @@
     <ItemGroup Condition="'$(TargetFramework)' == 'net45' Or '$(TargetFramework)' == 'netstandard1.1' Or '$(TargetFramework)' == 'netstandard1.3' Or '$(TargetFramework)' == 'netstandard1.6'">
         <PackageReference Include="System.ValueTuple" Version="4.5.0" />
         <PackageReference Include="System.Runtime" Version="4.3.0" />
+        <PackageReference Include="System.Threading.Tasks.Extensions" Version="4.5.0" />
     </ItemGroup>
 
     <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
         <PackageReference Include="Microsoft.Bcl.HashCode" Version="1.1.1" />
+        <PackageReference Include="System.Threading.Tasks.Extensions" Version="4.5.0" />
     </ItemGroup>
 </Project>
