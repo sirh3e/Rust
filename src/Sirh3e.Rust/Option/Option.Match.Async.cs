@@ -34,10 +34,10 @@ public partial struct Option<TSome>
     public Task<T> MatchAsync<T>(Func<TSome, Task<T>> onSome, Func<Task<T>> onNone)
         => Match(onSome, onNone);
 
-    //ToDo next
     public Task<T> MatchAsync<T>(Func<TSome, Task<T>> onSome, Func<ValueTask<T>> onNone)
         => Match(onSome, () => onNone().AsTask());
 
+    //ToDo next
     public Task<T> MatchAsync<T>(Func<TSome, ValueTask<T>> onSome, Func<Task<T>> onNone)
         => Match(some => onSome(some).AsTask(), onNone);
 

@@ -189,7 +189,44 @@ public partial class OptionUnitTest
     public async Task Option_MatchAsync_Func_From_TSome_To_Task_T_Func_To_Task_T_None()
     {
         var increasse = (string name) => Task.FromResult(name.Length);
-        var decreasse = () => Task.FromResult(0);
+#if NET5_0_OR_GREATER
+        var decreasse = () => ValueTask.FromResult(0);
+#else
+        Func<ValueTask<int>> decreasse = () => new(0);
+#endif
+
+        Option<string> none = None.Value;
+
+        var length = await none.MatchAsync(increasse, decreasse);
+
+        length.Should().Be(0);
+    }
+
+    [Fact]
+    public async Task Option_MatchAsync_Func_From_TSome_To_Task_T_Func_To_ValueTask_T_Some()
+    {
+        var increasse = (string name) => Task.FromResult(name.Length);
+#if NET5_0_OR_GREATER
+        var decreasse = () => ValueTask.FromResult(0);
+#else
+        Func<ValueTask<int>> decreasse = () => new(0);
+#endif
+        var some = Some("String");
+
+        var length = await some.MatchAsync(increasse, decreasse);
+
+        length.Should().Be(6);
+    }
+
+    [Fact]
+    public async Task Option_MatchAsync_Func_From_TSome_To_Task_T_Func_To_ValueTask_T_None()
+    {
+        var increasse = (string name) => Task.FromResult(name.Length);
+#if NET5_0_OR_GREATER
+        var decreasse = () => ValueTask.FromResult(0);
+#else
+        Func<ValueTask<int>> decreasse = () => new(0);
+#endif
 
         Option<string> none = None.Value;
 
