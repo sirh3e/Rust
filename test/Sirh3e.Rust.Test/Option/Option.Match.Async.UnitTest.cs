@@ -171,7 +171,7 @@ public partial class OptionUnitTest
 
         length.Should().Be(6);
     }
-   
+
     [Fact]
     public async Task Option_MatchAsync_Func_From_TSome_To_Task_T_Func_To_Task_T_Some()
     {
@@ -182,7 +182,7 @@ public partial class OptionUnitTest
 
         var length = await some.MatchAsync(increasse, decreasse);
 
-        length.Should().Be(6); 
+        length.Should().Be(6);
     }
 
     [Fact]
