@@ -25,13 +25,13 @@ public partial struct Option<TSome>
     public Task<T> MatchAsync<T>(Func<TSome, T> onSome, Func<T> onNone)
         => Task.FromResult(Match(onSome, onNone));
 
-    //ToDo next
     public Task<T> MatchAsync<T>(Func<TSome, Task<T>> onSome, Func<T> onNone)
         => Match(onSome, () => Task.FromResult(onNone()));
 
     public Task<T> MatchAsync<T>(Func<TSome, T> onSome, Func<Task<T>> onNone)
         => Match(some => Task.FromResult(onSome(some)), onNone);
 
+    //ToDo next
     public Task<T> MatchAsync<T>(Func<TSome, Task<T>> onSome, Func<Task<T>> onNone)
         => Match(onSome, onNone);
 

@@ -145,4 +145,30 @@ public partial class OptionUnitTest
 
         length.Should().Be(0);
     }
+
+    [Fact]
+    public async Task Option_MatchAsync_Func_From_TSome_To_T_Func_To_Task_T_Some()
+    {
+        var increasse = (string name) => name.Length;
+        var decreasse = () => Task.FromResult(0);
+
+        var some = Some("String");
+
+        var length = await some.MatchAsync(increasse, decreasse);
+
+        length.Should().Be(6);
+    }
+
+    [Fact]
+    public async Task Option_MatchAsync_Func_From_TSome_To_T_Func_To_Task_T_None()
+    {
+        var increasse = (string name) => name.Length;
+        var decreasse = () => Task.FromResult(0);
+
+        Option<string> none = None.Value;
+
+        var length = await none.MatchAsync(increasse, decreasse);
+
+        length.Should().Be(6);
+    }
 }
