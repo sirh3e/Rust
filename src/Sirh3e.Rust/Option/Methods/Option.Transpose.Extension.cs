@@ -1,4 +1,6 @@
 ﻿using Sirh3e.Rust.Result;
+using static Sirh3e.Rust.Result.Extension;
+using static Sirh3e.Rust.Option.Extension;
 
 namespace Sirh3e.Rust.Option
 {
@@ -14,13 +16,7 @@ namespace Sirh3e.Rust.Option
         /// <returns></returns>
         public static Result<Option<TSome>, TErr> Transpose<TSome, TErr>(this Option<Result<TSome, TErr>> option)
             => option.Match(
-                some =>
-                {
-                    return some.IsOk switch
-                    {
-                        true => Result<Option<TSome>, TErr>.Ok(Option<TSome>.Some(some.Unwrap())),
-                        false => Result<Option<TSome>, TErr>.Err(some.UnwrapErr())
-                    };
-                }, () => Result<Option<TSome>, TErr>.Ok(Option<TSome>.None));
+                some => some.IsOk ? Ok(Some(some.Unwrap())) : Err(some.UnwrapErr()),
+                () => Result<Option<TSome>, TErr>.Ok(None.Value));
     }
 }
