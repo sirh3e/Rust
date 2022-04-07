@@ -121,10 +121,10 @@ public partial class OptionUnitTest
     }
 
     [Fact]
-    public async Task Option_MatchAsync_Func_From_TSome_To_Task_T_Func_To_Task_T_Some()
+    public async Task Option_MatchAsync_Func_From_TSome_To_Task_T_Func_To_T_Some()
     {
         var increasse = (string name) => Task.FromResult(name.Length);
-        var decreasse = () => Task.FromResult(0);
+        var decreasse = () => 0;
 
         var some = Some("String");
 
@@ -134,10 +134,10 @@ public partial class OptionUnitTest
     }
 
     [Fact]
-    public async Task Option_MatchAsync_Func_From_TSome_To_Task_T_Func_To_Task_T_None()
+    public async Task Option_MatchAsync_Func_From_TSome_To_Task_T_Func_To_T_None()
     {
         var increasse = (string name) => Task.FromResult(name.Length);
-        var decreasse = () => Task.FromResult(0);
+        var decreasse = () => 0;
 
         Option<string> some = None.Value;
 
