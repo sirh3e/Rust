@@ -25,6 +25,7 @@ public partial struct Option<TSome>
     public Task<T> MatchAsync<T>(Func<TSome, T> onSome, Func<T> onNone)
         => Task.FromResult(Match(onSome, onNone));
 
+    //ToDo next
     public Task<T> MatchAsync<T>(Func<TSome, Task<T>> onSome, Func<T> onNone)
         => Match(onSome, () => Task.FromResult(onNone()));
 
