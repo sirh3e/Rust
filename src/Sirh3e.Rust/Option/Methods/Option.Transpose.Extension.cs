@@ -1,6 +1,6 @@
 ﻿using Sirh3e.Rust.Result;
-using static Sirh3e.Rust.Result.Extension;
 using static Sirh3e.Rust.Option.Extension;
+using static Sirh3e.Rust.Result.Extension;
 
 namespace Sirh3e.Rust.Option
 {
