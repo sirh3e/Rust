@@ -37,27 +37,6 @@ public partial struct Option<TSome>
     public Task<T> MatchAsync<T>(Func<TSome, Task<T>> onSome, Func<ValueTask<T>> onNone)
         => Match(onSome, () => onNone().AsTask());
 
-    //ToDo next
     public Task<T> MatchAsync<T>(Func<TSome, ValueTask<T>> onSome, Func<Task<T>> onNone)
         => Match(some => onSome(some).AsTask(), onNone);
-
-    /*
-    public ValueTask MatchAsync(Func<TSome, ValueTask> onSome, Action onNone)
-        => Match(onSome, () => DoValueAsync(onNone));
-
-    public ValueTask MatchAsync(Action<TSome> onSome, Func<ValueTask> onNone)
-        => Match(some => DoValueAsync(onSome, some), onNone);
-
-    public ValueTask MatchAsync(Func<TSome, ValueTask> onSome, Func<ValueTask> onNone)
-        => Match(onSome, onNone);
-
-    public ValueTask<T> MatchAsync<T>(Func<TSome, ValueTask<T>> onSome, Func<T> onNone)
-        => Match(onSome, () => ValueTaskFromResult(onNone()));
-
-    public ValueTask<T> MatchAsync<T>(Func<TSome, T> onSome, Func<ValueTask<T>> onNone)
-        => Match(some => ValueTaskFromResult(onSome(some)), onNone);
-
-    public ValueTask<T> MatchAsync<T>(Func<TSome, ValueTask<T>> onSome, Func<ValueTask<T>> onNone)
-        => Match(onSome, onNone);
-    */
 }
