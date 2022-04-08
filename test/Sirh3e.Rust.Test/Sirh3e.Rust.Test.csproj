@@ -1,6 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
+        <LangVersion>10</LangVersion>
         <IsPackable>false</IsPackable>
         <TargetFrameworks>net5.0</TargetFrameworks>
         <IsTestProject>true</IsTestProject>

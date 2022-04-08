@@ -15,15 +15,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
       
     - name: Setup .NET Core SDK
-      uses: actions/setup-dotnet@v1
+      uses: actions/setup-dotnet@v2
       with:
-        dotnet-version: 6.0
+        dotnet-version: '6.0.x'
      
     - name: dotnet tool install dotnet-format
       run: dotnet tool install -g dotnet-format
     
     - name: dotnet format
-      run: dotnet format Rust.sln --check -v diag
+      run: dotnet format Rust.sln -v diag

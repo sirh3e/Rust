@@ -5,6 +5,6 @@
         /// <summary>
         /// Returns true if the result is Err.
         /// </summary>
-        public bool IsErr => IsOk == false;
+        public readonly bool IsErr => IsOk == false;
     }
 }

@@ -55,7 +55,7 @@ namespace Sirh3e.Rust.Test.Option
         }
 
         [Fact]
-        public void Option_Equals()
+        public void Option_Equals_None_None()
         {
             var x = Option<object>.None;
             var y = Option<object>.None;
@@ -64,21 +64,30 @@ namespace Sirh3e.Rust.Test.Option
         }
 
         [Fact]
-        public void Option_Equals_Object()
+        public void Option_Equals_Object_None_Some()
         {
             var x = Option<object>.None;
-            var y = Option<object>.None;
+            var y = Some("Marvin");
 
-            x.Equals(y as object).Should().BeTrue();
+            x.Equals(y).Should().BeFalse();
         }
 
         [Fact]
-        public void Option_Equals_Object_Null()
+        public void Option_Equals_Object_Some_None()
         {
-            var x = Option<object>.None;
+            var x = Some("Marvin");
             var y = Option<object>.None;
 
-            x.Equals(null).Should().BeFalse();
+            x.Equals(y).Should().BeFalse();
+        }
+
+        [Fact]
+        public void Option_Equals_Object_Some_Some()
+        {
+            var x = Some("Marvin");
+            var y = Some("Marvin");
+
+            x.Equals(y).Should().BeTrue();
         }
 
         [Fact]

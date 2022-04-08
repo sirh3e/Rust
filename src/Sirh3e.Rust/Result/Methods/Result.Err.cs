@@ -1,4 +1,5 @@
 ﻿using Sirh3e.Rust.Option;
+using static Sirh3e.Rust.Option.Extension;
 
 namespace Sirh3e.Rust.Result
 {
@@ -12,8 +13,8 @@ namespace Sirh3e.Rust.Result
         public Option<TErr> Err()
             => IsErr switch
             {
-                true => Option<TErr>.Some(_err),
-                false => Option<TErr>.None
+                true => Some(_err),
+                false => None.Value
             };
     }
 }
