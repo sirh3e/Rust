@@ -26,4 +26,4 @@ jobs:
       run: dotnet tool install -g dotnet-format
     
     - name: dotnet format
-      run: dotnet format Rust.sln --check -v diag
+      run: dotnet format Rust.sln -v diag
