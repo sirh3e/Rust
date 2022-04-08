@@ -6,9 +6,9 @@ namespace Sirh3e.Rust.Result
     {
         internal readonly TErr Value;
 
-        public Err(TErr ok)
+        public Err(TErr err)
         {
-            Value = ok ?? throw new ArgumentNullException(nameof(ok));
+            Value = err ?? throw new ArgumentNullException(nameof(err));
         }
     }
 }

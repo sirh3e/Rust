@@ -2,7 +2,7 @@
 
 namespace Sirh3e.Rust.Result
 {
-    public static class Extension
+    public static partial class Extension
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Err<TErr> Err<TErr>(TErr err) => new(err);
