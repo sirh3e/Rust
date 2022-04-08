@@ -56,9 +56,9 @@ Legend:
     - ✅ ExpectNoneFailed
     - ✅ Filter
     - ✅ Flatten
-    - 🚧 GetOrInsert
-    - 🚧 GetOrInsertWith
-    - 🚧 Insert
+    - ✅ GetOrInsert
+    - ✅ GetOrInsertWith
+    - ✅ Insert
     - ✅ IsNone
     - ✅ IsSome
     - ✅ Iter
@@ -71,7 +71,7 @@ Legend:
     - ✅ Or
     - ✅ OrElse
     - ✅ Replace
-    - 🚧 Take
+    - ✅ Take
     - ✅ Transpose
     - ✅ Unwrap
     - ✅ UnwrapNone
