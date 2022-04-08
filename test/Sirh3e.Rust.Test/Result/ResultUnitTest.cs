@@ -46,6 +46,24 @@ namespace Sirh3e.Rust.Test.Result
         }
 
         [Fact]
+        public void Result_Equals()
+        {
+            var x = Result<string, int>.Ok("liegens");
+            var y = Result<string, int>.Ok("liegens");
+
+            x.Equals(y).Should().BeTrue();
+        }
+
+        [Fact]
+        public void Result_Not_Equals()
+        {
+            var x = Result<string, int>.Ok("liegens");
+            var y = Result<string, int>.Err("liegens".Length);
+
+            x.Equals(y).Should().BeFalse();
+        }
+
+        [Fact]
         public void Result_Operator_Equals()
         {
             var x = Result<string, int>.Ok("liegens");
@@ -70,6 +88,32 @@ namespace Sirh3e.Rust.Test.Result
             var y = Result<string, int>.Ok("liegens");
 
             x.GetHashCode().Should().Be(y.GetHashCode());
+        }
+
+        [Fact]
+        public void Result_Implicit_Operator_Ok()
+        {
+            Result<int, int> ok = Ok(1);
+
+            ok.Should().As<Result<int, int>>().Should().BeEquivalentTo(Result<int, int>.Ok(1));
+
+            ok.IsOk.Should().BeTrue();
+            ok.IsErr.Should().BeFalse();
+
+            ok.Unwrap().Should().Be(1);
+        }
+
+        [Fact]
+        public void Result_Implicit_Operator_Err()
+        {
+            Result<int, int> err = Err(1);
+
+            err.Should().As<Result<int, int>>().Should().BeEquivalentTo(Result<int, int>.Err(1));
+
+            err.IsOk.Should().BeFalse();
+            err.IsErr.Should().BeTrue();
+
+            err.UnwrapErr().Should().Be(1);
         }
     }
 }
