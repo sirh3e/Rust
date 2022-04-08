@@ -95,14 +95,16 @@ public partial class OptionUnitTest
     [Fact]
     public async Task Option_MatchAsync_Func_From_TSome_To_Task_Func_To_Task_Some()
     {
-        var increasse = (string name) => Task.FromResult(name.Length);
-        var decreasse = () => 0;
+        var state = 0;
+
+        var increasse = (string name) => { state++; return Task.CompletedTask; };
+        var decreasse = () => { state--; return Task.CompletedTask; };
 
         var some = Some("String");
 
-        var length = await some.MatchAsync(increasse, decreasse);
-
-        length.Should().Be(6);
+        state.Should().Be(0);
+        await some.MatchAsync(increasse, decreasse);
+        state.Should().Be(1);
     }
 
     [Fact]
@@ -118,6 +120,31 @@ public partial class OptionUnitTest
         state.Should().Be(0);
         await none.MatchAsync(increasse, decreasse);
         state.Should().Be(-1);
+    }
+    [Fact]
+    public async Task Option_MatchAsync_Func_From_TSome_To_T_Func_To_T_Some()
+    {
+        var increasse = (string name) => name.Length;
+        var decreasse = () => 0;
+
+        var some = Some("String");
+
+        var length = await some.MatchAsync(increasse, decreasse);
+
+        length.Should().Be(6);
+    }
+
+    [Fact]
+    public async Task Option_MatchAsync_Func_From_TSome_To_T_Func_To_T_None()
+    {
+        var increasse = (string name) => name.Length;
+        var decreasse = () => 0;
+
+        Option<string> none = None.Value;
+
+        var length = await none.MatchAsync(increasse, decreasse);
+
+        length.Should().Be(0);
     }
 
     [Fact]
@@ -169,7 +196,7 @@ public partial class OptionUnitTest
 
         var length = await none.MatchAsync(increasse, decreasse);
 
-        length.Should().Be(6);
+        length.Should().Be(0);
     }
 
     [Fact]
@@ -189,11 +216,7 @@ public partial class OptionUnitTest
     public async Task Option_MatchAsync_Func_From_TSome_To_Task_T_Func_To_Task_T_None()
     {
         var increasse = (string name) => Task.FromResult(name.Length);
-#if NET5_0_OR_GREATER
-        var decreasse = () => ValueTask.FromResult(0);
-#else
-        Func<ValueTask<int>> decreasse = () => new(0);
-#endif
+        var decreasse = () => Task.FromResult(0);
 
         Option<string> none = None.Value;
 
@@ -227,6 +250,39 @@ public partial class OptionUnitTest
 #else
         Func<ValueTask<int>> decreasse = () => new(0);
 #endif
+
+        Option<string> none = None.Value;
+
+        var length = await none.MatchAsync(increasse, decreasse);
+
+        length.Should().Be(0);
+    }
+    [Fact]
+    public async Task Option_MatchAsync_Func_From_TSome_To_ValueTask_T_Func_To_Task_T_Some()
+    {
+#if NET5_0_OR_GREATER
+        var increasse = (string name) => ValueTask.FromResult(name.Length);
+#else
+        Func<string, ValueTask<int>> increasse = name => new(name.Length);
+#endif
+        var decreasse = () => Task.FromResult(0);
+
+        var some = Some("String");
+
+        var length = await some.MatchAsync(increasse, decreasse);
+
+        length.Should().Be(6);
+    }
+
+    [Fact]
+    public async Task Option_MatchAsync_Func_From_TSome_To_ValueTask_T_Func_To_Task_T_None()
+    {
+#if NET5_0_OR_GREATER
+        var increasse = (string name) => ValueTask.FromResult(name.Length);
+#else
+        Func<string, ValueTask<int>> increasse = name => new(name.Length);
+#endif
+        var decreasse = () => Task.FromResult(0);
 
         Option<string> none = None.Value;
 
