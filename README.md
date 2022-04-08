@@ -34,6 +34,7 @@ dotnet add package Sirh3e.Rust --version 1.0.0-preview-0004
 Legend:
 
 - ✅ Implemented no bugs/🐛 known.
+- 🍬 Feature which is not in rust but fit's nicely in C# language most likely used for Async
 - ❌ Not implemented and will not be to implement do to C# language boundaries.
 - 😐 Rust concept that is not required in C#.
 - 🚧 Currently under construction will raise NotImplementedException.
@@ -64,8 +65,11 @@ Legend:
     - ✅ Iter
     - ❌ IterMut
     - ✅ Map
+    - 🍬 MapAsync
     - ✅ MapOr
+    - 🍬 MapOrAsync
     - ✅ MapOrElse
+    - 🍬 MapOrElseAsync
     - ✅ OkOr
     - ✅ OkOrElse
     - ✅ Or
@@ -103,9 +107,13 @@ Legend:
     - ✅ Iter
     - ❌ IterMut
     - ✅ Map
+    - 🍬 MapAsync
     - ✅ MapErr
+    - 🍬 MapErrAsync
     - ✅ MapOr
+    - 🍬 MapOrAsync
     - ✅ MapOrElse
+    - 🍬 MapOrElseAsync
     - ✅ Ok
     - ✅ Or
     - ✅ OrElse
