@@ -18,11 +18,13 @@ namespace Sirh3e.Rust.Option
         }
 
         public override bool Equals(object? @object)
-            => @object is Option<TSome> other && Equals(other);
+            => @object is not null && @object is Option<TSome> other && Equals(other);
 
         public bool Equals(Option<TSome> other)
-            => EqualityComparer<TSome>.Default.Equals(_some, other._some) &&
-               IsSome == other.IsSome;
+            => IsNone == other.IsNone || (
+               IsSome == other.IsSome &&
+               EqualityComparer<TSome>.Default.Equals(_some, other._some)
+               );
 
         public static Option<TSome> Some(TSome some)
             => new(some);
