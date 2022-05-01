@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Sirh3e.Rust.Result
+﻿namespace Sirh3e.Rust.Result
 {
     public readonly ref struct Ok<TOk>
     {

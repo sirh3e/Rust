@@ -1,4 +1,3 @@
-using System;
 using Sirh3e.Rust.Option;
 
 namespace Sirh3e.Rust.Attributes;

@@ -1,5 +1,4 @@
-﻿using System;
-using Sirh3e.Rust.Panic;
+﻿using Sirh3e.Rust.Panic;
 
 namespace Sirh3e.Rust.Option
 {

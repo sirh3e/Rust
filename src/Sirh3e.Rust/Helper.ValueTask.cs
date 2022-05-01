@@ -1,4 +1,3 @@
-using System;
 using System.Runtime.CompilerServices;
 using Sirh3e.Rust.Attributes;
 using STT = System.Threading.Tasks;

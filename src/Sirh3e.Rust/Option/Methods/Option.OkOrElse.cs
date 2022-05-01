@@ -1,5 +1,4 @@
-﻿using System;
-using Sirh3e.Rust.Result;
+﻿using Sirh3e.Rust.Result;
 
 namespace Sirh3e.Rust.Option
 {
