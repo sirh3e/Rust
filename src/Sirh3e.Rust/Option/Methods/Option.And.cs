@@ -1,14 +1,13 @@
-﻿namespace Sirh3e.Rust.Option
+﻿namespace Sirh3e.Rust.Option;
+
+public partial struct Option<TSome>
 {
-    public partial struct Option<TSome>
-    {
-        /// <summary>
-        /// Returns None if the option is None, otherwise returns option.
-        /// </summary>
-        /// <param name="option"></param>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
-        public Option<T> And<T>(Option<T> option)
-            => IsNone ? Option<T>.None : option;
-    }
+    /// <summary>
+    /// Returns None if the option is None, otherwise returns option.
+    /// </summary>
+    /// <param name="option"></param>
+    /// <typeparam name="T"></typeparam>
+    /// <returns></returns>
+    public Option<T> And<T>(Option<T> option)
+        => IsNone ? Option<T>.None : option;
 }

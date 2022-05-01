@@ -1,61 +1,60 @@
-﻿namespace Sirh3e.Rust.Result
+﻿namespace Sirh3e.Rust.Result;
+
+public readonly partial struct Result<TOk, TErr>
 {
-    public readonly partial struct Result<TOk, TErr>
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="onOk"></param>
+    /// <param name="onErr"></param>
+    /// <exception cref="ArgumentNullException"></exception>
+    public void Match(Action<TOk> onOk, Action<TErr> onErr)
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="onOk"></param>
-        /// <param name="onErr"></param>
-        /// <exception cref="ArgumentNullException"></exception>
-        public void Match(Action<TOk> onOk, Action<TErr> onErr)
+        if ( IsOk )
         {
-            if ( IsOk )
+            if ( onOk is null )
             {
-                if ( onOk is null )
-                {
-                    throw new ArgumentNullException(nameof(onOk));
-                }
-
-                onOk(_ok);
+                throw new ArgumentNullException(nameof(onOk));
             }
-            else
-            {
-                if ( onErr is null )
-                {
-                    throw new ArgumentNullException(nameof(onErr));
-                }
 
-                onErr(_err);
-            }
+            onOk(_ok);
         }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="onOk"></param>
-        /// <param name="onErr"></param>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
-        /// <exception cref="ArgumentNullException"></exception>
-        public T Match<T>(Func<TOk, T> onOk, Func<TErr, T> onErr)
+        else
         {
-            if ( IsOk )
-            {
-                if ( onOk is null )
-                {
-                    throw new ArgumentNullException(nameof(onOk));
-                }
-
-                return onOk(_ok);
-            }
-
             if ( onErr is null )
             {
                 throw new ArgumentNullException(nameof(onErr));
             }
 
-            return onErr(_err);
+            onErr(_err);
         }
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="onOk"></param>
+    /// <param name="onErr"></param>
+    /// <typeparam name="T"></typeparam>
+    /// <returns></returns>
+    /// <exception cref="ArgumentNullException"></exception>
+    public T Match<T>(Func<TOk, T> onOk, Func<TErr, T> onErr)
+    {
+        if ( IsOk )
+        {
+            if ( onOk is null )
+            {
+                throw new ArgumentNullException(nameof(onOk));
+            }
+
+            return onOk(_ok);
+        }
+
+        if ( onErr is null )
+        {
+            throw new ArgumentNullException(nameof(onErr));
+        }
+
+        return onErr(_err);
     }
 }

@@ -1,12 +1,11 @@
-﻿namespace Sirh3e.Rust.Option
+﻿namespace Sirh3e.Rust.Option;
+
+public partial struct Option<TSome>
 {
-    public partial struct Option<TSome>
-    {
-        /// <summary>
-        /// Consumes self while expecting None and returning nothing.
-        /// </summary>
-        /// <param name="message"></param>
-        public void ExpectNone(string message)
-            => Match(some => ExpectNoneFailed(message, some), _ => { });
-    }
+    /// <summary>
+    /// Consumes self while expecting None and returning nothing.
+    /// </summary>
+    /// <param name="message"></param>
+    public void ExpectNone(string message)
+        => Match(some => ExpectNoneFailed(message, some), _ => { });
 }

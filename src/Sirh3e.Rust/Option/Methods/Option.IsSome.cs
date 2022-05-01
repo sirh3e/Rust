@@ -1,10 +1,9 @@
-﻿namespace Sirh3e.Rust.Option
+﻿namespace Sirh3e.Rust.Option;
+
+public partial struct Option<TSome>
 {
-    public partial struct Option<TSome>
-    {
-        /// <summary>
-        /// Returns true if the option is a Some value.
-        /// </summary>
-        public bool IsSome { get; private set; }
-    }
+    /// <summary>
+    /// Returns true if the option is a Some value.
+    /// </summary>
+    public bool IsSome { get; private set; }
 }

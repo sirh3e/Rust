@@ -1,27 +1,26 @@
-﻿namespace Sirh3e.Rust.Result
-{
-    public static partial class ResultExtension
-    {
-        /// <summary>
-        /// Converts from Result&lt;Result&lt;TOk, TErr&gt;, TErr&gt; to Result&lt;TOk, TErr&gt;
-        /// </summary>
-        /// <param name="result"></param>
-        /// <typeparam name="TOk"></typeparam>
-        /// <typeparam name="TErr"></typeparam>
-        /// <returns></returns>
-        public static Result<TOk, TErr> Flatten<TOk, TErr>(this Result<Result<TOk, TErr>, TErr> result)
-            => result.Match(
-                ok => ok,
-                Result<TOk, TErr>.Err);
+﻿namespace Sirh3e.Rust.Result;
 
-        /// <summary>
-        /// Converts from Result&lt;Result&lt;TOk, TErr&gt;, TErr&gt; to Result&lt;TOk, TErr&gt;
-        /// </summary>
-        /// <param name="result"></param>
-        /// <typeparam name="TOk"></typeparam>
-        /// <typeparam name="TErr"></typeparam>
-        /// <returns></returns>
-        public static Result<TOk, TErr> Flatten<TOk, TErr>(this Result<TOk, TErr> result)
-            => result;
-    }
+public static partial class ResultExtension
+{
+    /// <summary>
+    /// Converts from Result&lt;Result&lt;TOk, TErr&gt;, TErr&gt; to Result&lt;TOk, TErr&gt;
+    /// </summary>
+    /// <param name="result"></param>
+    /// <typeparam name="TOk"></typeparam>
+    /// <typeparam name="TErr"></typeparam>
+    /// <returns></returns>
+    public static Result<TOk, TErr> Flatten<TOk, TErr>(this Result<Result<TOk, TErr>, TErr> result)
+        => result.Match(
+                        ok => ok,
+                        Result<TOk, TErr>.Err);
+
+    /// <summary>
+    /// Converts from Result&lt;Result&lt;TOk, TErr&gt;, TErr&gt; to Result&lt;TOk, TErr&gt;
+    /// </summary>
+    /// <param name="result"></param>
+    /// <typeparam name="TOk"></typeparam>
+    /// <typeparam name="TErr"></typeparam>
+    /// <returns></returns>
+    public static Result<TOk, TErr> Flatten<TOk, TErr>(this Result<TOk, TErr> result)
+        => result;
 }

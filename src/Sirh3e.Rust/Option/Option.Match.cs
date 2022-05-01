@@ -1,69 +1,68 @@
-﻿namespace Sirh3e.Rust.Option
+﻿namespace Sirh3e.Rust.Option;
+
+public partial struct Option<TSome>
 {
-    public partial struct Option<TSome>
+    public void Match(Action<TSome> onSome, Action onNone)
     {
-        public void Match(Action<TSome> onSome, Action onNone)
+        if ( IsSome )
         {
-            if ( IsSome )
+            if ( onSome is null )
             {
-                if ( onSome is null )
-                {
-                    throw new ArgumentNullException(nameof(onSome));
-                }
-
-                onSome(_some);
+                throw new ArgumentNullException(nameof(onSome));
             }
-            else
-            {
-                if ( onNone is null )
-                {
-                    throw new ArgumentNullException(nameof(onNone));
-                }
 
-                onNone();
-            }
+            onSome(_some);
         }
-
-        private void Match(Action<TSome> onSome, Action<TSome> onNone)
+        else
         {
-            if ( IsSome )
-            {
-                if ( onSome is null )
-                {
-                    throw new ArgumentNullException(nameof(onSome));
-                }
-
-                onSome(_some);
-            }
-            else
-            {
-                if ( onNone is null )
-                {
-                    throw new ArgumentNullException(nameof(onNone));
-                }
-
-                onNone(_some);
-            }
-        }
-
-        public T Match<T>(Func<TSome, T> onSome, Func<T> onNone)
-        {
-            if ( IsSome )
-            {
-                if ( onSome is null )
-                {
-                    throw new ArgumentNullException(nameof(onSome));
-                }
-
-                return onSome(_some);
-            }
-
             if ( onNone is null )
             {
                 throw new ArgumentNullException(nameof(onNone));
             }
 
-            return onNone();
+            onNone();
         }
+    }
+
+    private void Match(Action<TSome> onSome, Action<TSome> onNone)
+    {
+        if ( IsSome )
+        {
+            if ( onSome is null )
+            {
+                throw new ArgumentNullException(nameof(onSome));
+            }
+
+            onSome(_some);
+        }
+        else
+        {
+            if ( onNone is null )
+            {
+                throw new ArgumentNullException(nameof(onNone));
+            }
+
+            onNone(_some);
+        }
+    }
+
+    public T Match<T>(Func<TSome, T> onSome, Func<T> onNone)
+    {
+        if ( IsSome )
+        {
+            if ( onSome is null )
+            {
+                throw new ArgumentNullException(nameof(onSome));
+            }
+
+            return onSome(_some);
+        }
+
+        if ( onNone is null )
+        {
+            throw new ArgumentNullException(nameof(onNone));
+        }
+
+        return onNone();
     }
 }

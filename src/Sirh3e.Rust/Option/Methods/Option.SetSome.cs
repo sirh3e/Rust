@@ -1,14 +1,13 @@
 ﻿using System.Runtime.CompilerServices;
 
-namespace Sirh3e.Rust.Option
+namespace Sirh3e.Rust.Option;
+
+public partial struct Option<TSome>
 {
-    public partial struct Option<TSome>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private void SetSome(TSome some)
     {
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private void SetSome(TSome some)
-        {
-            _some = some;
-            IsSome = Helper.IsSome(_some);
-        }
+        _some = some;
+        IsSome = Helper.IsSome(_some);
     }
 }

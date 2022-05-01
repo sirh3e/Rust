@@ -1,15 +1,14 @@
-﻿namespace Sirh3e.Rust.Option
+﻿namespace Sirh3e.Rust.Option;
+
+public partial struct Option<TSome>
 {
-    public partial struct Option<TSome>
+    public Option<TSome> Take()
     {
-        public Option<TSome> Take()
-        {
-            var option = this;
+        var option = this;
 
-            _some = default;
-            IsSome = false;
+        _some = default;
+        IsSome = false;
 
-            return option;
-        }
+        return option;
     }
 }

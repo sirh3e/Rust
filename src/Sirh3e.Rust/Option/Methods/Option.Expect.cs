@@ -1,13 +1,12 @@
-﻿namespace Sirh3e.Rust.Option
+﻿namespace Sirh3e.Rust.Option;
+
+public partial struct Option<TSome>
 {
-    public partial struct Option<TSome>
-    {
-        /// <summary>
-        /// Returns the contained Some value, consuming the self value.
-        /// </summary>
-        /// <param name="message"></param>
-        /// <returns></returns>
-        public TSome Expect(string message)
-            => Match(s => s, () => ExpectFailed(message));
-    }
+    /// <summary>
+    /// Returns the contained Some value, consuming the self value.
+    /// </summary>
+    /// <param name="message"></param>
+    /// <returns></returns>
+    public TSome Expect(string message)
+        => Match(s => s, () => ExpectFailed(message));
 }

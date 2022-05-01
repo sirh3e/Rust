@@ -1,9 +1,8 @@
-﻿namespace Sirh3e.Rust.Option
+﻿namespace Sirh3e.Rust.Option;
+
+public partial struct Option<TSome>
 {
-    public partial struct Option<TSome>
-    {
-        //ToDo add documentation
-        public Option<TSome> Cloned()
-            => Clone();
-    }
+    //ToDo add documentation
+    public Option<TSome> Cloned()
+        => Clone();
 }
