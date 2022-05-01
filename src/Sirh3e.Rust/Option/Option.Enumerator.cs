@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-
-namespace Sirh3e.Rust.Option
+﻿namespace Sirh3e.Rust.Option
 {
     public struct OptionEnumerator<TSome> : IEnumerator<TSome>
     {

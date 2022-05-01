@@ -1,6 +1,4 @@
-﻿using Sirh3e.Rust.Option;
-
-namespace Sirh3e.Rust.Result
+﻿namespace Sirh3e.Rust.Result
 {
     public static partial class ResultExtension
     {
@@ -16,7 +14,7 @@ namespace Sirh3e.Rust.Result
             => result.Match(ok =>
                 {
                     return ok.Match(
-                        some => Option<Result<TOk, TErr>>.Some(Result<TOk, TErr>.Ok(some)),
+                        some => Option<Result<TOk, TErr>>.Some(Ok(some)),
                         () => Option<Result<TOk, TErr>>.None
                     );
                 },

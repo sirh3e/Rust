@@ -1,7 +1,4 @@
-﻿using Sirh3e.Rust.Option;
-using static Sirh3e.Rust.Option.Extension;
-
-namespace Sirh3e.Rust.Result
+﻿namespace Sirh3e.Rust.Result
 {
     public readonly partial struct Result<TOk, TErr>
     {

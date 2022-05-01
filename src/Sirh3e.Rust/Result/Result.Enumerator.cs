@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-
-namespace Sirh3e.Rust.Result
+﻿namespace Sirh3e.Rust.Result
 {
     public struct ResultEnumerator<TOk> : IEnumerator<TOk>
     {

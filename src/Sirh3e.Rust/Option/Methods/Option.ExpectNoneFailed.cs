@@ -1,6 +1,4 @@
-﻿using Sirh3e.Rust.Panic;
-
-namespace Sirh3e.Rust.Option
+﻿namespace Sirh3e.Rust.Option
 {
     public partial struct Option<TSome>
     {

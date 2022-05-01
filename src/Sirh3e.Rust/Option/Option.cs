@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-
-namespace Sirh3e.Rust.Option
+﻿namespace Sirh3e.Rust.Option
 {
     public partial struct Option<TSome> : ICloneable, IEnumerable<TSome>, IEquatable<Option<TSome>>
     {
