@@ -7,7 +7,7 @@ public partial struct Option<TSome>
     /// </summary>
     /// <param name="predicate"></param>
     /// <returns></returns>
-    [Unstable("is_some_with", 21)]
+    [Unstable("is_some_with", 14)]
     [Docs("https://doc.rust-lang.org/std/result/enum.Result.html#method.is_ok_with")]
     public bool IsSomeWith(Func<TSome, bool> predicate)
         => Match(predicate, () => false);
