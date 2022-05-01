@@ -1,4 +1,4 @@
-using static Sirh3e.Rust.Helper.Task;
+using static Sirh3e.Rust.Internals.Helpers.Helper.Task;
 
 namespace Sirh3e.Rust.Option;
 

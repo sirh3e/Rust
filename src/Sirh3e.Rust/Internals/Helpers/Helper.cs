@@ -1,9 +1,4 @@
-﻿using System.Runtime.CompilerServices;
-#if !NET2_0_OR_GREATER
-using System.Reflection;
-#endif
-
-namespace Sirh3e.Rust;
+﻿namespace Sirh3e.Rust.Internals.Helpers;
 
 internal static partial class Helper
 {

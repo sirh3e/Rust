@@ -1,6 +1,4 @@
-﻿using System.Runtime.CompilerServices;
-
-namespace Sirh3e.Rust.Result;
+﻿namespace Sirh3e.Rust.Result;
 
 public static partial class Extension
 {

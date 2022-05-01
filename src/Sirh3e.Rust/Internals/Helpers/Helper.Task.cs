@@ -1,6 +1,5 @@
-using System.Runtime.CompilerServices;
 using STT = System.Threading.Tasks;
-namespace Sirh3e.Rust;
+namespace Sirh3e.Rust.Internals.Helpers;
 
 internal static partial class Helper
 {
