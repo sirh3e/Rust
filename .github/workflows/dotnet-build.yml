@@ -18,12 +18,12 @@ jobs:
         dotnet-version: ['7.0.x']
     steps:
     - uses: actions/checkout@v3
-    - name: Setup .NET Core
+    - name: setup
       uses: actions/setup-dotnet@v2
       with:
         dotnet-version: ${{ matrix.dotnet-version }}
         include-prerelease: true
-    - name: Install dependencies
+    - name: restore
       run: dotnet restore
-    - name: Build
+    - name: build
       run: dotnet build --configuration Release --no-restore
