@@ -15,13 +15,14 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macOS-latest]
-        dotnet-version: ['6.0.x']
+        dotnet-version: ['7.0.x']
     steps:
     - uses: actions/checkout@v3
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v2
       with:
         dotnet-version: ${{ matrix.dotnet-version }}
+        include-prerelease: true
     - name: Install dependencies
       run: dotnet restore
     - name: Build
