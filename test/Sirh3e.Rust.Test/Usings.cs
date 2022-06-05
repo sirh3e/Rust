@@ -1,4 +1,6 @@
 global using System;
+global using System.IO;
+global using System.Text;
 global using System.Threading.Tasks;
 global using FluentAssertions;
 global using Sirh3e.Rust.Option;

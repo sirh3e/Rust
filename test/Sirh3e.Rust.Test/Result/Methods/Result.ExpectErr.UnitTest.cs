@@ -1,10 +1,4 @@
-﻿using System;
-using FluentAssertions;
-using Sirh3e.Rust.Panic;
-using Sirh3e.Rust.Result;
-using Xunit;
-
-namespace Sirh3e.Rust.Test.Result
+﻿namespace Sirh3e.Rust.Test.Result
 {
     public partial class ResultUnitTest
     {

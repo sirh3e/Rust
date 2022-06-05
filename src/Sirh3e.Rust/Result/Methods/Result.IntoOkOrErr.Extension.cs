@@ -11,6 +11,6 @@ public static partial class ResultExtension
     /// <returns></returns>
     [Docs("https://doc.rust-lang.org/std/result/enum.Result.html#method.into_ok_or_err")]
     [Unstable("result_into_ok_or_err", 19)]
-    public static T IntoOkOrErr<T>(Result<T, T> result)
+    public static T IntoOkOrErr<T>(this Result<T, T> result)
         => result.Match(ok => ok, err => err);
 }
