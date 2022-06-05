@@ -18,12 +18,15 @@ jobs:
         dotnet-version: ['7.0.x']
     steps:
     - uses: actions/checkout@v3
+
     - name: setup
       uses: actions/setup-dotnet@v2
       with:
         dotnet-version: ${{ matrix.dotnet-version }}
         include-prerelease: true
+
     - name: restore
       run: dotnet restore
+
     - name: build
       run: dotnet build --configuration Release --no-restore
