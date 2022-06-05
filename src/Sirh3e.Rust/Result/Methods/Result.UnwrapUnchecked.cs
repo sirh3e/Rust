@@ -7,5 +7,5 @@ public readonly partial struct Result<TOk, TErr>
     /// </summary>
     /// <returns></returns>
     public TOk UnwrapUnchecked()
-        => UnwrapOrElse(default);
+        => UnwrapOrElse(_ => default);
 }
