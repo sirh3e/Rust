@@ -1,8 +1,4 @@
-﻿using FluentAssertions;
-using Sirh3e.Rust.Option;
-using Xunit;
-
-namespace Sirh3e.Rust.Test.Option
+﻿namespace Sirh3e.Rust.Test.Option
 {
     public partial class OptionUnitTest
     {
