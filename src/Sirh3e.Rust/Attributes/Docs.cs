@@ -1,7 +1,7 @@
 namespace Sirh3e.Rust.Attributes;
 
 [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method | AttributeTargets.Interface | AttributeTargets.Struct)]
-public class Docs : Attribute
+internal class Docs : Attribute
 {
     public readonly string Url;
 
