@@ -1,0 +1,30 @@
+name: dotnet format
+on:
+  push:
+    paths:
+    - 'src/**'
+    - 'test/**'
+  pull_request:
+    paths:
+      - 'src/**'
+      - 'test/**'
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+      
+    - name: setup
+      uses: actions/setup-dotnet@v2
+      with:
+        dotnet-version: '7.0.x'
+        include-prerelease: true
+     
+    - name: install
+      run: dotnet tool install -g dotnet-format
+    
+    - name: dotnet format
+      run: dotnet format Rust.sln -v diag
