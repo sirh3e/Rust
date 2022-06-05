@@ -86,8 +86,8 @@ Legend:
     - ✅ UnwrapOr
     - ✅ UnwrapOrDefault
     - ✅ UnwrapOrElse
-    - ✅ UnwrapUnchecked
-    - ✅ Unzip
+    - 🦉 UnwrapUnchecked
+    - 🦉 Unzip
     - ✅ Xor
     - ✅ Zip
     - ✅ ZipWith
