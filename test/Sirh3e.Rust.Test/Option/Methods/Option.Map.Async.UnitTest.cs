@@ -29,7 +29,6 @@ public partial class OptionUnitTest
         var option = await some.MapAsync(GetLengthAsync)
                                .MapAsync(DoubleOrNothingAsync);
 
-
         option.IsSome.Should().BeTrue();
         option.IsNone.Should().BeFalse();
 

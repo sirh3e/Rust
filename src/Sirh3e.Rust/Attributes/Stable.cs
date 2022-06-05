@@ -9,6 +9,6 @@ internal class Stable : Attribute
     public Stable(string feature, string since)
     {
         Feature = feature ?? throw new ArgumentNullException(nameof(feature));
-        Since   = since   ?? throw new ArgumentNullException(nameof(since));
+        Since = since ?? throw new ArgumentNullException(nameof(since));
     }
 }

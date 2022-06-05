@@ -15,11 +15,11 @@ public partial class OptionUnitTest
 
         var tmp = option.GetOrInsertDefault();
         number.Should().Be(tmp);
-        
+
         option.IsNone.Should().BeFalse();
         option.IsSome.Should().BeTrue();
     }
-    
+
     [Fact]
     public void Option_GetOrInsertDefault_None()
     {
@@ -27,7 +27,7 @@ public partial class OptionUnitTest
 
         option.IsSome.Should().BeFalse();
         option.IsNone.Should().BeTrue();
-        
+
         var number = option.GetOrInsertDefault();
         default(int).Should().Be(number);
 

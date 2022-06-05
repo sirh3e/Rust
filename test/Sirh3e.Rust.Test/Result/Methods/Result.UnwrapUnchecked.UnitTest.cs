@@ -36,7 +36,7 @@ public partial class ResultUnitTest
         func.Should().NotThrow();
 
         var value = func();
-        
+
         value.Should().Be(default);
     }
 }

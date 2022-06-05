@@ -14,7 +14,8 @@ public partial struct Option<TSome>
     [Source("https://doc.rust-lang.org/src/core/option.rs.html#936-939")]
     public Option<TSome> Inspect(Action<TSome> inspector)
     {
-        if ( IsSome ) inspector(_some);
+        if ( IsSome )
+            inspector(_some);
         return this;
     }
 }
