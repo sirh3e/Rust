@@ -1,7 +1,4 @@
-﻿using FluentAssertions;
-using Xunit;
-
-namespace Sirh3e.Rust.Test.Result
+﻿namespace Sirh3e.Rust.Test.Result
 {
     public partial class ResultUnitTest
     {
