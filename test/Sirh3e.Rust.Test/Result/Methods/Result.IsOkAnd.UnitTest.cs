@@ -11,7 +11,7 @@ public partial class ResultUnitTest
             result.IsOk.Should().BeTrue();
             result.IsErr.Should().BeFalse();
 
-            result.IsOkWith(x => x > 1).Should().BeTrue();
+            result.IsOkAnd(x => x > 1).Should().BeTrue();
         }
 
         {
@@ -20,7 +20,7 @@ public partial class ResultUnitTest
             result.IsOk.Should().BeTrue();
             result.IsErr.Should().BeFalse();
 
-            result.IsOkWith(x => x > 1).Should().BeFalse();
+            result.IsOkAnd(x => x > 1).Should().BeFalse();
         }
 
         {
@@ -29,7 +29,7 @@ public partial class ResultUnitTest
             result.IsOk.Should().BeFalse();
             result.IsErr.Should().BeTrue();
 
-            result.IsOkWith(x => x > 1).Should().BeFalse();
+            result.IsOkAnd(x => x > 1).Should().BeFalse();
         }
     }
 }
