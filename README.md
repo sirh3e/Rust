@@ -26,7 +26,7 @@ See [features](#features) for all available methods.
 ## Nuget
 
 ```cmd
-dotnet add package Sirh3e.Rust --version 1.0.0-preview-0005
+dotnet add package Sirh3e.Rust --version 1.0.0-preview-0006
 ```
 
 ## Features
@@ -34,10 +34,11 @@ dotnet add package Sirh3e.Rust --version 1.0.0-preview-0005
 Legend:
 
 - ✅ Implemented no bugs/🐛 known.
-- 🍬 Feature which is not in rust but fit's nicely in C# language most likely used for Async
 - ❌ Not implemented and will not be to implement do to C# language boundaries.
-- 😐 Rust concept that is not required in C#.
+- 🍬 Feature which is not in rust but fit's nicely in C# language most likely used for Async
+- 🦉 Is for nightly features
 - 🚧 Currently under construction will raise NotImplementedException.
+- 😐 Rust concept that is not required in C#.
 
 1. Option
     - Methods:
@@ -58,10 +59,13 @@ Legend:
     - ✅ Filter
     - ✅ Flatten
     - ✅ GetOrInsert
+    - 🦉 GetOrInsertDefault
     - ✅ GetOrInsertWith
     - ✅ Insert
+    - 🦉 Inspect
     - ✅ IsNone
     - ✅ IsSome
+    - 🦉 IsSomeAnd
     - ✅ Iter
     - ❌ IterMut
     - ✅ Map
@@ -82,6 +86,8 @@ Legend:
     - ✅ UnwrapOr
     - ✅ UnwrapOrDefault
     - ✅ UnwrapOrElse
+    - ✅ UnwrapUnchecked
+    - ✅ Unzip
     - ✅ Xor
     - ✅ Zip
     - ✅ ZipWith
@@ -101,9 +107,14 @@ Legend:
     - ✅ Expect
     - ✅ ExpectErr
     - ✅ Flatten
+    - 🦉 Inspect
+    - 🦉 InspectErr 
     - ✅ IntoOk
+    - 🦉 IntoOkOrErr
     - ✅ IsErr
+    - 🦉 IsErrAnd
     - ✅ IsOk
+    - 🦉 IsOkAnd
     - ✅ Iter
     - ❌ IterMut
     - ✅ Map
@@ -120,9 +131,11 @@ Legend:
     - ✅ Transpose
     - ✅ Unwrap
     - ✅ UnwrapErr
+    - ✅ UnwrapErrUnchecked
     - ✅ UnwrapOr
     - ✅ UnwrapOrDefault
     - ✅ UnwrapOrElse
+    - ✅ UnwrapUnchecked
 
 ## Becoming Active in Sirh3e.Rust development
 
