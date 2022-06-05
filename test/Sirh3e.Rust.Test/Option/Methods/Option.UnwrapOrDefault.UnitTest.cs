@@ -1,21 +1,17 @@
-﻿using FluentAssertions;
-using Xunit;
+﻿namespace Sirh3e.Rust.Test.Option;
 
-namespace Sirh3e.Rust.Test.Option
+public partial class OptionUnitTest
 {
-    public partial class OptionUnitTest
+    [Fact]
+    public void Option_UnwrapOrDefault()
     {
-        [Fact]
-        public void Option_UnwrapOrDefault()
-        {
-            var goodYearFromInput = "1909";
-            var badYearFromInput = "190blarg";
+        var goodYearFromInput = "1909";
+        var badYearFromInput  = "190blarg";
 
-            var goodYear = Parse(goodYearFromInput).Ok().UnwrapOrDefault();
-            var badYear = Parse(badYearFromInput).Ok().UnwrapOrDefault();
+        var goodYear = Parse(goodYearFromInput).Ok().UnwrapOrDefault();
+        var badYear  = Parse(badYearFromInput).Ok().UnwrapOrDefault();
 
-            goodYear.Should().Be(1909);
-            badYear.Should().Be(0);
-        }
+        goodYear.Should().Be(1909);
+        badYear.Should().Be(0);
     }
 }
