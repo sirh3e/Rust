@@ -28,6 +28,6 @@ jobs:
 
     - name: restore
       run: dotnet restore
-    
+
     - name: test
       run: dotnet test --no-restore --framework net7.0
