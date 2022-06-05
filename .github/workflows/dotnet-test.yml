@@ -1,0 +1,33 @@
+name: dotnet test
+on:
+  push:
+    paths:
+    - 'src/**'
+    - 'test/**'
+  pull_request:
+    paths:
+      - 'src/**'
+      - 'test/**'
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        dotnet-version: ['5.0.x', '6.0.x', '7.0.x']
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: setup
+      uses: actions/setup-dotnet@v2
+      with:
+        dotnet-version: ${{ matrix.dotnet-version }}
+        include-prerelease: true
+
+    - name: restore
+      run: dotnet restore
+    
+    - name: test
+      run: dotnet test --no-restore --framework ${{ matrix.dotnet-version }}
