@@ -9,6 +9,6 @@ public readonly partial struct Result<TOk, TErr>
     /// <returns></returns>
     [Docs("https://doc.rust-lang.org/std/result/enum.Result.html#method.is_err_with")]
     [Unstable("is_some_with", 20)]
-    public bool IsErrWith(Func<TErr, bool> predicate)
+    public bool IsErrAnd(Func<TErr, bool> predicate)
         => Match(_ => false, predicate);
 }
