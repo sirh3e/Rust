@@ -33,12 +33,16 @@ public partial struct Option<TSome> : ICloneable, IEnumerable<TSome>, IEquatable
         => None;
 
     public IEnumerator<TSome> GetEnumerator()
+#if NETCOREAPP1_0_OR_GREATER || NET46_OR_GREATER || NETSTANDARD1_3_OR_GREATER
+        => new OptionEnumerator<TSome>(IsSome ? new[] { _some } : Array.Empty<TSome>());
+#else        
         => new OptionEnumerator<TSome>(IsSome ? new[] { _some } : new TSome[0]);
+#endif
 
     public override int GetHashCode()
     {
-#if NET2_1_OR_GREATER
-            return HashCode.Combine(_some, IsSome);
+#if NETCOREAPP2_1_OR_GREATER || NETSTANDARD2_1_OR_GREATER
+        return HashCode.Combine(_some, IsSome);
 #else
         //Thx to https://rehansaeed.com/gethashcode-made-easy/
         var hashCode = 17;

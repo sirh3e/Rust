@@ -1,4 +1,4 @@
-﻿namespace Sirh3e.Rust.Result;
+namespace Sirh3e.Rust.Result;
 
 public readonly partial struct Result<TOk, TErr> : ICloneable, IEnumerable<TOk>, IEquatable<Result<TOk, TErr>>
 {
@@ -26,14 +26,13 @@ public readonly partial struct Result<TOk, TErr> : ICloneable, IEnumerable<TOk>,
     public static Result<TOk, TErr> Err(TErr err)
         => new(err);
 
-    public bool Equals(Result<TOk, TErr> other)
-        => EqualityComparer<TOk>.Default.Equals(_ok, other._ok) &&
-           EqualityComparer<TErr>.Default.Equals(_err, other._err) &&
-           IsOk == other.IsOk;
+    public bool Equals(Result<TOk, TErr> other) => EqualityComparer<TOk>.Default.Equals(_ok, other._ok) 
+                                                   && EqualityComparer<TErr>.Default.Equals(_err, other._err) 
+                                                   && IsOk == other.IsOk;
 
     public IEnumerator<TOk> GetEnumerator()
-#if NET1_1_OR_GREATER
-            => new ResultEnumerator<TOk>(IsOk ? new[] { _ok } : Array.Empty<TOk>());
+#if NETCOREAPP1_0_OR_GREATER || NET46_OR_GREATER || NETSTANDARD1_3_OR_GREATER 
+        => new ResultEnumerator<TOk>(IsOk ? new[] { _ok } : Array.Empty<TOk>());
 #else
         => new ResultEnumerator<TOk>(IsOk ? new[] { _ok } : new TOk[0]);
 #endif
@@ -43,8 +42,8 @@ public readonly partial struct Result<TOk, TErr> : ICloneable, IEnumerable<TOk>,
 
     public override int GetHashCode()
     {
-#if NET2_1_OR_GREATER
-            return HashCode.Combine(_ok, _err, IsOk);
+#if NETCOREAPP2_1_OR_GREATER || NETSTANDARD2_1_OR_GREATER
+        return HashCode.Combine(_ok, _err, IsOk);
 #else
         //Thx to https://rehansaeed.com/gethashcode-made-easy/
         var hashCode = 17;
