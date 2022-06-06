@@ -11,14 +11,10 @@ public struct ResultEnumerator<TOk> : IEnumerator<TOk>
     }
 
     public bool MoveNext()
-    {
-        return ++_position < _oks.Length;
-    }
+        => ++_position < _oks.Length;
 
     public void Reset()
-    {
-        _position = -1;
-    }
+        => _position = -1;
 
     public TOk Current => _oks[_position];
 

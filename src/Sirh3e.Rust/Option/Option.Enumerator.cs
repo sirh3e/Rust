@@ -14,9 +14,7 @@ public struct OptionEnumerator<TSome> : IEnumerator<TSome>
         => ++_position < _somes.Length;
 
     public void Reset()
-    {
-        _position = -1;
-    }
+        => _position = -1;
 
     public TSome Current => _somes[_position];
 

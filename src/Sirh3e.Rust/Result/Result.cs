@@ -1,4 +1,4 @@
-namespace Sirh3e.Rust.Result;
+﻿namespace Sirh3e.Rust.Result;
 
 public readonly partial struct Result<TOk, TErr> : ICloneable, IEnumerable<TOk>, IEquatable<Result<TOk, TErr>>
 {
@@ -57,7 +57,7 @@ public readonly partial struct Result<TOk, TErr> : ICloneable, IEnumerable<TOk>,
     }
 
     IEnumerator IEnumerable.GetEnumerator()
-        => Iter();
+        => GetEnumerator();
 
     public Result<TOk, TErr> Clone()
         => IsOk ? Ok(_ok) : Err(_err);
