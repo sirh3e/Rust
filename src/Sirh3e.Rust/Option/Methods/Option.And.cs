@@ -8,6 +8,8 @@ public partial struct Option<TSome>
     /// <param name="option"></param>
     /// <typeparam name="T"></typeparam>
     /// <returns></returns>
+    [Pure]
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     [GitHub(24, "https://github.com/sirh3e/Rust/issues/24")]
     [Docs("https://doc.rust-lang.org/std/option/enum.Option.html#method.and")]
     [Stable("rust1", "1.0.0")]
