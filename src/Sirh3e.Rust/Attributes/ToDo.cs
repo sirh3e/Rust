@@ -1,14 +1,12 @@
 namespace Sirh3e.Rust.Attributes;
 
-[AttributeUsage(AttributeTargets.Class | AttributeTargets.Method | AttributeTargets.Interface | AttributeTargets.Struct)]
+[AttributeUsage(AttributeTargets.Class | AttributeTargets.Method | AttributeTargets.Interface | AttributeTargets.Struct, AllowMultiple = true)]
 internal class ToDo : Attribute
 {
-    public readonly Option<ulong> Issue;
+    public readonly ulong Issue;
     public readonly string Message;
 
-    public ToDo(string message) : this(message, Option<ulong>.None) { }
-
-    public ToDo(string message, Option<ulong> issue)
+    public ToDo(ulong issue, string message)
     {
         Message = message ?? throw new ArgumentNullException(nameof(message));
         Issue = issue;
