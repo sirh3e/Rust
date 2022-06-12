@@ -8,7 +8,7 @@ public partial struct Option<TSome> : ICloneable, IEnumerable<TSome>, IEquatable
 
     private Option(TSome some)
     {
-        _some = some;
+        _some  = some;
         IsSome = Helper.IsSome(_some);
     }
 
@@ -35,7 +35,7 @@ public partial struct Option<TSome> : ICloneable, IEnumerable<TSome>, IEquatable
     public IEnumerator<TSome> GetEnumerator()
 #if NETCOREAPP1_0_OR_GREATER || NET46_OR_GREATER || NETSTANDARD1_3_OR_GREATER
         => new OptionEnumerator<TSome>(IsSome ? new[] { _some } : Array.Empty<TSome>());
-#else        
+#else
         => new OptionEnumerator<TSome>(IsSome ? new[] { _some } : new TSome[0]);
 #endif
 
@@ -53,12 +53,6 @@ public partial struct Option<TSome> : ICloneable, IEnumerable<TSome>, IEquatable
         return hashCode;
 #endif
     }
-
-    public Option<TSome> Clone()
-        => IsSome ? Some(_some) : None;
-
-    object ICloneable.Clone()
-        => Clone();
 
     IEnumerator IEnumerable.GetEnumerator()
         => Iter();
