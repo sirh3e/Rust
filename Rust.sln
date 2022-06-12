@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sirh3e.Rust", "src\Sirh3e.R
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sirh3e.Rust.Test", "test\Sirh3e.Rust.Test\Sirh3e.Rust.Test.csproj", "{CE6EB52B-CB63-4E6E-BBE6-C75FC29272BC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sirh3e.Rust.Generator", "src\Sirh3e.Rust.Generator\Sirh3e.Rust.Generator.csproj", "{C37A6617-A9FB-46AF-8283-8370557177B0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sirh3e.Rust.Generator.Cli", "src\Sirh3e.Rust.Generator.Cli\Sirh3e.Rust.Generator.Cli.csproj", "{C8B4C5DE-B7C6-4ED7-887B-B06F0CD15B44}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{CE6EB52B-CB63-4E6E-BBE6-C75FC29272BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CE6EB52B-CB63-4E6E-BBE6-C75FC29272BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CE6EB52B-CB63-4E6E-BBE6-C75FC29272BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C37A6617-A9FB-46AF-8283-8370557177B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C37A6617-A9FB-46AF-8283-8370557177B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C37A6617-A9FB-46AF-8283-8370557177B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C37A6617-A9FB-46AF-8283-8370557177B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8B4C5DE-B7C6-4ED7-887B-B06F0CD15B44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8B4C5DE-B7C6-4ED7-887B-B06F0CD15B44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8B4C5DE-B7C6-4ED7-887B-B06F0CD15B44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8B4C5DE-B7C6-4ED7-887B-B06F0CD15B44}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
