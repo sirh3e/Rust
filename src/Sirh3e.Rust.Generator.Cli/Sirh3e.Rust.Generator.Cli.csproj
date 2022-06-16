@@ -5,10 +5,13 @@
         <TargetFramework>net7.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <LangVersion>preview</LangVersion>
+        <EnablePreviewFeatures>True</EnablePreviewFeatures>
     </PropertyGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\Sirh3e.Rust.Generator\Sirh3e.Rust.Generator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+      <ProjectReference Include="..\Sirh3e.Rust\Sirh3e.Rust.csproj" />
     </ItemGroup>
 
 </Project>

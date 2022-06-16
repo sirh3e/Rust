@@ -1,0 +1,1 @@
+global using MathResult = Sirh3e.Rust.Result.Result<int, string>;
