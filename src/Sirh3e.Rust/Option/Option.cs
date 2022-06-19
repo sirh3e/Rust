@@ -2,35 +2,25 @@
 
 public partial struct Option<TSome> : ICloneable, IEnumerable<TSome>, IEquatable<Option<TSome>>
 {
-    private TSome _some;
-
     public static Option<TSome> None => new();
+
+    private TSome _some;
 
     private Option(TSome some)
     {
-        _some  = some;
+        _some = some;
         IsSome = Helper.IsSome(_some);
     }
 
     public override bool Equals(object? @object)
-        => @object is not null && @object is Option<TSome> other && Equals(other);
+        => @object is Option<TSome> other && Equals(other);
 
     public bool Equals(Option<TSome> other)
-        => IsNone == other.IsNone || (
-            IsSome == other.IsSome &&
-            EqualityComparer<TSome>.Default.Equals(_some, other._some)
-        );
+            => IsNone == other.IsNone
+           || EqualityComparer<TSome>.Default.Equals(_some, other._some);
 
-    public static Option<TSome> Some(TSome some)
-        => new(some);
-
-    public static implicit operator Option<TSome>(TSome? some)
-        => some is not null
-            ? Some(some)
-            : None;
-
-    public static implicit operator Option<TSome>(None none)
-        => None;
+    IEnumerator IEnumerable.GetEnumerator()
+        => GetEnumerator();
 
     public IEnumerator<TSome> GetEnumerator()
 #if NETCOREAPP1_0_OR_GREATER || NET46_OR_GREATER || NETSTANDARD1_3_OR_GREATER
@@ -54,8 +44,16 @@ public partial struct Option<TSome> : ICloneable, IEnumerable<TSome>, IEquatable
 #endif
     }
 
-    IEnumerator IEnumerable.GetEnumerator()
-        => Iter();
+    public static implicit operator Option<TSome>(TSome? some)
+        => some is not null
+            ? Some(some)
+            : None;
+
+    public static Option<TSome> Some(TSome some)
+        => new(some);
+
+    public static implicit operator Option<TSome>(None none)
+        => None;
 
     public static bool operator ==(Option<TSome> left, Option<TSome> right)
         => Equals(left, right);
