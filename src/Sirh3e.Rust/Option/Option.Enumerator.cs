@@ -16,11 +16,16 @@ public struct OptionEnumerator<TSome> : IEnumerator<TSome>
     public void Reset()
         => _position = -1;
 
+    object IEnumerator.Current => Current;
+
     public TSome Current => _somes[_position];
 
-    object IEnumerator.Current => Current;
 
     public void Dispose()
     {
+        if ( _somes.Length > 0 && _somes[0] is IDisposable disposable )
+        {
+            disposable.Dispose();
+        }
     }
 }
