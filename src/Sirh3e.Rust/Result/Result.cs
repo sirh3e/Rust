@@ -21,14 +21,23 @@ public readonly partial struct Result<TOk, TErr> : ICloneable, IEnumerable<TOk>,
         _ok = default;
     }
 
-    public static Result<TOk, TErr> Ok(TOk ok)
-        => new(ok);
-    public static Result<TOk, TErr> Err(TErr err)
-        => new(err);
+    object ICloneable.Clone()
+        => Clone();
 
-    public bool Equals(Result<TOk, TErr> other) => EqualityComparer<TOk>.Default.Equals(_ok, other._ok) 
-                                                   && EqualityComparer<TErr>.Default.Equals(_err, other._err) 
-                                                   && IsOk == other.IsOk;
+    public Result<TOk, TErr> Clone()
+        => IsOk ? Ok(_ok) : Err(_err);
+
+    public override bool Equals(object? @object)
+        => @object is Result<TOk, TErr> other && Equals(other);
+
+    public bool Equals(Result<TOk, TErr> other)
+        => IsOk == other.IsOk
+           && EqualityComparer<TOk>.Default.Equals(_ok, other._ok)
+           && EqualityComparer<TErr>.Default.Equals(_err, other._err)
+           ;
+
+    IEnumerator IEnumerable.GetEnumerator()
+        => GetEnumerator();
 
     public IEnumerator<TOk> GetEnumerator()
 #if NETCOREAPP1_0_OR_GREATER || NET46_OR_GREATER || NETSTANDARD1_3_OR_GREATER 
@@ -36,9 +45,6 @@ public readonly partial struct Result<TOk, TErr> : ICloneable, IEnumerable<TOk>,
 #else
         => new ResultEnumerator<TOk>(IsOk ? new[] { _ok } : new TOk[0]);
 #endif
-
-    public override bool Equals(object obj)
-        => obj is Result<TOk, TErr> other && Equals(other);
 
     public override int GetHashCode()
     {
@@ -56,14 +62,11 @@ public readonly partial struct Result<TOk, TErr> : ICloneable, IEnumerable<TOk>,
 #endif
     }
 
-    IEnumerator IEnumerable.GetEnumerator()
-        => GetEnumerator();
+    public static Result<TOk, TErr> Ok(TOk ok)
+        => new(ok);
 
-    public Result<TOk, TErr> Clone()
-        => IsOk ? Ok(_ok) : Err(_err);
-
-    object ICloneable.Clone()
-        => Clone();
+    public static Result<TOk, TErr> Err(TErr err)
+        => new(err);
 
     public static implicit operator Result<TOk, TErr>(Err<TErr> err)
         => Err(err.Value);
