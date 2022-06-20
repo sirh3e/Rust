@@ -17,7 +17,7 @@ public partial struct Option<TSome>
     [Docs("https://doc.rust-lang.org/std/option/enum.Option.html#method.filter")]
     [Unstable("const_option_ext", 91930)]
     [Source("https://doc.rust-lang.org/src/core/option.rs.html#1285-1289")]
-    public Option<TSome> Filter(Func<TSome, bool> predicate)
+    public readonly Option<TSome> Filter(Func<TSome, bool> predicate)
         => IsSome
             ? (predicate ?? throw new ArgumentNullException(nameof(predicate)))(_some)
                 ? Some(_some)
