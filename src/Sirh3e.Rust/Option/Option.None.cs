@@ -4,11 +4,12 @@ public readonly struct None : IEquatable<None>
 {
     public static readonly None Value = default;
 
+    public override bool Equals(object? @object)
+        => @object is None other && Equals(other);
+
     public bool Equals(None other)
         => GetHashCode().Equals(other.GetHashCode());
 
-    public override bool Equals(object obj)
-        => obj is None other && Equals(other);
 
     public override int GetHashCode()
         => -1;
