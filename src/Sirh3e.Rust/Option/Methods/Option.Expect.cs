@@ -16,6 +16,6 @@ public partial struct Option<TSome>
     [Docs("https://doc.rust-lang.org/std/option/enum.Option.html#method.expect")]
     [Unstable("const_option", 67441)]
     [Source("https://doc.rust-lang.org/src/core/option.rs.html#715")]
-    public TSome Expect(string message)
+    public readonly TSome Expect(string message)
         => Match(some => some, () => ExpectFailed(message));
 }
