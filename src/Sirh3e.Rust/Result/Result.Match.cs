@@ -26,6 +26,6 @@ public readonly partial struct Result<TOk, TErr>
     /// <exception cref="ArgumentNullException"></exception>
     public T Match<T>(Func<TOk, T> onOk, Func<TErr, T> onErr)
         => IsOk
-            ? (onOk  ?? throw new ArgumentNullException(nameof(onOk)))(_ok)
+            ? (onOk ?? throw new ArgumentNullException(nameof(onOk)))(_ok)
             : (onErr ?? throw new ArgumentNullException(nameof(onErr)))(_err);
 }

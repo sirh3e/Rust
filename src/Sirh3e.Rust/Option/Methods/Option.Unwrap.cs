@@ -7,7 +7,7 @@ public partial struct Option<TSome>
     /// Because this function may panic, its use is generally discouraged. Instead, prefer to use pattern matching and handle the None case explicitly, or call unwrap_or, unwrap_or_else, or unwrap_or_default
     /// </summary>
     /// <returns></returns>
-    public TSome Unwrap()
+    public readonly TSome Unwrap()
         => Unwrap($"called `Option.Unwrap()` on a `None` value of type `{typeof(TSome)}`");
 
     /// <summary>
@@ -17,7 +17,7 @@ public partial struct Option<TSome>
     /// <param name="error"></param>
     /// <returns></returns>
     /// <exception cref="ArgumentNullException">Throws only if error is null or empty</exception>
-    public TSome Unwrap(string error)
+    public readonly TSome Unwrap(string error)
     {
         if ( string.IsNullOrEmpty(error) )
         {
@@ -33,7 +33,7 @@ public partial struct Option<TSome>
     /// </summary>
     /// <param name="error"></param>
     /// <returns></returns>
-    public TSome Unwrap(Func<string> error)
+    public readonly TSome Unwrap(Func<string> error)
         => Match(
                  some => some,
                  () => throw new PanicException((_ = error ?? throw new ArgumentNullException(nameof(error)))())
