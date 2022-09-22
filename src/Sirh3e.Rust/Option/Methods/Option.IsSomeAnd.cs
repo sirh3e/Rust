@@ -7,6 +7,7 @@ public partial struct Option<TSome>
     /// </summary>
     /// <param name="predicate"></param>
     /// <returns></returns>
+    [Pure]
     [Nightly]
     [GitHub(14, "https://github.com/sirh3e/Rust/issues/14")]
     [Docs("https://doc.rust-lang.org/std/option/enum.Option.html#method.is_some_and")]
