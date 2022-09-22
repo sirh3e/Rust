@@ -1,7 +1,7 @@
 ﻿#nullable enable
 namespace Sirh3e.Rust.Attributes;
 
-[AttributeUsage(AttributeTargets.Class | AttributeTargets.Method | AttributeTargets.Interface | AttributeTargets.Struct)]
+[AttributeUsage(Utilities.AttributeTargets)]
 internal class Unstable : Attribute
 {
     public readonly string Feature;

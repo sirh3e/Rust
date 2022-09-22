@@ -1,6 +1,6 @@
 namespace Sirh3e.Rust.Attributes;
 
-[AttributeUsage(AttributeTargets.Class | AttributeTargets.Method | AttributeTargets.Interface | AttributeTargets.Struct)]
+[AttributeUsage(Utilities.AttributeTargets)]
 public class Keyword : Attribute
 {
     public readonly string Name;

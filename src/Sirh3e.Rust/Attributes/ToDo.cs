@@ -1,6 +1,6 @@
 namespace Sirh3e.Rust.Attributes;
 
-[AttributeUsage(AttributeTargets.Class | AttributeTargets.Method | AttributeTargets.Interface | AttributeTargets.Struct, AllowMultiple = true)]
+[AttributeUsage(Utilities.AttributeTargets, AllowMultiple = true)]
 internal class ToDo : Attribute
 {
     public readonly ulong Issue;
